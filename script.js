@@ -498,7 +498,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const img = document.createElement("img");
     img.src = `assets/gallery/img (${i}).jpg`;
     img.alt = `Gambar ${i}`;
-    // img.loading = "lazy"; // Tidak digunakan lagi
+    img.loading = "lazy";
 
     anchor.appendChild(img);
     galleryGrid.appendChild(anchor);
