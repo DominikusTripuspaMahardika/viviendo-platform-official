@@ -88,7 +88,7 @@ btnTelegram.addEventListener("click", () => {
 // Unlock logic
 btnUnlock.addEventListener("click", () => {
   if (btnUnlock.disabled) return;
-  let timeLeft = 15;
+  let timeLeft = 5;
   btnUnlock.textContent = `Please wait, Unlock In ${timeLeft} second...`;
   btnUnlock.disabled = true;
   btnUnlock.classList.remove("active");
