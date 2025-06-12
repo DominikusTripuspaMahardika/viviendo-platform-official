@@ -55,3 +55,17 @@
 .hidden {
   display: none !important;
 }
+
+.logout-button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.3rem 0.6rem;
+  transition: color 0.2s ease;
+}
+
+.logout-button:hover {
+  color: #f87171;
+}
