@@ -44,6 +44,7 @@
 
   function loginSuccess(username) {
     localStorage.setItem('viviendoAuth', username);
+    localStorage.setItem('viviendoAuthTime', Date.now().toString());
     authGate.classList.add('hidden');
   }
 
@@ -97,4 +98,49 @@
       }
     }
   });
+})();
+
+// === Logout Button ===
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutBtn = document.getElementById("logoutBtn");
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", () => {
+      localStorage.removeItem("viviendoAuth");
+      location.reload(); // Refresh halaman setelah logout
+    });
+  }
+});
+
+// === Auto Logout Setelah 12 Jam Tidak Aktif ===
+(function () {
+  const AUTH_KEY = "viviendoAuth";
+  const TIME_KEY = "viviendoAuthTime";
+  const LIMIT = 12 * 60 * 60 * 1000; // 12 jam dalam ms
+
+  // Perbarui waktu aktivitas saat ada event penting
+  const refreshActivity = () => {
+    if (localStorage.getItem(AUTH_KEY)) {
+      localStorage.setItem(TIME_KEY, Date.now().toString());
+    }
+  };
+
+  // Logout jika melebihi waktu
+  const checkInactivity = () => {
+    const last = parseInt(localStorage.getItem(TIME_KEY));
+    if (Date.now() - last > LIMIT) {
+      localStorage.removeItem(AUTH_KEY);
+      localStorage.removeItem(TIME_KEY);
+      location.reload();
+    }
+  };
+
+  // Pasang pemantauan
+  if (localStorage.getItem(AUTH_KEY)) {
+    checkInactivity();
+    document.addEventListener("click", refreshActivity);
+    document.addEventListener("scroll", refreshActivity);
+    document.addEventListener("keydown", refreshActivity);
+    document.addEventListener("mousemove", refreshActivity);
+    document.addEventListener("touchstart", refreshActivity);
+  }
 })();
