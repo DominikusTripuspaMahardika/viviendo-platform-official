@@ -7,6 +7,7 @@
     const authGate = document.getElementById('authGate');
     const authTitle = document.getElementById('authTitle');
     const switchToRegister = document.getElementById('switchToRegister');
+    const submitButton = authForm.querySelector('button[type="submit"]');
 
     let mode = 'login';
 
@@ -66,17 +67,19 @@
     }
 
     switchToRegister.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (mode === 'login') {
-            mode = 'register';
-            authTitle.textContent = 'Daftar Akun Baru';
-            switchToRegister.textContent = 'Sudah punya akun? Masuk';
-        } else {
-            mode = 'login';
-            authTitle.textContent = 'Masuk ke ViVienDo';
-            switchToRegister.textContent = 'Belum punya akun? Daftar di sini';
-        }
-    });
+    e.preventDefault();
+    if (mode === 'login') {
+        mode = 'register';
+        authTitle.textContent = 'Daftar Akun Baru';
+        switchToRegister.textContent = 'Sudah punya akun? Masuk';
+        submitButton.textContent = 'Daftar';
+    } else {
+        mode = 'login';
+        authTitle.textContent = 'Masuk ke ViVienDo';
+        switchToRegister.textContent = 'Belum punya akun? Daftar di sini';
+        submitButton.textContent = 'Masuk';
+    }
+});
 
     authForm.addEventListener('submit', (e) => {
         e.preventDefault();
