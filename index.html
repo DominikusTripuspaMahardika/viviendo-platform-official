@@ -9,23 +9,24 @@
   <title>ViVienDo PvZ2</title>
   <link rel="icon" href="assets/images/favicon.ico" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="login.css" />
+  <link rel="stylesheet" href="login.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link rel="manifest" href="assets/pwa/manifest.json" />
   <meta name="theme-color" content="#1e293b" />
   <link rel="apple-touch-icon" href="assets/images/icon-pwa/icon-192.png" />
 </head>
+
 <body>
   <!-- SECTION: Login/Register Gate -->
   <section id="authGate" class="auth-section">
     <div class="auth-container">
-      <h2 id="authTitle">Masuk ke ViVienDo</h2>
+      <h2 id="authTitle"></h2>
       <form id="authForm">
         <input type="text" id="username" placeholder="Username" required />
-        <input type="text" id="token" placeholder="Token/Key" required />
+        <input type="text" id="token" placeholder="Token / Key" required />
         <input type="password" id="password" placeholder="Password" required />
-        <button type="submit">Masuk</button>
-        <p class="auth-switch">Belum punya akun? <a href="#" id="switchToRegister">Daftar di sini</a></p>
+        <button type="submit" id="authSubmitBtn"></button>
+        <p id="authSwitchText" class="auth-switch"></p>
       </form>
       <div id="authToast" class="auth-toast hidden"></div>
     </div>
@@ -135,7 +136,7 @@
   <div id="welcomeModal" class="modal-welcome hidden">
     <div class="modal-content">
       <h2>Selamat datang, <span id="welcomeUser"></span>!</h2>
-      <p>Terima kasih telah daftar/masuk ke ViVienDo Platform.</p>
+      <p>Terima kasih, Anda telah berhasil masuk ke Platform ViVienDo.</p>
       <button id="closeWelcomeModal">Tutup</button>
     </div>
   </div>
@@ -214,7 +215,7 @@
         </ul>
       </div>
     </div>
-    <!-- Testimoni
+    <!-- Testimoni -->
     <div class="info-testimonials">
       <h3>Testimoni Pengguna</h3>
       <blockquote>
@@ -225,7 +226,7 @@
         "Saya bisa akses semua mod PvZ2 favorit dengan cepat. Tim-nya responsif dan komunitas aktif."
         <cite> – FloraTactics</cite>
       </blockquote>
-    </div> -->
+    </div>
   </section>
   <!-- Video YouTube -->
   <section class="video-block" id="video">
@@ -1562,7 +1563,7 @@
     </div>
   </footer>
   <script src="script.js" defer></script>
-  <script src="login.js" defer></script>
+  <script src="login.js"></script>
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
