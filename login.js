@@ -71,12 +71,12 @@
     if (mode === 'login') {
         mode = 'register';
         authTitle.textContent = 'Daftar Akun Baru';
-        switchToRegister.textContent = 'Sudah punya akun? Masuk';
+        switchToRegister.textContent = 'Masuk di sini';
         submitButton.textContent = 'Daftar';
     } else {
         mode = 'login';
         authTitle.textContent = 'Masuk ke ViVienDo';
-        switchToRegister.textContent = 'Belum punya akun? Daftar di sini';
+        switchToRegister.textContent = 'Belum memiliki akun? Daftar di sini';
         submitButton.textContent = 'Masuk';
     }
 });
