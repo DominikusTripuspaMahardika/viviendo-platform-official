@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="ViVienDo PVZ2 - Unduh gratis Plants vs Zombies™ 2 tanpa pembelian, cepat dan aman." />
+    <title>ViVienDo PvZ2</title>
+    <link rel="icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../app/css/pwa.css">
+    <link rel="stylesheet" href="../app/css/testi.css">
+    <link rel="stylesheet" href="../app/css/auth.css">
+    <link rel="stylesheet" href="../app/css/footer.css">
+    <link rel="stylesheet" href="../app/css/catatan.css">
+    <link rel="stylesheet" href="../app/css/galeri.css">
+    <link rel="stylesheet" href="../app/css/login.css">
+    <link rel="stylesheet" href="../app/css/mod.css">
+    <link rel="stylesheet" href="../app/css/musik.css">
+    <link rel="stylesheet" href="../app/css/premium.css">
+    <link rel="stylesheet" href="../app/css/style.css">
+    <link rel="stylesheet" href="../app/css/riwayat.css">
+    <link rel="stylesheet" href="../app/css/troubleshooting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="manifest" href="../pwa/manifest.json" />
+    <meta name="theme-color" content="#1e293b" />
+    <link rel="apple-touch-icon" href="../images/icon-pwa/icon-192.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- SECTION: Login/Register Gate -->
+    <section id="authGate" class="auth-section">
+        <div class="auth-container">
+            <h2 id="authTitle"></h2>
+            <form id="authForm">
+                <input type="text" id="username" placeholder="Username" required />
+                <input type="text" id="token" placeholder="Token / Key" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <button type="submit" id="authSubmitBtn"></button>
+                <p id="authSwitchText" class="auth-switch"></p>
+                <!-- Google Sign-In Button -->
+                <div id="g_id_onload"
+                    data-client_id="623471480995-2vbcrrtar8gu6kj366ajiu4nu5n82cmk.apps.googleusercontent.com"
+                    data-callback="handleGoogleLogin" data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left">
+                </div>
+            </form>
+            <div id="authToast" class="auth-toast hidden"></div>
+        </div>
+    </section>
+    <div id="scrollProgressBar" aria-hidden="true"></div>
+    <!-- Loader -->
+    <div id="loader" class="loader-screen" aria-hidden="true" role="status">
+        <div class="loader-box">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Memuat aplikasi...</p>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <header class="navbar" role="banner">
+        <div class="navbar-brand">ViVienDo PVZ2</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"
+            aria-controls="navbarMenu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="navbar-menu" id="navbarMenu" role="navigation" aria-label="Primary Navigation">
+            <ul class="navbar-list">
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-awal"
+                        id="btn-awal">
+                        Beranda
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Awal" id="submenu-awal" role="menu"
+                        aria-labelledby="btn-awal">
+                        <li role="none"><a href="../../index.html" role="menuitem" tabindex="-1">Tentang</a></li>
+                        <li role="none"><a href="stk.html" role="menuitem" tabindex="-1">Statistik</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-media"
+                        id="btn-media">
+                        Media
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Media" id="submenu-media" role="menu"
+                        aria-labelledby="btn-media">
+                        <li role="none"><a href="vdm.html" role="menuitem" tabindex="-1">Video</a></li>
+                        <li role="none"><a href="glr.html" role="menuitem" tabindex="-1">Galeri</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false"
+                        aria-controls="submenu-perkembangan" id="btn-perkembangan">
+                        Perkembangan
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Perkembangan" id="submenu-perkembangan" role="menu"
+                        aria-labelledby="btn-perkembangan">
+                        <li role="none"><a href="its.html" role="menuitem" tabindex="-1">Instalasi</a></li>
+                        <li role="none"><a href="pbn.html" role="menuitem" tabindex="-1">Pembaruan</a></li>
+                        <li role="none"><a href="pnm.html" role="menuitem" tabindex="-1">Premium</a></li>
+                        <li role="none"><a href="mdt.html" role="menuitem" tabindex="-1">Mendatang</a></li>
+                        <li role="none"><a href="mdf.html" role="menuitem" tabindex="-1">Modifikasi</a></li>
+                        <li role="none"><a href="dna.html" role="menuitem" tabindex="-1">Dunia</a></li>
+                        <li role="none"><a href="tkg.html" role="menuitem" tabindex="-1">Level</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-catatan"
+                        id="btn-catatan">
+                        Catatan
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Catatan" id="submenu-catatan" role="menu"
+                        aria-labelledby="btn-catatan">
+                        <li role="none"><a href="tls.html" role="menuitem" tabindex="-1">Tulis Catatan</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-faq"
+                        id="btn-faq">
+                        F.A.Q
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu FAQ" id="submenu-faq" role="menu"
+                        aria-labelledby="btn-faq">
+                        <li role="none"><a href="tbs.html" role="menuitem" tabindex="-1">Pertanyaan</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-komunitas"
+                        id="btn-komunitas">
+                        Komunitas
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Komunitas" id="submenu-komunitas" role="menu"
+                        aria-labelledby="btn-komunitas">
+                        <li role="none"><a href="ttm.html" role="menuitem" tabindex="-1">Testimoni</a></li>
+                        <li role="none"><a href="rwt.html" role="menuitem" tabindex="-1">Riwayat</a></li>
+                        <li role="none"><a href="dns.html" role="menuitem" tabindex="-1">Donasi</a></li>
+                        <li role="none"><a href="vtm.html" role="menuitem" tabindex="-1">ViTim</a></li>
+                        <li role="none"><a href="#kontak" role="menuitem" tabindex="-1">Kontak</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item">
+                    <button id="logoutBtn" class="logout-button" title="Keluar dari Akun" aria-label="Logout">
+                        <i class="fas fa-door-open"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="pencapaian-toast-container" id="pencapaianToastContainer"></div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <!-- Hero -->
+    <section id="beranda" class="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Selamat Datang di ViVienDo PVZ2</h1>
+            <p class="hero-subtitle">
+                Unduh data Plants vs Zombies™ 2 secara gratis!
+            </p>
+            <!-- 🎵 Kontrol Musik -->
+            <div class="music-player">
+                <button id="prevBtn"><i class="fas fa-backward"></i></button>
+                <button id="playPauseBtn"><i class="fas fa-play"></i></button>
+                <button id="nextBtn"><i class="fas fa-forward"></i></button>
+            </div>
+        </div>
+    </section>
+    <audio id="audioPlayer" src=""></audio>
+    <section class="testimoni-section" id="testimoni">
+        <div class="container">
+            <h2 class="section-title">Apa Kata Pengguna dari Seluruh Dunia</h2>
+            <p class="section-description">Banyak pengguna di seluruh dunia telah memilih ViVienDo PVZ2 sebagai platform
+                utama untuk meningkatkan pengalaman bermain PvZ2, mulai dari instalasi, modifikasi, hingga akses ke
+                fitur-fitur premium yang tidak tersedia di tempat lain.</p>
+
+            <div class="testimoni-list">
+
+                <!-- Testimoni 1 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Rahmat F.</h3>
+                            <p class="testimoni-role">Indonesia • Pengguna Aktif</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Semua yang saya cari soal PvZ2 ada di sini. Instalasi gampang, fitur lengkap, support-nya
+                        responsif banget!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 2 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Emily Chen</h3>
+                            <p class="testimoni-role">Taiwan • Casual Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "ViVienDo PVZ2 makes modding so easy! I love the guides and how everything is neatly organized."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 3 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Carlos Mendez</h3>
+                            <p class="testimoni-role">Mexico • PvZ2 Enthusiast</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Por fin encontré una plataforma confiable para mods de PvZ2. ¡Gracias ViVienDo!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 4.5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 4 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Sarah O'Connor</h3>
+                            <p class="testimoni-role">United Kingdom • Gamer & Reviewer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Brilliant site! The custom levels are my favourite. It's rare to find a PvZ2 community this
+                        active."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 5 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Hiroshi Tanaka</h3>
+                            <p class="testimoni-role">Japan • Long-time Player</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "ViVienDoのコンテンツはとても素晴らしい！PvZ2ファンには絶対おすすめです。"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 6 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Léa Dupont</h3>
+                            <p class="testimoni-role">France • Gaming Blogger</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Très complet et facile à utiliser. Je recommande ViVienDo PVZ2 à tous les passionnés du jeu."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 7 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Andrei Volkov</h3>
+                            <p class="testimoni-role">Russia • Mobile Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Очень доволен Viviendo! Все инструкции понятны, моды работают отлично."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 8 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Aisha Mbatha</h3>
+                            <p class="testimoni-role">South Africa • Casual Player</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Easy to use, and it really brings new life to my PvZ2 game. Love it!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 9 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Giovanni Ricci</h3>
+                            <p class="testimoni-role">Italy • Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "ViVienDo PVZ2 ha tutto quello che serve. Fantastico!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 10 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Olivia Müller</h3>
+                            <p class="testimoni-role">Germany • Strategy Game Fan</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Alles funktioniert super. Ich bin wirklich begeistert von dieser Plattform."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 11 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Zain Al-Farsi</h3>
+                            <p class="testimoni-role">Saudi Arabia • Android Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "تطبيق ممتاز وسهل الاستخدام لمحبي PvZ2."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 12 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Lucas Pereira</h3>
+                            <p class="testimoni-role">Brazil • Mobile Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Top demais! Muito melhor jogar PvZ2 agora."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 13 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Chen Wei</h3>
+                            <p class="testimoni-role">China • Hardcore PvZ2 Player</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "使用ViVienDo后，我对PvZ2的兴趣又回来了！太棒了。"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 14 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Emma Johansson</h3>
+                            <p class="testimoni-role">Sweden • Mobile Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Riktigt bra tjänst! Nu spelar jag PvZ2 varje dag med nya funktioner."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 15 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">David Smith</h3>
+                            <p class="testimoni-role">USA • Game Developer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Finally, a community that makes PvZ2 modding simple and fun."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 16 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Ananya Patel</h3>
+                            <p class="testimoni-role">India • Casual Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "बहुत ही शानदार प्लेटफॉर्म! मुझे ViVienDo PVZ2 से बहुत मदद मिली।"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 17 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Noah Thompson</h3>
+                            <p class="testimoni-role">Australia • PvZ2 Modder</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "I’ve been using ViVienDo for months and it keeps getting better. Highly recommend!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 18 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Jorge Alvarez</h3>
+                            <p class="testimoni-role">Argentina • PvZ2 Enthusiast</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Muy recomendado. Me ayudó a descubrir mods que no conocía."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 19 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Isabella Costa</h3>
+                            <p class="testimoni-role">Portugal • Gamer & Blogger</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Adoro ViVienDo! A interface é limpa e fácil de usar."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 20 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Fatima Ahmed</h3>
+                            <p class="testimoni-role">Egypt • PvZ2 Fan</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "رائع! الآن يمكنني لعب PvZ2 بطريقة مختلفة تمامًا."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 21 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Giovanni Russo</h3>
+                            <p class="testimoni-role">Italy • Casual Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"Ottimo sito! Finalmente riesco a giocare a PvZ2 con più divertimento e
+                        novità."</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 22 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Sophia Müller</h3>
+                            <p class="testimoni-role">Germany • Tech Blogger</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"Alles super organisiert. ViVienDo PVZ2 ist meine erste Wahl für alles
+                        rund um PvZ2."</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 23 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Noura Al-Farsi</h3>
+                            <p class="testimoni-role">United Arab Emirates • Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"موقع مميز لكل محبي لعبة PvZ2. التحديثات رائعة والدعم الفني ممتاز."</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 24 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Lucas Martins</h3>
+                            <p class="testimoni-role">Brazil • Mobile Gaming Fan</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"O melhor site para quem ama PvZ2. Recomendo muito para todos os
+                        jogadores."</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 25 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Emily Thompson</h3>
+                            <p class="testimoni-role">USA • Modding Enthusiast</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"ViVienDo has made my PvZ2 experience 10x better. Custom levels are just
+                        amazing!"</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 26 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Natalie Sørensen</h3>
+                            <p class="testimoni-role">Denmark • Tech Enthusiast</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"Super nemt at installere mods via ViVienDo. Kæmpe anbefaling herfra!"</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 27 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Ahmed Hassan</h3>
+                            <p class="testimoni-role">Egypt • Gaming Enthusiast</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"أفضل موقع لعشاق لعبة PvZ2. الشرح واضح والتحديثات مستمرة."</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 28 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Marta Kowalska</h3>
+                            <p class="testimoni-role">Poland • PvZ2 Fan</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"Świetna strona z modami PvZ2. Polecam wszystkim graczom."</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 29 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Anastasia Popova</h3>
+                            <p class="testimoni-role">Russia • Strategy Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"Отличное сообщество и очень удобные инструкции. Спасибо ViVienDo!"</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 30 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Isabella Costa</h3>
+                            <p class="testimoni-role">Portugal • Casual Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"Tudo o que eu precisava para curtir PvZ2 de verdade. Recomendo ViVienDo!"
+                    </p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 31 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Omar Khan</h3>
+                            <p class="testimoni-role">Pakistan • Gaming Fan</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"ViVienDo ne bhot madad ki. Har tutorial asaan aur faida mand hai."</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 32 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Annabelle Dubois</h3>
+                            <p class="testimoni-role">Belgium • Game Blogger</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"Très utile pour tous les joueurs PvZ2. Guides clairs et communauté
+                        active."</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 33 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Victor Hugo</h3>
+                            <p class="testimoni-role">Argentina • Casual Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"Todo funciona de maravilla. ViVienDo es imprescindible si juegas PvZ2."
+                    </p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 34 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Chloe Martin</h3>
+                            <p class="testimoni-role">New Zealand • Gamer & Content Creator</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"Finally a proper PvZ2 resource that covers everything I wanted. Great job
+                        ViVienDo!"</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 35 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Mei Ling</h3>
+                            <p class="testimoni-role">Hong Kong • Mobile Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"ViVienDo真的太棒了！界面友好，社区活跃，值得推荐。"</p>
+                    <div class="testimoni-rating">⭐⭐⭐⭐⭐</div>
+                </div>
+
+                <!-- Testimoni 36 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Anna Müller</h3>
+                            <p class="testimoni-role">Germany • Mobile Strategy Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Ich liebe ViVienDo! Alles ist so gut organisiert und leicht verständlich. Perfekt für
+                        PvZ2-Fans."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 37 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Andreas Müller</h3>
+                            <p class="testimoni-role">Germany • Strategy Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Alles sehr übersichtlich und einfach. Mit ViVienDo finde ich alle Mods, die ich suche!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 38 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Chloe Martin</h3>
+                            <p class="testimoni-role">Canada • PvZ2 Modder</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Clean interface, helpful guides, and the updates are always on time. Loving ViVienDo PVZ2!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 39 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Zhang Wei</h3>
+                            <p class="testimoni-role">China • Longtime Player</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "真的很棒的网站，PvZ2的所有资源我都能在这里找到。"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 40 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Mateo González</h3>
+                            <p class="testimoni-role">Argentina • Game Enthusiast</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "ViVienDo es simplemente espectacular. Las guías me ayudaron a mejorar mucho mi juego."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 41 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Emma Svensson</h3>
+                            <p class="testimoni-role">Sweden • Casual Player</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Det här är min favoritwebbplats för PvZ2. Enkelt och smidigt att använda."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 42 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Ahmed Al-Farsi</h3>
+                            <p class="testimoni-role">UAE • Mobile Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "أفضل موقع للحصول على تعديلات PvZ2 بطريقة سهلة وآمنة. شكراً لكم!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 43 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Ivan Petrov</h3>
+                            <p class="testimoni-role">Russia • Gaming Fan</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Отличный сайт для фанатов PvZ2. Все моды работают, инструкции понятные."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 44 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Maya Singh</h3>
+                            <p class="testimoni-role">India • Mobile Strategy Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "ViVienDo PVZ2 has helped me unlock so many fun experiences with the game."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 45 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Lucía Fernández</h3>
+                            <p class="testimoni-role">Spain • Gaming Blogger</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Me encanta esta web. Encuentro todo lo que necesito para PvZ2."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 46 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Théo Bernard</h3>
+                            <p class="testimoni-role">France • Game Reviewer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Excellente plateforme pour tous les fans de PvZ2."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 47 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Ethan Brown</h3>
+                            <p class="testimoni-role">USA • PvZ2 Player</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "ViVienDo makes everything about PvZ2 easy and accessible. Great work!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 48 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Kim Jae-Hoon</h3>
+                            <p class="testimoni-role">South Korea • Strategy Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "ViVienDo는 PvZ2 유저라면 반드시 들러야 할 곳입니다. 강추!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 49 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Alessandro Rossi</h3>
+                            <p class="testimoni-role">Italy • Gaming Enthusiast</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Finalmente un sito serio per le mod di PvZ2. Ottimo lavoro!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 50 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Nina Kowalska</h3>
+                            <p class="testimoni-role">Poland • Casual Player</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">
+                        "Świetna strona, na której zawsze znajdę coś nowego do PvZ2."
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 51 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Martin Schulz</h3>
+                            <p class="testimoni-role">Germany • Retro Gamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"ViVienDo PVZ2 ist eine großartige Plattform, um neue Welten in PvZ2 zu
+                        entdecken. Sehr empfehlenswert!"</p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+
+                <!-- Testimoni 52 -->
+                <div class="testimoni-card">
+                    <div class="testimoni-profile">
+                        <img src="../images/testi/user.png" alt="Foto Pengguna" class="testimoni-avatar">
+                        <div>
+                            <h3 class="testimoni-name">Elena Petrova</h3>
+                            <p class="testimoni-role">Russia • Streamer</p>
+                        </div>
+                    </div>
+                    <p class="testimoni-text">"Теперь я всегда играю с модами отсюда. Отличная поддержка и инструкции!"
+                    </p>
+                    <div class="testimoni-rating" aria-label="Rating 5 dari 5">
+                        <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catatan Transparansi -->
+            <p class="testimoni-note">
+                <i class="fas fa-exclamation-circle"></i>
+                <strong> Catatan:</strong> Foto profil pengguna pada testimoni ini sengaja disamarkan untuk menjaga
+                privasi dan keamanan identitas pribadi setiap pengguna. Kami menghormati hak privasi seluruh pengguna
+                ViVienDo PVZ2. Seluruh testimoni yang ditampilkan merupakan kutipan atau ringkasan dari ulasan asli yang
+                telah diterima melalui berbagai saluran komunikasi, baik dari dalam maupun luar negeri. Ulasan-ulasan
+                ini dipilih secara acak untuk memberikan gambaran nyata tentang pengalaman beragam pengguna dari
+                berbagai latar belakang.
+            </p>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak" class="kontak-section">
+        <h2>Hubungi Kami</h2>
+        <p>
+            Jika Anda memiliki pertanyaan, masukan, atau memerlukan bantuan terkait
+            layanan kami, jangan ragu untuk menghubungi kami melalui saluran resmi
+            di bawah ini. Tim ViVienDo siap membantu Anda dengan cepat dan
+            profesional.
+        </p>
+        <div class="kontak-icons">
+            <a href="https://www.instagram.com/viviendochannel" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i> <span>Instagram</span>
+            </a>
+            <a href="https://t.me/viviendochannel" target="_blank" aria-label="Telegram">
+                <i class="fab fa-telegram"></i> <span>Telegram</span>
+            </a>
+            <a href="mailto:viviendochannel@gmail.com" target="_blank" aria-label="Email">
+                <i class="fas fa-envelope"></i> <span>Email</span>
+            </a>
+            <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i> <span>YouTube</span>
+            </a>
+        </div>
+    </section>
+    <div id="installBanner" class="install-banner">
+        <p>Pasang ViVienDo ke layar utama untuk akses lebih cepat!</p>
+        <div class="install-actions">
+            <button onclick="triggerPWAInstall()">Pasang Sekarang</button>
+            <button onclick="hideInstallBanner()">Nanti Saja</button>
+            <button onclick="dontShowAgain()">Jangan Tampilkan Lagi</button>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer-section">
+        <p class="footer-text">
+            &copy; <span id="footer-year"></span> ViVienDo PVZ2. Unduhan Gratis. Semua Hak Dilindungi.
+        </p>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/viviendochannel" target="_blank" class="footer-social-link"
+                aria-label="Instagram ViVienDo"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/viviendochannel" target="_blank" class="footer-social-link"
+                aria-label="Telegram ViVienDo"><i class="fab fa-telegram"></i></a>
+            <a href="mailto:viviendochannel@gmail.com" target="_blank" class="footer-social-link"
+                aria-label="Email ViVienDo"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" class="footer-social-link"
+                aria-label="YouTube ViVienDo"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    <script src="../app/js/mskdl.js" defer></script>
+    <script src="../app/js/riwayat.js" defer></script>
+    <script src="../app/js/bar.js" defer></script>
+    <script src="../app/js/btn-scroll.js" defer></script>
+    <script src="../app/js/catatan.js" defer></script>
+    <script src="../app/js/download.js" defer></script>
+    <script src="../app/js/galeri.js" defer></script>
+    <script src="../app/js/lawn.js" defer></script>
+    <script src="../app/js/loader.js" defer></script>
+    <script src="../app/js/login.js" defer></script>
+    <script src="../app/js/musik.js" defer></script>
+    <script src="../app/js/navbar.js" defer></script>
+    <script src="../app/js/online-offline.js" defer></script>
+    <script src="../app/js/parallax.js" defer></script>
+    <script src="../app/js/pwa.js" defer></script>
+    <script src="../app/js/script.js" defer></script>
+    <script src="../app/js/scroll.js" defer></script>
+    <script src="../app/js/statistik.js" defer></script>
+    <script src="../app/js/year.js" defer></script>
+    <script src="../app/js/troubleshooting.js" defer></script>
+    <script src="../app/js/testi.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("../pwa/service-worker.js")
+                    .then((reg) => console.log("Service Worker registered:", reg.scope))
+                    .catch((err) => console.error("Service Worker failed:", err));
+            });
+        }
+    </script>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Y1ld5flFnrzUY_qWdokoh"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="assets/app/js/auth.js" defer></script>
+</body>
+
+</html>

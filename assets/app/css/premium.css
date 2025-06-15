@@ -1,0 +1,116 @@
+.fitur-premium-section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 2rem 1.5rem;
+  background-color: #ffffff;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  color: #1f2937;
+}
+
+.fitur-title {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.harga-info {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.harga-info i {
+  color: #f59e0b;
+  margin-right: 0.5rem;
+}
+
+.harga-label {
+  color: #10b981;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.harga-note {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-top: 0.5rem;
+}
+
+.peringatan-premium {
+  background-color: #fff3cd;
+  border-left: 5px solid #facc15;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #92400e;
+  line-height: 1.5;
+}
+
+.peringatan-premium i {
+  margin-right: 0.5rem;
+  color: #f97316;
+}
+
+.daftar-fitur h3,
+.jaminan-info h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #2563eb;
+  border-bottom: 2px solid #93c5fd;
+  padding-bottom: 0.3rem;
+}
+
+.daftar-fitur ul,
+.jaminan-info ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.daftar-fitur li,
+.jaminan-info li {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  padding-left: 1.8rem;
+  position: relative;
+  color: #1e293b;
+}
+
+.daftar-fitur li i,
+.jaminan-info li i {
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: #2563eb;
+}
+
+.langkah-premium {
+  margin-top: 2.5rem;
+  background-color: #ecfdf5;
+  border-left: 5px solid #10b981;
+  padding: 1.5rem;
+  border-radius: 8px;
+  color: #065f46;
+}
+
+.langkah-premium h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #047857;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-bottom: 2px solid #6ee7b7;
+  padding-bottom: 0.3rem;
+}
+
+.langkah-premium ol {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.langkah-premium li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  position: relative;
+}

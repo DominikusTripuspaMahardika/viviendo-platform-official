@@ -1,0 +1,74 @@
+.install-banner {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(30px);
+    opacity: 0;
+    background: #0f172a;
+    color: #f8fafc;
+    padding: 0.8rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    max-width: 90%;
+    pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.install-banner.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+}
+
+.install-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.install-actions button {
+    background: #4caf50;
+    color: #fff;
+    padding: 0.4rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s ease;
+}
+
+.install-actions button:hover {
+    background: #388e3c;
+}
+
+.install-actions button:nth-child(2) {
+    background: #475569;
+}
+
+.install-actions button:nth-child(2):hover {
+    background: #334155;
+}
+
+.install-actions button:nth-child(3) {
+    background: #9ca3af;
+    color: #1f2937;
+}
+
+.install-actions button:nth-child(3):hover {
+    background: #6b7280;
+    color: #f8fafc;
+}
+
+@media (max-width: 480px) {
+    .install-actions button {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,276 @@
+:root {
+    --keep-bg: #ffffff;
+    --keep-primary: #2563eb;
+    --keep-hover: #1e40af;
+    --keep-success: #10b981;
+    --keep-success-hover: #059669;
+    --keep-border: #e2e8f0;
+    --keep-text: #1e293b;
+    --keep-gray: #6b7280;
+    --keep-radius: 12px;
+    --keep-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.catatan-section {
+    max-width: 1100px;
+    margin: 2.5rem auto;
+    padding: 1.5rem;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--keep-text);
+}
+
+.catatan-section h2 {
+    font-size: 1.9rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.catatan-form {
+    margin-bottom: 2rem;
+}
+
+.catatan-textarea {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1rem;
+    border: 1px solid var(--keep-border);
+    border-radius: var(--keep-radius);
+    resize: vertical;
+    font-family: inherit;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    min-height: 140px;
+    box-shadow: var(--keep-shadow);
+}
+
+.catatan-textarea:focus {
+    outline: none;
+    border-color: var(--keep-primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.catatan-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.catatan-button {
+    background-color: var(--keep-primary);
+    color: white;
+    border: none;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--keep-radius);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.catatan-button:hover {
+    background-color: var(--keep-hover);
+    transform: translateY(-1px);
+}
+
+.catatan-button.success {
+    background-color: var(--keep-success);
+}
+
+.catatan-button.success:hover {
+    background-color: var(--keep-success-hover);
+}
+
+.catatan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+}
+
+.catatan-list {
+    max-height: 400px; /* Atur sesuai kebutuhan, misalnya 300px-600px */
+    overflow-y: auto;
+    padding-right: 0.5rem; /* agar tidak menempel scrollbar */
+    margin-top: 1.5rem;
+    list-style: none;
+}
+
+/* Scrollbar tampilan modern (opsional, khusus Webkit/Chrome/Edge) */
+.catatan-list::-webkit-scrollbar {
+    width: 8px;
+}
+.catatan-list::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 116, 139, 0.3); /* abu soft */
+    border-radius: 4px;
+}
+.catatan-list::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(100, 116, 139, 0.5);
+}
+
+.catatan-list li {
+    background-color: var(--keep-bg);
+    border: 1px solid var(--keep-border);
+    border-radius: var(--keep-radius);
+    padding: 1rem;
+    box-shadow: var(--keep-shadow);
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.catatan-list li:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+}
+
+.catatan-isi {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 0.96rem;
+    color: var(--keep-text);
+    margin-bottom: 1rem;
+}
+
+.catatan-action {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.catatan-action button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--keep-gray);
+    font-size: 1.05rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.catatan-action button:hover {
+    color: var(--keep-primary);
+    transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .catatan-section {
+        padding: 1rem;
+    }
+
+    .catatan-buttons {
+        flex-direction: column;
+    }
+
+    .catatan-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .catatan-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .catatan-isi {
+        font-size: 0.94rem;
+    }
+
+    .catatan-action {
+        justify-content: space-between;
+    }
+
+    .catatan-action button {
+        font-size: 1rem;
+    }
+}
+
+.catatan-buttons-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.catatan-button-left,
+.catatan-button-right {
+    flex: 1;
+}
+
+.catatan-button-left {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.catatan-button-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Responsive: Stack di mobile */
+@media (max-width: 768px) {
+    .catatan-buttons-wrap {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .catatan-button-left,
+    .catatan-button-right {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .catatan-button {
+        width: 100%;
+    }
+}
+
+.icon-edit,
+.icon-delete {
+    font-size: 1.05rem;
+    padding: 6px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.icon-edit {
+    color: var(--keep-gray);
+}
+
+.icon-edit:hover {
+    color: var(--keep-primary);
+    background-color: rgba(37, 99, 235, 0.1);
+    transform: scale(1.1);
+}
+
+.icon-delete {
+    color: #ef4444; /* Tailwind red-500 */
+}
+
+.icon-delete:hover {
+    color: #dc2626; /* Tailwind red-600 */
+    background-color: rgba(239, 68, 68, 0.1);
+    transform: scale(1.1);
+}
+
+.catatan-description {
+  font-size: 1rem; /* Ukuran teks ideal untuk readability */
+  color: #475569; /* Slate-700 dari Tailwind, terlihat modern */
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+  font-weight: 400;
+  background-color: #f8fafc; /* Soft background highlight */
+  border-left: 4px solid #3b82f6; /* Biru ViVienDo sebagai aksen */
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
+  transition: background-color 0.3s ease;
+}
+.catatan-description:hover {
+  background-color: #f1f5f9; /* Sedikit lebih gelap saat hover */
+}
+
+@media (max-width: 768px) {
+    .catatan-list {
+        max-height: 300px;
+    }
+}

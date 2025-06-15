@@ -1,0 +1,74 @@
+/* === GALLERY SECTION === */
+.gallery-section {
+  padding: 4rem 1.5rem;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.gallery-title {
+  font-size: 2.4rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.gallery-subtitle {
+  font-size: 1rem;
+  color: #475569;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-grid a {
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid a:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .gallery-title {
+    font-size: 2rem;
+  }
+
+  .gallery-subtitle {
+    font-size: 1rem;
+  }
+}
+
+.gallery-grid img {
+  filter: blur(1.5px);
+}
+
+.gallery-grid img:hover {
+  filter: blur(3px);
+}

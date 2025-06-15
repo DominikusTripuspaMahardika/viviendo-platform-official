@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="ViVienDo PVZ2 - Unduh gratis Plants vs Zombies™ 2 tanpa pembelian, cepat dan aman." />
+  <title>ViVienDo PvZ2</title>
+  <link rel="icon" href="../images/favicon.ico" />
+  <link rel="stylesheet" href="../app/css/pwa.css">
+  <link rel="stylesheet" href="../app/css/testi.css">
+  <link rel="stylesheet" href="../app/css/auth.css">
+  <link rel="stylesheet" href="../app/css/footer.css">
+  <link rel="stylesheet" href="../app/css/catatan.css">
+  <link rel="stylesheet" href="../app/css/galeri.css">
+  <link rel="stylesheet" href="../app/css/login.css">
+  <link rel="stylesheet" href="../app/css/mod.css">
+  <link rel="stylesheet" href="../app/css/musik.css">
+  <link rel="stylesheet" href="../app/css/premium.css">
+  <link rel="stylesheet" href="../app/css/style.css">
+  <link rel="stylesheet" href="../app/css/riwayat.css">
+  <link rel="stylesheet" href="../app/css/troubleshooting.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="manifest" href="../pwa/manifest.json" />
+  <meta name="theme-color" content="#1e293b" />
+  <link rel="apple-touch-icon" href="../images/icon-pwa/icon-192.png" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <!-- SECTION: Login/Register Gate -->
+  <section id="authGate" class="auth-section">
+    <div class="auth-container">
+      <h2 id="authTitle"></h2>
+      <form id="authForm">
+        <input type="text" id="username" placeholder="Username" required />
+        <input type="text" id="token" placeholder="Token / Key" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <button type="submit" id="authSubmitBtn"></button>
+        <p id="authSwitchText" class="auth-switch"></p>
+        <!-- Google Sign-In Button -->
+        <div id="g_id_onload" data-client_id="623471480995-2vbcrrtar8gu6kj366ajiu4nu5n82cmk.apps.googleusercontent.com"
+          data-callback="handleGoogleLogin" data-auto_prompt="false">
+        </div>
+        <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline" data-text="signin_with"
+          data-size="large" data-logo_alignment="left">
+        </div>
+      </form>
+      <div id="authToast" class="auth-toast hidden"></div>
+    </div>
+  </section>
+  <div id="scrollProgressBar" aria-hidden="true"></div>
+  <!-- Loader -->
+  <div id="loader" class="loader-screen" aria-hidden="true" role="status">
+    <div class="loader-box">
+      <div class="loader-spinner"></div>
+      <p class="loader-text">Memuat aplikasi...</p>
+    </div>
+  </div>
+  <!-- Navbar -->
+  <header class="navbar" role="banner">
+    <div class="navbar-brand">ViVienDo PVZ2</div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="navbarMenu">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="navbar-menu" id="navbarMenu" role="navigation" aria-label="Primary Navigation">
+      <ul class="navbar-list">
+        <li class="navbar-item dropdown">
+          <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-awal" id="btn-awal">
+            Beranda
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-content" aria-label="submenu Awal" id="submenu-awal" role="menu"
+            aria-labelledby="btn-awal">
+            <li role="none"><a href="../../index.html" role="menuitem" tabindex="-1">Tentang</a></li>
+            <li role="none"><a href="stk.html" role="menuitem" tabindex="-1">Statistik</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item dropdown">
+          <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-media"
+            id="btn-media">
+            Media
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-content" aria-label="submenu Media" id="submenu-media" role="menu"
+            aria-labelledby="btn-media">
+            <li role="none"><a href="vdm.html" role="menuitem" tabindex="-1">Video</a></li>
+            <li role="none"><a href="glr.html" role="menuitem" tabindex="-1">Galeri</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item dropdown">
+          <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-perkembangan"
+            id="btn-perkembangan">
+            Perkembangan
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-content" aria-label="submenu Perkembangan" id="submenu-perkembangan" role="menu"
+            aria-labelledby="btn-perkembangan">
+            <li role="none"><a href="its.html" role="menuitem" tabindex="-1">Instalasi</a></li>
+            <li role="none"><a href="pbn.html" role="menuitem" tabindex="-1">Pembaruan</a></li>
+            <li role="none"><a href="pnm.html" role="menuitem" tabindex="-1">Premium</a></li>
+            <li role="none"><a href="mdt.html" role="menuitem" tabindex="-1">Mendatang</a></li>
+            <li role="none"><a href="mdf.html" role="menuitem" tabindex="-1">Modifikasi</a></li>
+            <li role="none"><a href="dna.html" role="menuitem" tabindex="-1">Dunia</a></li>
+            <li role="none"><a href="tkg.html" role="menuitem" tabindex="-1">Level</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item dropdown">
+          <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-catatan"
+            id="btn-catatan">
+            Catatan
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-content" aria-label="submenu Catatan" id="submenu-catatan" role="menu"
+            aria-labelledby="btn-catatan">
+            <li role="none"><a href="tls.html" role="menuitem" tabindex="-1">Tulis Catatan</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item dropdown">
+          <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-faq" id="btn-faq">
+            F.A.Q
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-content" aria-label="submenu FAQ" id="submenu-faq" role="menu" aria-labelledby="btn-faq">
+            <li role="none"><a href="tbs.html" role="menuitem" tabindex="-1">Pertanyaan</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item dropdown">
+          <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-komunitas"
+            id="btn-komunitas">
+            Komunitas
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-content" aria-label="submenu Komunitas" id="submenu-komunitas" role="menu"
+            aria-labelledby="btn-komunitas">
+            <li role="none"><a href="ttm.html" role="menuitem" tabindex="-1">Testimoni</a></li>
+            <li role="none"><a href="rwt.html" role="menuitem" tabindex="-1">Riwayat</a></li>
+            <li role="none"><a href="dns.html" role="menuitem" tabindex="-1">Donasi</a></li>
+            <li role="none"><a href="vtm.html" role="menuitem" tabindex="-1">ViTim</a></li>
+            <li role="none"><a href="#kontak" role="menuitem" tabindex="-1">Kontak</a></li>
+          </ul>
+        </li>
+        <li class="navbar-item">
+          <button id="logoutBtn" class="logout-button" title="Keluar dari Akun" aria-label="Logout">
+            <i class="fas fa-door-open"></i>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="pencapaian-toast-container" id="pencapaianToastContainer"></div>
+  <div class="menu-overlay" id="menuOverlay"></div>
+  <!-- Hero -->
+  <section id="beranda" class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">Selamat Datang di ViVienDo PVZ2</h1>
+      <p class="hero-subtitle">
+        Unduh data Plants vs Zombies™ 2 secara gratis!
+      </p>
+      <!-- 🎵 Kontrol Musik -->
+      <div class="music-player">
+        <button id="prevBtn"><i class="fas fa-backward"></i></button>
+        <button id="playPauseBtn"><i class="fas fa-play"></i></button>
+        <button id="nextBtn"><i class="fas fa-forward"></i></button>
+      </div>
+    </div>
+  </section>
+  <audio id="audioPlayer" src=""></audio>
+  <section id="statistik" class="statistik-pengguna">
+    <h2>Panel Statistik Pengguna</h2>
+    <div class="statistik-grid">
+      <div class="statistik-item">
+        <i class="fas fa-users"></i>
+        <span>Total Pengunjung</span>
+        <strong id="stat-pengunjung">0</strong>
+      </div>
+      <div class="statistik-item">
+        <i class="fas fa-user-clock"></i>
+        <span>Aktif Hari Ini</span>
+        <strong id="stat-aktif">0</strong>
+      </div>
+      <div class="statistik-item">
+        <i class="fas fa-download"></i>
+        <span>Unduhan Gratis</span>
+        <strong id="stat-gratis">0</strong>
+      </div>
+      <div class="statistik-item">
+        <i class="fas fa-gem"></i>
+        <span>Unduhan Premium</span>
+        <strong id="stat-premium">0</strong>
+      </div>
+      <div class="statistik-item">
+        <i class="fas fa-users-cog"></i>
+        <span>Gabung Komunitas</span>
+        <strong id="stat-komunitas">0</strong>
+      </div>
+    </div>
+  </section>
+  <!-- Kontak -->
+  <section id="kontak" class="kontak-section">
+    <h2>Hubungi Kami</h2>
+    <p>
+      Jika Anda memiliki pertanyaan, masukan, atau memerlukan bantuan terkait
+      layanan kami, jangan ragu untuk menghubungi kami melalui saluran resmi
+      di bawah ini. Tim ViVienDo siap membantu Anda dengan cepat dan
+      profesional.
+    </p>
+    <div class="kontak-icons">
+      <a href="https://www.instagram.com/viviendochannel" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i> <span>Instagram</span>
+      </a>
+      <a href="https://t.me/viviendochannel" target="_blank" aria-label="Telegram">
+        <i class="fab fa-telegram"></i> <span>Telegram</span>
+      </a>
+      <a href="mailto:viviendochannel@gmail.com" target="_blank" aria-label="Email">
+        <i class="fas fa-envelope"></i> <span>Email</span>
+      </a>
+      <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube"></i> <span>YouTube</span>
+      </a>
+    </div>
+  </section>
+  <div id="installBanner" class="install-banner">
+    <p>Pasang ViVienDo ke layar utama untuk akses lebih cepat!</p>
+    <div class="install-actions">
+      <button onclick="triggerPWAInstall()">Pasang Sekarang</button>
+      <button onclick="hideInstallBanner()">Nanti Saja</button>
+      <button onclick="dontShowAgain()">Jangan Tampilkan Lagi</button>
+    </div>
+  </div>
+  <!-- Footer -->
+  <footer class="footer-section">
+    <p class="footer-text">
+      &copy; <span id="footer-year"></span> ViVienDo PVZ2. Unduhan Gratis. Semua Hak Dilindungi.
+    </p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/viviendochannel" target="_blank" class="footer-social-link"
+        aria-label="Instagram ViVienDo"><i class="fab fa-instagram"></i></a>
+      <a href="https://t.me/viviendochannel" target="_blank" class="footer-social-link"
+        aria-label="Telegram ViVienDo"><i class="fab fa-telegram"></i></a>
+      <a href="mailto:viviendochannel@gmail.com" target="_blank" class="footer-social-link"
+        aria-label="Email ViVienDo"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" class="footer-social-link"
+        aria-label="YouTube ViVienDo"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
+  <script src="../app/js/mskdl.js" defer></script>
+  <script src="../app/js/riwayat.js" defer></script>
+  <script src="../app/js/bar.js" defer></script>
+  <script src="../app/js/btn-scroll.js" defer></script>
+  <script src="../app/js/catatan.js" defer></script>
+  <script src="../app/js/download.js" defer></script>
+  <script src="../app/js/galeri.js" defer></script>
+  <script src="../app/js/lawn.js" defer></script>
+  <script src="../app/js/loader.js" defer></script>
+  <script src="../app/js/login.js" defer></script>
+  <script src="../app/js/musik.js" defer></script>
+  <script src="../app/js/navbar.js" defer></script>
+  <script src="../app/js/online-offline.js" defer></script>
+  <script src="../app/js/parallax.js" defer></script>
+  <script src="../app/js/pwa.js" defer></script>
+  <script src="../app/js/script.js" defer></script>
+  <script src="../app/js/scroll.js" defer></script>
+  <script src="../app/js/statistik.js" defer></script>
+  <script src="../app/js/year.js" defer></script>
+  <script src="../app/js/troubleshooting.js" defer></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("../pwa/service-worker.js")
+          .then((reg) => console.log("Service Worker registered:", reg.scope))
+          .catch((err) => console.error("Service Worker failed:", err));
+      });
+    }
+  </script>
+  <script>
+    (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Y1ld5flFnrzUY_qWdokoh"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+  </script>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="assets/app/js/auth.js" defer></script>
+</body>
+
+</html>

@@ -1,0 +1,101 @@
+.testimoni-section {
+  padding: 3rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.testimoni-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.testimoni-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 12px;
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  height: 100%;
+}
+
+.testimoni-card:hover {
+  border-color: #3399ff;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-3px);
+}
+
+.testimoni-profile {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.testimoni-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 0.75rem;
+  border: 2px solid #ddd;
+  transition: border-color 0.3s ease;
+}
+
+.testimoni-card:hover .testimoni-avatar {
+  border-color: #3399ff;
+}
+
+.testimoni-name {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.testimoni-role {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0;
+}
+
+.testimoni-text {
+  flex-grow: 1;
+  color: #333;
+  line-height: 1.5;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.testimoni-rating {
+  font-size: 1.2rem;
+  color: #f5b301;
+  margin-top: auto;
+  text-align: left;
+  display: inline-block;
+}
+
+.testimoni-note {
+  font-size: 0.85rem;
+  color: #777;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.testimoni-note i {
+  color: #f39c12;
+  margin-right: 0.3rem;
+}
