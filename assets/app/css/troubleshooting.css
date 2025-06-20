@@ -1,0 +1,102 @@
+/* Accordion Umum untuk Troubleshooting & FAQ */
+.accordion {
+    max-width: 800px;
+    margin-inline: auto;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.accordion-item {
+    border-bottom: 1px solid rgba(15, 23, 42, 0.15);
+}
+
+.accordion-header {
+    background-color: transparent;
+    color: #1e293b;
+    width: 100%;
+    text-align: left;
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.05rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accordion-header:hover {
+    background-color: #e2e8f0;
+    color: #0ea5e9;
+}
+
+.accordion-icon {
+    margin-left: 1rem;
+    font-size: 1rem;
+    color: #94a3b8;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.accordion-header[aria-expanded="true"] .accordion-icon {
+    transform: rotate(180deg);
+    color: #0ea5e9;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1rem;
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.7;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.accordion-content p {
+    margin: 1rem 0;
+}
+
+.accordion-header[aria-expanded="true"] + .accordion-content {
+    max-height: 500px; /* atau gunakan JS untuk scrollHeight */
+    padding-bottom: 1rem;
+}
+
+/* Section Style untuk Troubleshooting & FAQ */
+.troubleshooting,
+.faq {
+    padding: 3rem 1rem;
+    color: #1e293b;
+}
+
+.troubleshooting .section-title,
+.faq .section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.troubleshooting .section-description,
+.faq .section-description {
+    text-align: center;
+    color: #475569;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+/* Responsive Improvement */
+@media (max-width: 600px) {
+    .accordion-header {
+        font-size: 1rem;
+        padding: 0.9rem 1rem;
+    }
+
+    .accordion-content {
+        font-size: 0.9rem;
+    }
+}

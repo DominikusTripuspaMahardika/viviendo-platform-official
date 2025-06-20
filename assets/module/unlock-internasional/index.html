@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ViVienDo Sub2Unlock</title>
+  <link rel="shortcut icon" href="../../images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Loader -->
+  <div id="loader" class="loader-screen" aria-hidden="true" role="status">
+    <div class="loader-box">
+      <div class="loader-spinner"></div>
+      <p class="loader-text">Memuat aplikasi...</p>
+    </div>
+  </div>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="navbar-brand">ViVienDo PVZ2</div>
+    <nav class="navbar-menu" id="navbarMenu">
+      <a href="../../../index.html">Beranda</a>
+      <a href="../../module/udh.html">Unduhan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+  <div id="download" class="unlock-container">
+    <h1>Unduh Data Plants vs Zombies™ 2: Internasional</h1>
+    <p>Silakan klik tombol di bawah ini untuk mulai mengunduh data secara gratis dan mendapatkan akses penuh ke semua fitur gratis yang telah disediakan tanpa biaya tambahan.</p>
+    <button id="btnSubscribe"><i class="fab fa-youtube"></i> Subscribe
+      ViVienDoChannel</button>
+    <button id="btnBell"><i class="fas fa-bell"></i> Nyalakan Notifikasi ViVienDo</button>
+    <button id="btnLike"><i class="fas fa-thumbs-up"></i> Suka Video YouTube ViVienDo</button>
+    <button id="btnComment"><i class="fas fa-comment-alt"></i> Komentar di Video ViVienDo</button>
+    <button id="btnInstagram"><i class="fab fa-instagram"></i> Ikuti ViVienDo di Instagram</button>
+    <button id="btnTelegram"><i class="fab fa-telegram-plane"></i> Bergabung ViVienDo di Telegram</button>
+    <div class="progress-bar-container">
+      <div id="progressBar" class="progress-bar"></div>
+    </div>
+    <button id="btnUnlock" disabled><i class="fas fa-download"></i> Buka kunci & Unduh Data</button>
+    <p id="countdown"></p>
+  </div>
+  <div id="toast" class="toast"></div>
+  <!-- Kontak -->
+  <section id="kontak" class="kontak-section">
+    <h2>Hubungi Kami</h2>
+    <p>Jika Anda memiliki pertanyaan, masukan, atau memerlukan bantuan terkait
+      layanan kami, jangan ragu untuk menghubungi kami melalui saluran resmi
+      di bawah ini. Tim ViVienDo siap membantu Anda dengan cepat dan
+      profesional.</p>
+    <div class="kontak-icons">
+      <a href="https://www.instagram.com/viviendochannel" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i> <span>Instagram</span>
+      </a>
+      <a href="https://t.me/viviendochannel" target="_blank" aria-label="Telegram">
+        <i class="fab fa-telegram"></i> <span>Telegram</span>
+      </a>
+      <a href="mailto:viviendochannel@gmail.com" target="_blank" aria-label="Email">
+        <i class="fas fa-envelope"></i> <span>Email</span>
+      </a>
+      <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube"></i> <span>YouTube</span>
+      </a>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> ViVienDo PVZ2. Unduhan Gratis. Semua Hak
+      Dilindungi.</p>
+    <div class="socials">
+      <a href="https://www.instagram.com/viviendochannel" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://t.me/viviendochannel" target="_blank"><i class="fab fa-telegram"></i></a>
+      <a href="mailto:viviendochannel@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank"><i class="fab fa-youtube"></i></a>
+    </div>
+  </footer>
+  <script src="script.js" defer></script>
+  <script src="loader.js" defer></script>
+  <script>
+    (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Y1ld5flFnrzUY_qWdokoh"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,109 @@
+.paketviviendo-section {
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.paketviviendo-title {
+  font-size: 2.4rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.paketviviendo-subtitle {
+  font-size: 1rem;
+  color: #475569;
+  margin-bottom: 2rem;
+}
+
+.paketviviendo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.paketviviendo-card {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  position: relative;
+}
+
+.paketviviendo-rekomendasi {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: #f59e0b;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+}
+
+.paketviviendo-card-title {
+  font-size: 1.6rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+}
+
+.paketviviendo-harga {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin-bottom: 1rem;
+}
+
+.paketviviendo-list-scroll {
+  max-height: 150px;
+  overflow-y: auto;
+  margin-bottom: 1.5rem;
+}
+
+.paketviviendo-list {
+  list-style: none;
+  padding: 0;
+  color: #334155;
+  text-align: left;
+}
+
+.paketviviendo-list li {
+  margin-bottom: 0.5rem;
+}
+
+.paketviviendo-button {
+  display: inline-block;
+  background-color: #0ea5e9;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.paketviviendo-button:hover {
+  background-color: #0284c7;
+}
+
+.paketviviendo-premium-button {
+  background-color: #f59e0b;
+  width: 100%;
+}
+
+.paketviviendo-premium-button:hover {
+  background-color: #d97706;
+}
+
+.paketviviendo-info {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: #475569;
+}
+
+@media (min-width: 768px) {
+  .paketviviendo-container {
+    flex-direction: row;
+  }
+}

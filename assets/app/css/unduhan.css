@@ -1,0 +1,323 @@
+.unduhan-section {
+  padding: 2rem 1rem;
+  background-color: #ffffff;
+  color: #0f172a;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.unduhan-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.unduhan-title {
+  font-size: 2rem;
+  margin: 0;
+  color: #0f172a;
+  text-align: center; /* Tambahkan agar tetap center di desktop */
+  width: 100%;
+}
+
+.kategori-label {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;    /* Sedikit lebih ramping agar elegan */
+  border-radius: 9999px;        /* Fully rounded untuk tampilan modern */
+  font-size: 0.75rem;           /* 12px → standar untuk label badge */
+  font-weight: 600;             /* Semi-bold → lebih jelas tanpa terlalu tebal */
+  text-transform: uppercase;    /* Kapital semua untuk kesan badge profesional */
+  letter-spacing: 0.05em;       /* Sedikit spasi antar huruf */
+  line-height: 1;               /* Supaya padat */
+  white-space: nowrap;          /* Hindari pecah baris */
+}
+
+.premium {
+  background-color: #fbbf24;
+  color: #1e293b;
+}
+
+.gratis {
+  background-color: #10b981;
+  color: #fff;
+}
+
+.original {
+  background-color: #3b82f6;
+  color: #fff;
+}
+
+.unduhan-logo-desc {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  position: relative;
+}
+
+.unduhan-logo {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.unduhan-deskripsi {
+  max-width: 1000px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.preview-carousel {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.carousel-item {
+  position: relative;
+  flex: 1;
+}
+
+.carousel-item img {
+  width: 100%;
+  aspect-ratio: 19 / 6;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.blur-overlay img {
+  filter: blur(5px);
+}
+
+.lihat-lengkap-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(15, 23, 42, 0.333);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+.unduhan-actions {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.unduh-btn {
+  background-color: #10b981;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.7rem 2rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  width: 100%;
+}
+
+.unduh-btn:hover {
+  background-color: #059669;
+}
+
+.unduh-btn:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.unduhan-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.nav-btn {
+  background: transparent;
+  color: #0f172a;
+  border: 2px solid #0f172a;
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-btn:hover {
+  background-color: #0f172a;
+  color: #fff;
+}
+
+/* ======================== MOBILE RESPONSIVE ======================== */
+@media (max-width: 768px) {
+  .unduhan-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .unduhan-title {
+    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .unduhan-logo-desc {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .unduhan-logo {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .kategori-label {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 2;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.8rem;
+  }
+
+  .unduhan-deskripsi {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: justify;
+    color: #334155;
+    padding: 0 0.5rem;
+  }
+
+  .preview-carousel {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .carousel-item img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .lihat-lengkap-btn {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .unduhan-actions {
+    margin-top: 1rem;
+  }
+
+  .unduh-btn {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+    width: 100%;
+  }
+
+  .unduhan-navigation {
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .nav-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+  }
+}
+
+.unduhan-pembatas {
+  width: 100%;
+  height: 2px;              /* Ketebalan garis */
+  background: linear-gradient(
+    to right,
+    #0f172a 0%,
+    #64748b 50%,
+    #0f172a 100%
+  );                         /* Gradien agar tidak monoton */
+  margin: 2rem 0;            /* Jarak atas bawah */
+  border-radius: 1px;        /* Agar garisnya tidak kaku */
+  opacity: 0.8;              /* Transparansi sedikit untuk kesan elegan */
+}
+
+.unduhan-fitur {
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.judul-fitur {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.daftar-fitur {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.daftar-fitur li {
+    position: relative;
+    padding-left: 1.6rem;
+    margin-bottom: 0.75rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+.daftar-fitur li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1rem;
+    color: #28a745;
+}
+
+.unduhan-metadata {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+    margin-bottom: 1.3rem;
+}
+
+.judul-metadata {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.daftar-metadata {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.daftar-metadata li {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.daftar-metadata li strong {
+    color: #222;
+    font-weight: 600;
+}

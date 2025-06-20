@@ -1,0 +1,147 @@
+.riwayat-unduhan {
+  padding: 2rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.riwayat-unduhan-title {
+  font-size: 2rem;
+  text-align: center;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.riwayat-unduhan-count,
+.riwayat-unduhan-last {
+  text-align: center;
+  color: #334155;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.riwayat-unduhan-subtitle {
+  font-size: 1.3rem;
+  margin: 1.25rem 0 0.5rem;
+  color: #0f172a;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.25rem;
+}
+
+.riwayat-unduhan-list {
+  list-style: none;
+  padding: 0;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+.riwayat-unduhan-list li {
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+  color: #334155;
+  line-height: 1.4;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  animation: fadeInItem 0.3s ease forwards;
+}
+
+.riwayat-unduhan-list li i {
+  color: #4caf50;
+  min-width: 1.2rem;
+  text-align: center;
+}
+
+.riwayat-unduhan-summary {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-top: 1rem;
+  font-style: italic;
+  text-align: center;
+}
+
+.riwayat-unduhan-buttons {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.riwayat-unduhan-export,
+.riwayat-unduhan-hapus {
+  padding: 0.6rem 1.2rem;
+  font-size: 0.95rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  border: 1px solid;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.riwayat-unduhan-export {
+  background-color: transparent;
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+.riwayat-unduhan-export:hover {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+.riwayat-unduhan-hapus {
+  background-color: transparent;
+  border-color: #ef4444;
+  color: #ef4444;
+}
+
+.riwayat-unduhan-hapus:hover {
+  background-color: #ef4444;
+  color: #fff;
+}
+
+.riwayat-unduhan-chart-container {
+  margin-top: 2rem;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.riwayat-unduhan-chart-container canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .riwayat-unduhan-chart-container {
+    padding: 0;
+  }
+}
+
+@keyframes fadeInItem {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .riwayat-unduhan-title {
+    font-size: 1.7rem;
+  }
+
+  .riwayat-unduhan-list li {
+    font-size: 0.95rem;
+  }
+
+  .riwayat-unduhan-export,
+  .riwayat-unduhan-hapus {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}

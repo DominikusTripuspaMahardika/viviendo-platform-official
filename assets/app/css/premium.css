@@ -1,0 +1,238 @@
+:root {
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #4b5563;
+  --color-title: #111827;
+  --color-accent: #2563eb;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-muted: #9ca3af;
+  --color-bg-highlight: #ecfdf5;
+  --color-border: #d1d5db;
+
+  --font-base: "Segoe UI", Tahoma, sans-serif;
+  --font-size-base: 1rem;
+  --font-size-small: 0.9rem;
+  --font-size-large: 1.25rem;
+  --font-size-xlarge: 2rem;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+}
+
+.fitur-premium-section {
+  max-width: 960px;
+  margin: var(--spacing-lg) auto;
+  padding: var(--spacing-md) var(--spacing-sm);
+  font-family: var(--font-base);
+  color: var(--color-text-primary);
+  line-height: 1.75;
+}
+
+.fitur-title {
+  font-size: var(--font-size-xlarge);
+  font-weight: 600;
+  text-align: center;
+  color: var(--color-title);
+  margin-bottom: var(--spacing-md);
+}
+
+.status-info {
+  text-align: center;
+  font-size: var(--font-size-base);
+  margin-bottom: var(--spacing-sm);
+}
+
+.status-badge {
+  padding: 0.2rem 0.8rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: var(--font-size-small);
+  margin-left: var(--spacing-xs);
+}
+
+.status-badge.online {
+  background-color: #d1fae5;
+  color: var(--color-success);
+  border: 1px solid var(--color-success);
+}
+
+.status-badge.offline {
+  background-color: #fee2e2;
+  color: var(--color-danger);
+  border: 1px solid var(--color-danger);
+}
+
+.harga-info {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.harga-info i {
+  color: var(--color-warning);
+  margin-right: var(--spacing-xs);
+}
+
+.harga-label {
+  color: var(--color-success);
+  font-weight: 600;
+  font-size: var(--font-size-large);
+}
+
+.harga-note {
+  font-size: var(--font-size-small);
+  color: var(--color-text-secondary);
+  margin-top: var(--spacing-xs);
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  margin: var(--spacing-md) auto;
+  max-width: 480px;
+  width: 100%;
+}
+
+.btn-kontak,
+.btn-pesan {
+  padding: 0.6rem 1.5rem;
+  background-color: var(--color-accent);
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.btn-kontak:hover,
+.btn-pesan:hover {
+  background-color: #1e40af;
+}
+
+.peringatan-premium {
+  background-color: #fff8dc;
+  border-left: 4px solid var(--color-warning);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-base);
+  color: #92400e;
+}
+
+.peringatan-premium i {
+  color: #f97316;
+  margin-right: var(--spacing-xs);
+}
+
+.bonus-info {
+  background-color: var(--color-bg-highlight);
+  border-left: 4px solid var(--color-success);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-base);
+  color: #065f46;
+}
+
+.fitur-block {
+  margin-bottom: var(--spacing-md);
+}
+
+.faq-section {
+  margin-top: 20px;
+}
+
+.fitur-block h3,
+.faq-section h3 {
+  font-size: var(--font-size-large);
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 0.3rem;
+}
+
+.fitur-block ul,
+.faq-section ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.fitur-block li,
+.faq-section li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 0.75rem;
+  font-size: var(--font-size-base);
+}
+
+.fitur-block li i,
+.faq-section li i {
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  color: var(--color-success);
+}
+
+.langkah-premium {
+  margin-top: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-bg-highlight);
+  border-left: 4px solid var(--color-success);
+  color: #065f46;
+  border-radius: 4px;
+}
+
+.langkah-premium h3 {
+  font-size: var(--font-size-large);
+  margin-bottom: var(--spacing-sm);
+  color: #047857;
+  border-bottom: 2px solid #6ee7b7;
+  padding-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.langkah-premium ol {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+
+.langkah-premium li {
+  margin-bottom: 0.8rem;
+  font-size: var(--font-size-base);
+  line-height: 1.6;
+}
+
+.disclaimer {
+  font-size: var(--font-size-small);
+  color: var(--color-muted);
+  text-align: center;
+  margin-top: var(--spacing-md);
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .fitur-title {
+    font-size: 1.6rem;
+  }
+
+  .fitur-block h3,
+  .langkah-premium h3 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .cta-buttons a {
+    text-align: center;
+  }
+}

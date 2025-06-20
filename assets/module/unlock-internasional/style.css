@@ -1,0 +1,605 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #ffffff;
+  color: #1f2937;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Menu Desktop */
+.navbar-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  color: #60a5fa;
+}
+
+.navbar-menu a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 100%;
+  height: 2px;
+  background-color: #60a5fa;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.navbar-menu a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+  .navbar-menu {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: #1e293b;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.35s ease-in-out;
+    z-index: 1100;
+  }
+
+  .navbar-menu.active {
+    transform: translateX(0);
+  }
+}
+
+/* Unlock */
+.unlock-container {
+  padding: 100px 20px 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.unlock-container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #000000;
+}
+.unlock-container p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: background 0.3s ease;
+}
+#btnSubscribe {
+  background: #ff0000;
+  color: #fff;
+}
+
+#btnSubscribe:hover {
+  background: #cc0000;
+}
+
+#btnSubscribe.subscribed {
+  background: #6c757d;
+  color: #ccc;
+  cursor: not-allowed;
+  position: relative;
+}
+
+#btnSubscribe.subscribed::after {
+  content: " ✓";
+  color: #00ff00;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#btnBell {
+  background: #ff0000;
+  color: #fff;
+}
+
+#btnBell:hover {
+  background: #cc0000;
+}
+
+#btnBell.subscribed {
+  background: #6c757d;
+  color: #ccc;
+  cursor: not-allowed;
+  position: relative;
+}
+
+#btnBell.subscribed::after {
+  content: " ✓";
+  color: #00ff00;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#btnLike {
+  background: #ff0000;
+  color: #fff;
+}
+
+#btnLike:hover {
+  background: #cc0000;
+}
+
+#btnLike.subscribed {
+  background: #6c757d;
+  color: #ccc;
+  cursor: not-allowed;
+  position: relative;
+}
+
+#btnLike.subscribed::after {
+  content: " ✓";
+  color: #00ff00;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#btnComment {
+  background: #ff0000;
+  color: #fff;
+}
+
+#btnComment:hover {
+  background: #cc0000;
+}
+
+#btnComment.subscribed {
+  background: #6c757d;
+  color: #ccc;
+  cursor: not-allowed;
+  position: relative;
+}
+
+#btnComment.subscribed::after {
+  content: " ✓";
+  color: #00ff00;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#btnInstagram {
+  background: linear-gradient(45deg, #feda75, #d62976, #962fbf, #4f5bd5);
+  color: #fff;
+}
+
+#btnInstagram:hover {
+  background: linear-gradient(45deg, #e6b85a, #b31e63, #7825a3, #3e49b5);
+}
+
+#btnInstagram.subscribed {
+  background: #6c757d;
+  color: #ccc;
+  cursor: not-allowed;
+  position: relative;
+}
+
+#btnInstagram.subscribed::after {
+  content: " ✓";
+  color: #00ff00;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#btnTelegram {
+  background: #0088cc;
+  color: #fff;
+}
+
+#btnTelegram:hover {
+  background: #0075b4;
+}
+
+#btnTelegram.subscribed {
+  background: #6c757d;
+  color: #ccc;
+  cursor: not-allowed;
+  position: relative;
+}
+
+#btnTelegram.subscribed::after {
+  content: " ✓";
+  color: #00ff00;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+#btnUnlock {
+  background: #6c757d;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+#btnUnlock.active {
+  background: #28a745;
+  color: #fff;
+  cursor: pointer;
+}
+
+#btnUnlock.active:hover {
+  background: #218838;
+}
+
+#btnUnlock:disabled {
+  cursor: not-allowed;
+}
+.progress-bar-container {
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 0 10px rgba(50, 214, 255, 0.3);
+border: 1px solid rgba(50, 214, 255, 0.2);
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(
+  120deg,
+  #32d6ff,
+  #1bbde6,
+  #0088cc,
+  #32d6ff
+);
+  background-size: 300% 300%;
+  animation: neonFlow 3s linear infinite;
+  transition: width 0.6s ease-in-out;
+  box-shadow: 0 0 15px #32d6ff, 0 0 30px #32d6ff;
+}
+
+@keyframes neonFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #222;
+  color: #fff;
+  padding: 12px 25px;
+  border-radius: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+  z-index: 999;
+}
+
+/* F.A.Q Section */
+.faq-section {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  margin-top: -30px;
+}
+.faq-section h2 {
+  text-align: center;
+  color: #000000;
+  margin-bottom: 30px;
+}
+.faq-item {
+  margin-bottom: 20px;
+}
+.faq-item h3 {
+  color: #2563eb;
+  font-size: 18px;
+}
+.faq-item p {
+  color: #000000;
+  margin-left: 10px;
+}
+
+/* Footer */
+.footer {
+  background-color: #1f1f2e;
+  color: #bbbcc7;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.95rem;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  box-shadow: inset 0 1px 8px rgba(255, 255, 255, 0.05);
+}
+
+/* Footer text */
+.footer p {
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.04em;
+  color: #a9a9b8;
+}
+
+/* Socials container */
+.footer .socials {
+  display: inline-flex;
+  gap: 1.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Social icon links */
+.footer .socials a {
+  color: #bbbcc7;
+  font-size: 1.9rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.15rem;
+  border-radius: 50%;
+  user-select: none;
+}
+
+/* Hover and focus states */
+.footer .socials a:hover,
+.footer .socials a:focus {
+  color: #ff6b6b;
+  transform: scale(1.2) rotate(10deg);
+  outline-offset: 3px;
+  outline: 2px solid #ff6b6b;
+  box-shadow: 0 4px 10px rgba(255, 107, 107, 0.5);
+  background: rgba(255, 107, 107, 0.1);
+}
+
+/* Keyframe fadeInUp */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 460px) {
+  .footer {
+    font-size: 0.9rem;
+    padding: 1.8rem 1rem;
+  }
+
+  .footer .socials {
+    gap: 1.2rem;
+  }
+
+  .footer .socials a {
+    font-size: 1.6rem;
+  }
+}
+
+.kontak-section {
+  max-width: 900px;
+  margin: 4rem auto 5rem;
+  padding: 0 1.5rem;
+  text-align: center;
+  color: #1f2937;
+  animation: fadeInUp 0.9s ease forwards;
+  opacity: 0;
+}
+
+.kontak-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.kontak-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #475569;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.kontak-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.kontak-icons a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  padding: 0.7rem 1.2rem;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.kontak-icons a i {
+  font-size: 1.5rem;
+  color: #2563eb;
+}
+
+.kontak-icons a:hover {
+  background-color: #e0f2fe;
+  color: #1d4ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.kontak-icons a:hover i {
+  color: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .kontak-section h2 {
+    font-size: 2rem;
+  }
+  .kontak-section p {
+    font-size: 1rem;
+  }
+  .kontak-icons a {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+#kontak {
+  scroll-margin-top: 70px;
+}
+
+/* === LOADER PROFESSIONAL === */
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInLoader 0.6s ease-in-out;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-box {
+  text-align: center;
+  transform: scale(0.95);
+  animation: popFade 1s ease forwards;
+}
+
+.loader-spinner {
+  width: 72px;
+  height: 72px;
+  border: 6px solid rgba(255, 255, 255, 0.15);
+  border-top: 6px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.loader-text {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  letter-spacing: 0.5px;
+  animation: pulseText 1.2s ease-in-out infinite alternate;
+}
+
+/* === ANIMATIONS === */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInLoader {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseText {
+  0% {
+    opacity: 0.6;
+    letter-spacing: 0.5px;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 1px;
+    transform: translateY(-3px);
+  }
+}

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="ViVienDo PVZ2 - Unduh gratis Plants vs Zombies™ 2 tanpa pembelian, cepat dan aman." />
+    <title>ViVienDo PvZ2</title>
+    <link rel="icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../app/css/paketlayanan.css">
+    <link rel="stylesheet" href="../app/css/paket.css">
+    <link rel="stylesheet" href="../app/css/unduhan.css">
+    <link rel="stylesheet" href="../app/css/pwa.css">
+    <link rel="stylesheet" href="../app/css/testi.css">
+    <link rel="stylesheet" href="../app/css/auth.css">
+    <link rel="stylesheet" href="../app/css/footer.css">
+    <link rel="stylesheet" href="../app/css/catatan.css">
+    <link rel="stylesheet" href="../app/css/galeri.css">
+    <link rel="stylesheet" href="../app/css/login.css">
+    <link rel="stylesheet" href="../app/css/mod.css">
+    <link rel="stylesheet" href="../app/css/musik.css">
+    <link rel="stylesheet" href="../app/css/premium.css">
+    <link rel="stylesheet" href="../app/css/style.css">
+    <link rel="stylesheet" href="../app/css/riwayat.css">
+    <link rel="stylesheet" href="../app/css/troubleshooting.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="manifest" href="../pwa/manifest.json" />
+    <meta name="theme-color" content="#1e293b" />
+    <link rel="apple-touch-icon" href="../images/icon-pwa/icon-192.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- SECTION: Login/Register Gate -->
+    <section id="authGate" class="auth-section">
+        <div class="auth-container">
+            <h2 id="authTitle"></h2>
+            <form id="authForm">
+                <input type="text" id="username" placeholder="Username" required />
+                <input type="text" id="token" placeholder="Token / Key" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <button type="submit" id="authSubmitBtn"></button>
+                <p id="authSwitchText" class="auth-switch"></p>
+                <!-- Google Sign-In Button -->
+                <div id="g_id_onload"
+                    data-client_id="623471480995-2vbcrrtar8gu6kj366ajiu4nu5n82cmk.apps.googleusercontent.com"
+                    data-callback="handleGoogleLogin" data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left">
+                </div>
+            </form>
+            <div id="authToast" class="auth-toast hidden"></div>
+        </div>
+    </section>
+    <div id="scrollProgressBar" aria-hidden="true"></div>
+    <!-- Loader -->
+    <div id="loader" class="loader-screen" aria-hidden="true" role="status">
+        <div class="loader-box">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Memuat aplikasi...</p>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <header class="navbar" role="banner">
+        <div class="navbar-brand">ViVienDo PVZ2</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"
+            aria-controls="navbarMenu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="navbar-menu" id="navbarMenu" role="navigation" aria-label="Primary Navigation">
+            <ul class="navbar-list">
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-awal"
+                        id="btn-awal">
+                        Beranda
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Awal" id="submenu-awal" role="menu"
+                        aria-labelledby="btn-awal">
+                        <li role="none"><a href="../../index.html" role="menuitem" tabindex="-1">Tentang</a></li>
+                        <li role="none"><a href="stk.html" role="menuitem" tabindex="-1">Statistik</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-media"
+                        id="btn-media">
+                        Media
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Media" id="submenu-media" role="menu"
+                        aria-labelledby="btn-media">
+                        <li role="none"><a href="vdm.html" role="menuitem" tabindex="-1">Video</a></li>
+                        <li role="none"><a href="glr.html" role="menuitem" tabindex="-1">Galeri</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false"
+                        aria-controls="submenu-perkembangan" id="btn-perkembangan">
+                        Perkembangan
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Perkembangan" id="submenu-perkembangan" role="menu"
+                        aria-labelledby="btn-perkembangan">
+                        <li role="none"><a href="its.html" role="menuitem" tabindex="-1">Instalasi</a></li>
+                        <li role="none"><a href="pbn.html" role="menuitem" tabindex="-1">Pembaruan</a></li>
+                        <li role="none"><a href="mdt.html" role="menuitem" tabindex="-1">Mendatang</a></li>
+                        <li role="none"><a href="mdf.html" role="menuitem" tabindex="-1">Modifikasi</a></li>
+                        <li role="none"><a href="dna.html" role="menuitem" tabindex="-1">Dunia</a></li>
+                        <li role="none"><a href="tkg.html" role="menuitem" tabindex="-1">Level</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-faq"
+                        id="btn-faq">
+                        F.A.Q
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu FAQ" id="submenu-faq" role="menu"
+                        aria-labelledby="btn-faq">
+                        <li role="none"><a href="tbs.html" role="menuitem" tabindex="-1">Pertanyaan</a></li>
+                        <li role="none"><a href="tls.html" role="menuitem" tabindex="-1">Catatan</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-unduhan"
+                        id="btn-unduhan">
+                        Unduhan
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Unduhan" id="submenu-unduhan" role="menu"
+                        aria-labelledby="btn-unduhan">
+                        <li role="none"><a href="udh.html" role="menuitem" tabindex="-1">Daftar</a></li>
+                        <li role="none"><a href="pnm.html" role="menuitem" tabindex="-1">Layanan</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-komunitas"
+                        id="btn-komunitas">
+                        Komunitas
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Komunitas" id="submenu-komunitas" role="menu"
+                        aria-labelledby="btn-komunitas">
+                        <li role="none"><a href="ttm.html" role="menuitem" tabindex="-1">Testimoni</a></li>
+                        <li role="none"><a href="rwt.html" role="menuitem" tabindex="-1">Riwayat</a></li>
+                        <li role="none"><a href="dns.html" role="menuitem" tabindex="-1">Donasi</a></li>
+                        <li role="none"><a href="vtm.html" role="menuitem" tabindex="-1">ViTim</a></li>
+                        <li role="none"><a href="#kontak" role="menuitem" tabindex="-1">Kontak</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item">
+                    <button id="logoutBtn" class="logout-button" title="Keluar dari Akun" aria-label="Logout">
+                        <i class="fas fa-door-open"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="pencapaian-toast-container" id="pencapaianToastContainer"></div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <!-- Hero -->
+    <section id="beranda" class="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Selamat Datang di ViVienDo PVZ2</h1>
+            <p class="hero-subtitle">
+                Unduh data Plants vs Zombies™ 2 secara gratis!
+            </p>
+            <!-- 🎵 Kontrol Musik -->
+            <div class="music-player">
+                <button id="prevBtn"><i class="fas fa-backward"></i></button>
+                <button id="playPauseBtn"><i class="fas fa-play"></i></button>
+                <button id="nextBtn"><i class="fas fa-forward"></i></button>
+            </div>
+        </div>
+    </section>
+    <audio id="audioPlayer" src=""></audio>
+    <!-- Section Daftar Unduhan -->
+    <section id="daftar-unduhan" class="unduhan-section">
+        <div class="unduhan-container">
+            <div class="unduhan-header">
+                <h2 class="unduhan-title">Plants vs. Zombies 2: Internasional</h2>
+                <span class="kategori-label original">Data Gratis</span>
+            </div>
+            <div class="unduhan-content">
+                <div class="unduhan-logo-desc">
+                    <img src="../images/download/logo/pvz2/pvz2.png" alt="Logo Plants vs. Zombies 2"
+                        class="unduhan-logo" />
+                    <p class="unduhan-deskripsi">
+                        Plants vs. Zombies 2 adalah game strategi pertahanan menara populer yang mengajak pemain
+                        melindungi rumah dari serangan zombi menggunakan berbagai jenis tanaman unik. Setiap tanaman
+                        memiliki kemampuan khusus untuk menghadapi berbagai tipe zombi yang semakin menantang. Dengan
+                        latar petualangan lintas waktu, pemain akan bertarung di beragam era seperti Mesir Kuno, Bajak
+                        Laut, hingga Masa Depan. Grafisnya yang cerah, gameplay adiktif, dan kombinasi strategi yang
+                        seru menjadikan Plants vs. Zombies 2 salah satu game favorit pecinta game kasual di seluruh
+                        dunia.
+                    </p>
+                </div>
+                <div class="preview-carousel">
+                    <div class="carousel-item"><img src="../images/download/preview/pvz2/img1.jpg" alt="Preview 1" />
+                    </div>
+                    <div class="carousel-item"><img src="../images/download/preview/pvz2/img2.jpg" alt="Preview 2" />
+                    </div>
+                    <div class="carousel-item blur-overlay">
+                        <img src="../images/download/preview/pvz2/img3.jpg" alt="Preview 3" />
+                        <button class="lihat-lengkap-btn" onclick="window.location.href='glr.html'">Lihat Gambar
+                            Lengkap</button>
+                    </div>
+                </div>
+                <div class="unduhan-fitur">
+                    <h3 class="judul-fitur">Fitur-Fitur yang Didapatkan:</h3>
+                    <ul class="daftar-fitur">
+                        <li><strong>Semua Pencapaian Terbuka:</strong> Nikmati semua pencapaian game tanpa harus
+                            menyelesaikannya satu per satu.</li>
+                        <li><strong>Semua Tanaman Terbuka:</strong> Gunakan semua jenis tanaman sejak awal tanpa
+                            batasan.</li>
+                        <li><strong>Semua Dunia Terbuka:</strong> Akses langsung ke semua dunia petualangan, dari Mesir
+                            Kuno hingga Masa Depan.</li>
+                        <li><strong>Semua Level Terbuka:</strong> Mainkan semua level tanpa harus membuka satu per satu.
+                        </li>
+                        <li><strong>Level Tanaman Maksimal:</strong> Semua tanaman sudah berada di level tertinggi untuk
+                            kekuatan optimal.</li>
+                        <li><strong>Mastery Tanaman Maksimal:</strong> Semua mastery tanaman sudah mencapai tingkat
+                            maksimal untuk performa terbaik.</li>
+                        <li><strong>Semua Mata Uang Banyak:</strong> Dapatkan koin, permata, dan mata uang premium dalam
+                            jumlah sangat besar.</li>
+                    </ul>
+                </div>
+                <div class="unduhan-metadata">
+                    <h3 class="judul-metadata">Informasi File:</h3>
+                    <ul class="daftar-metadata">
+                        <li><strong>Nama File:</strong> pp_gbl.dat</li>
+                        <li><strong>Versi:</strong> 12.3.1 (Terbaru)</li>
+                        <li><strong>Ukuran File:</strong> 38,1 KB</li>
+                        <li><strong>Jenis File:</strong> File DAT</li>
+                        <li><strong>Update Terakhir:</strong> 18/06/2025 | 09:38</li>
+                        <li><strong>Kompatibilitas:</strong> Android 7.0+ | CPU: ARM64</li>
+                    </ul>
+                </div>
+                <div class="unduhan-actions">
+                    <button id="downloadBtnPvZ2ITR" class="unduh-btn"
+                        onclick="saveRiwayatUnduhan('Plants vs. Zombies 2: Internasional', 'Data')">Mulai
+                        Mengunduh</button>
+                </div>
+            </div>
+        </div>
+        <div class="unduhan-pembatas"></div>
+        <div class="unduhan-container">
+            <div class="unduhan-header">
+                <h2 class="unduhan-title">Plants vs. Zombies 2: Reflourished</h2>
+                <span class="kategori-label original">Data Gratis</span>
+            </div>
+            <div class="unduhan-content">
+                <div class="unduhan-logo-desc">
+                    <img src="../images/download/logo/pvz2rfl/pvz2rfl.png" alt="Logo Plants vs. Zombies 2"
+                        class="unduhan-logo" />
+                    <p class="unduhan-deskripsi">
+                        Plants vs. Zombies™ 2: Reflourished adalah proyek modifikasi berbasis komunitas yang
+                        menghadirkan versi lebih segar dan seimbang dari Plants vs. Zombies™ 2. Mod ini menghadirkan
+                        beragam tanaman baru, musuh unik, level menantang, serta peningkatan visual dan fitur yang tidak
+                        tersedia di versi original. Dirancang oleh para penggemar untuk sesama pemain, Reflourished
+                        memberikan pengalaman bermain yang lebih adil, kreatif, dan menyenangkan tanpa menghilangkan
+                        nuansa khas dari game aslinya.
+                    </p>
+                </div>
+                <div class="preview-carousel">
+                    <div class="carousel-item"><img src="../images/download/preview/pvz2rfl/img1.jpg" alt="Preview 1" />
+                    </div>
+                    <div class="carousel-item"><img src="../images/download/preview/pvz2rfl/img2.jpg" alt="Preview 2" />
+                    </div>
+                    <div class="carousel-item blur-overlay">
+                        <img src="../images/download/preview/pvz2rfl/img3.jpg" alt="Preview 3" />
+                        <button class="lihat-lengkap-btn" onclick="window.location.href='glr.html'">Lihat Gambar
+                            Lengkap</button>
+                    </div>
+                </div>
+                <div class="unduhan-fitur">
+                    <h3 class="judul-fitur">Fitur-Fitur yang Didapatkan:</h3>
+                    <ul class="daftar-fitur">
+                        <li><strong>Semua Pencapaian Terbuka:</strong> Nikmati semua pencapaian game tanpa harus
+                            menyelesaikannya satu per satu.</li>
+                        <li><strong>Semua Tanaman Terbuka:</strong> Gunakan semua jenis tanaman sejak awal tanpa
+                            batasan.</li>
+                        <li><strong>Semua Dunia Terbuka:</strong> Akses langsung ke semua dunia petualangan, dari Mesir
+                            Kuno hingga Masa Depan.</li>
+                        <li><strong>Semua Level Terbuka:</strong> Mainkan semua level tanpa harus membuka satu per satu.
+                        </li>
+                        <li><strong>Level Tanaman Maksimal:</strong> Semua tanaman sudah berada di level tertinggi untuk
+                            kekuatan optimal.</li>
+                        <li><strong>Mastery Tanaman Maksimal:</strong> Semua mastery tanaman sudah mencapai tingkat
+                            maksimal untuk performa terbaik.</li>
+                        <li><strong>Semua Mata Uang Banyak:</strong> Dapatkan koin, permata, dan mata uang premium dalam
+                            jumlah sangat besar.</li>
+                    </ul>
+                </div>
+                <div class="unduhan-metadata">
+                    <h3 class="judul-metadata">Informasi File:</h3>
+                    <ul class="daftar-metadata">
+                        <li><strong>Nama File:</strong> pp_rfl.dat</li>
+                        <li><strong>Versi:</strong> 1.3.2 (Terbaru)</li>
+                        <li><strong>Ukuran File:</strong> 37,0 KB</li>
+                        <li><strong>Jenis File:</strong> File DAT</li>
+                        <li><strong>Update Terakhir:</strong> 18/06/2025 | 09:49</li>
+                        <li><strong>Kompatibilitas:</strong> Android 7.0+ | CPU: ARM64</li>
+                    </ul>
+                </div>
+                <div class="unduhan-actions">
+                    <button id="downloadBtnPvZ2RFL" class="unduh-btn"
+                        onclick="saveRiwayatUnduhan('Plants vs. Zombies 2: Reflourished', 'Data')">Mulai
+                        Mengunduh</button>
+                </div>
+            </div>
+        </div>
+        <div class="unduhan-pembatas"></div>
+        <div class="paket-viviendo">
+            <h3>Pilihan Paket ViVienDo Eksklusif</h3>
+            <div class="paket-list">
+                <!-- Paket Platinum -->
+                <div class="paket-card master">
+                    <h4><i class="fas fa-crown"></i> ViVienDo Master</h4>
+                    <p class="label-game">Paket Untuk: <strong>Plants vs Zombies™ 2: Reflourished</strong></p>
+                    <p class="harga-paket"> Harga Paket: Rp25.000</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Tanaman</li>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Zombie</li>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Peta</li>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Kostum</li>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Dunia</li>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Pot di Zen Garden</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Misi/Level Telah Diselesaikan</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Trofi/Penghargaan Telah Didapatkan</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Memiliki Benih 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Dapat Langsung Digunakan</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Memiliki Kostum Unik dan Lengkap</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Mata Uang Berjumlah 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Koin" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Permata" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Mint" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Sarung Tangan Arena" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Bahan Bakar Penny" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Poin Perk Penny Chase" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Jari Sihir" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Cubit Zombie" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Gesek Zombie" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Bola Salju" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Penyembur Api" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Vasebreaker Reveal" 2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Vasebreaker Butter" 2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Vasebreaker Move" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Beg Houled Shuffle" 2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Beg Houled Shovel" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Beg Houled Wizard" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Ancient Egypt" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Pirate Seas" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Wild West" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Frostbite Caves" Mencapai
+                            2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Lost City" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Far Future" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Dark Ages" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Neon Mixtape Tour" Mencapai
+                            2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Jurassic Marsh" Mencapai
+                            2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Big Wave Beach" Mencapai
+                            2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Modern Day" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Holiday" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Masuk dan Simpan Progres ke Akun EA atau Google Play
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Bisa Langsung Main Mode Petualangan "Offline", Penny
+                            "Online", dan
+                            Arena
+                            "Online"</li>
+                        <li><i class="fas fa-check-circle"></i> Akses awal ke pembaruan terbaru dan semua konten premium
+                            eksklusif
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Tiga akun dalam satu file data simpan, masing-masing
+                            dengan fitur
+                            unik
+                            (Multi-Slot)</li>
+                        <li><i class="fas fa-check-circle"></i> Penyesuaian nama akun atau profil sesuai permintaan
+                            pengguna</li>
+                        <li><i class="fas fa-check-circle"></i> Pengalaman bermain tanpa iklan dan tanpa batasan akses
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Akses ke grup eksklusif anggota premium untuk diskusi
+                            tips & trik
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Dan Masih Banyak Lagi Fitur Menarik Lainnya Yang Bisa
+                            Kamu Dapatkan
+                        </li>
+                    </ul>
+                    <a href="#kontak" class="btn-master">Pesan Paket Master</a>
+                </div>
+                <!-- Paket Grandmaster -->
+                <div class="paket-card grandmaster">
+                    <h4><i class="fas fa-gem"></i> ViVienDo Grandmaster</h4>
+                    <p class="label-game">Paket Untuk: <strong>Plants vs Zombies™ 2: Internasional</strong></p>
+                    <p class="harga-paket"> Harga Paket: Rp25.000+</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Tanaman</li>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Zombie</li>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Peta</li>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Kostum</li>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Dunia</li>
+                        <li><i class="fas fa-check-circle"></i> Membuka Semua Pot di Zen Garden</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Misi/Level Telah Diselesaikan</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Trofi/Penghargaan Telah Didapatkan</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Memiliki PlantFood Tanpa Batas</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Memiliki Benih 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Memiliki Level 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Memiliki Mastery 99999999</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Memiliki Pertahanan 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Memiliki Serangan 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Memiliki Biaya Matahari -2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Dapat Langsung Digunakan</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Bisa Digunakan Langsung Tanpa "Recharge"
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Bisa Digunakan Langsung Tanpa "Cooldown"
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Bisa Digunakan Langsung Tanpa "Reload"
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Semua Tanaman Memiliki Kostum Unik dan Lengkap</li>
+                        <li><i class="fas fa-check-circle"></i> Semua Mata Uang Berjumlah 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Koin" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Permata" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Mint" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Sarung Tangan Arena" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Bahan Bakar Penny" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "Poin Perk Penny Chase" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Jari Sihir" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Cubit Zombie" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Gesek Zombie" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Bola Salju" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Penyembur Api" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Vasebreaker Reveal" 2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Vasebreaker Butter" 2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Vasebreaker Move" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Beg Houled Shuffle" 2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Beg Houled Shovel" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Jumlah Besar "PowerUp Beg Houled Wizard" 2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Ancient Egypt" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Pirate Seas" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Wild West" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Frostbite Caves" Mencapai
+                            2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Lost City" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Far Future" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Dark Ages" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Neon Mixtape Tour" Mencapai
+                            2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Jurassic Marsh" Mencapai
+                            2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Big Wave Beach" Mencapai
+                            2047483640
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Level Zona Endless di Dunia "Modern Day" Mencapai
+                            2047483640</li>
+                        <li><i class="fas fa-check-circle"></i> Masuk dan Simpan Progres ke Akun EA atau Google Play
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Bisa Langsung Main Mode Petualangan "Offline", Penny
+                            "Online", dan
+                            Arena
+                            "Online"</li>
+                        <li><i class="fas fa-check-circle"></i> Akses awal ke pembaruan terbaru dan semua konten premium
+                            eksklusif
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Tiga akun dalam satu file data simpan, masing-masing
+                            dengan fitur
+                            unik
+                            (Multi-Slot)</li>
+                        <li><i class="fas fa-check-circle"></i> Editor OBB untuk mempermudah eksperimen dan modifikasi
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Penyesuaian nama akun atau profil sesuai permintaan
+                            pengguna</li>
+                        <li><i class="fas fa-check-circle"></i> Pengalaman bermain tanpa iklan dan tanpa batasan akses
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Akses ke grup eksklusif anggota premium untuk diskusi
+                            tips & trik
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> Dan Masih Banyak Lagi Fitur Menarik Lainnya Yang Bisa
+                            Kamu Dapatkan
+                        </li>
+                    </ul>
+                    <a href="#kontak" class="btn-grandmaster">Pesan Paket Grandmaster</a>
+                </div>
+            </div>
+        </div>
+        <div class="paket-bonus">
+            <i class="fas fa-gift"></i> <strong>Bonus Eksklusif:</strong> Setiap pembelian termasuk <strong>kode akses
+                galeri
+                premium</strong> yang hanya tersedia untuk pengguna Master dan juga tersedia untuk pengguna
+            Grandmaster.<br>
+            <i class="fas fa-infinity"></i> <strong>Data bersifat lifetime (Seumur Hidup)</strong> — tidak perlu
+            mengunduh
+            ulang atau membeli ulang saat versi terbaru dirilis.<br>
+            <i class="fas fa-sync-alt"></i> Pembaruan konten dilakukan secara otomatis, termasuk tambahan
+            <strong>tanaman,
+                zombie, dunia, kostum, level</strong> dan <strong>pencapaian baru</strong> dari setiap update resmi di
+            Play
+            Store atau App Store.
+        </div>
+        <div class="peringatan-cadangan">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>PERHATIAN:</strong> Pastikan Anda <strong>mencadangkan data</strong> yang telah Anda beli sebelum
+            memperbarui aplikasi.<br><br>
+            Setiap kali Anda memperbarui game <em>Plants vs Zombies™ 2</em> dari Play Store (contoh: versi
+            internasional),
+            sistem akan otomatis <strong>menimpa semua data</strong>. Hal ini menyebabkan semua fitur yang sebelumnya
+            aktif—seperti <em>Mastery 20000000</em>, <em>Mastery 99999999</em>, <em>Level 2047483640</em>, <em>Serangan
+                2047483640</em>, <em>Pertahanan 2047483640</em>, <em>Biaya Matahari -2047483640</em>, dan <em>fitur
+                lainnya</em>—akan <span class="hilang">hilang</span> atau kembali ke default. Begitu juga untuk
+            <em>Plants vs Zombies™ 2: Reflourished.</em><br><br>
+            Untuk menghindari kehilangan akses, <strong>cadangkan data ke lokasi aman</strong> dan <strong>tempel ulang
+                file-nya</strong> setelah pembaruan selesai.
+        </div>
+    </section>
+    <!-- Kontak -->
+    <section id="kontak" class="kontak-section">
+        <h2>Hubungi Kami</h2>
+        <p>
+            Jika Anda memiliki pertanyaan, masukan, atau memerlukan bantuan terkait
+            layanan kami, jangan ragu untuk menghubungi kami melalui saluran resmi
+            di bawah ini. Tim ViVienDo siap membantu Anda dengan cepat dan
+            profesional.
+        </p>
+        <div class="kontak-icons">
+            <a href="https://www.instagram.com/viviendochannel" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i> <span>Instagram</span>
+            </a>
+            <a href="https://t.me/viviendochannel" target="_blank" aria-label="Telegram">
+                <i class="fab fa-telegram"></i> <span>Telegram</span>
+            </a>
+            <a href="mailto:viviendochannel@gmail.com" target="_blank" aria-label="Email">
+                <i class="fas fa-envelope"></i> <span>Email</span>
+            </a>
+            <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i> <span>YouTube</span>
+            </a>
+        </div>
+    </section>
+    <div id="installBanner" class="install-banner">
+        <p>Pasang ViVienDo ke layar utama untuk akses lebih cepat!</p>
+        <div class="install-actions">
+            <button onclick="triggerPWAInstall()">Pasang Sekarang</button>
+            <button onclick="hideInstallBanner()">Nanti Saja</button>
+            <button onclick="dontShowAgain()">Jangan Tampilkan Lagi</button>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer-section">
+        <p class="footer-text">
+            &copy; <span id="footer-year"></span> ViVienDo PVZ2. Unduhan Gratis. Semua Hak Dilindungi.
+        </p>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/viviendochannel" target="_blank" class="footer-social-link"
+                aria-label="Instagram ViVienDo"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/viviendochannel" target="_blank" class="footer-social-link"
+                aria-label="Telegram ViVienDo"><i class="fab fa-telegram"></i></a>
+            <a href="mailto:viviendochannel@gmail.com" target="_blank" class="footer-social-link"
+                aria-label="Email ViVienDo"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" class="footer-social-link"
+                aria-label="YouTube ViVienDo"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    <script src="../app/js/paket.js" defer></script>
+    <script src="../app/js/unduhan.js" defer></script>
+    <script src="../app/js/mskdl.js" defer></script>
+    <script src="../app/js/riwayat.js" defer></script>
+    <script src="../app/js/bar.js" defer></script>
+    <script src="../app/js/btn-scroll.js" defer></script>
+    <script src="../app/js/catatan.js" defer></script>
+    <script src="../app/js/download.js" defer></script>
+    <script src="../app/js/galeri.js" defer></script>
+    <script src="../app/js/lawn.js" defer></script>
+    <script src="../app/js/loader.js" defer></script>
+    <script src="../app/js/login.js" defer></script>
+    <script src="../app/js/musik.js" defer></script>
+    <script src="../app/js/navbar.js" defer></script>
+    <script src="../app/js/online-offline.js" defer></script>
+    <script src="../app/js/parallax.js" defer></script>
+    <script src="../app/js/pwa.js" defer></script>
+    <script src="../app/js/script.js" defer></script>
+    <script src="../app/js/scroll.js" defer></script>
+    <script src="../app/js/statistik.js" defer></script>
+    <script src="../app/js/year.js" defer></script>
+    <script src="../app/js/troubleshooting.js" defer></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("../pwa/service-worker.js")
+                    .then((reg) => console.log("Service Worker registered:", reg.scope))
+                    .catch((err) => console.error("Service Worker failed:", err));
+            });
+        }
+    </script>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Y1ld5flFnrzUY_qWdokoh"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="assets/app/js/auth.js" defer></script>
+</body>
+
+</html>

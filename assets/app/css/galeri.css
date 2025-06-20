@@ -1,0 +1,236 @@
+/* === GALLERY SECTION === */
+.gallery-section {
+  padding: 4rem 1.5rem;
+  background-color: #f8fafc;
+  text-align: center;
+}
+
+.gallery-title {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+
+.gallery-subtitle {
+  font-size: 1rem;
+  color: #475569;
+  max-width: 720px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* === FILTER & ACCESS BUTTONS === */
+.gallery-filters {
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.filter-btn,
+.access-btn {
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  color: #fff;
+  border: 1px solid #334155;
+  padding: 0.6rem 1.4rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover,
+.access-btn:hover {
+  background: linear-gradient(145deg, #2563eb, #1d4ed8);
+  border-color: #1e40af;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.access-btn.disabled {
+  background: #9ca3af;
+  color: #f1f5f9;
+  border-color: #cbd5e1;
+  cursor: default;
+  transform: none;
+  box-shadow: none;
+}
+
+/* === GALLERY GRID === */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery-grid a,
+.gallery-grid .gallery-item-locked {
+  position: relative;
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-grid a:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* === Locked Items === */
+.gallery-item-locked img {
+  filter: blur(4px);
+  pointer-events: none;
+}
+
+.gallery-item-locked::after {
+  content: '\1F512';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2.4rem;
+  color: #0f172a;
+  background: none; /* Tanpa latar belakang */
+  border-radius: 0;
+  padding: 0;
+  opacity: 0.7;
+}
+
+/* === Modal (Profesional & Modern) === */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 90%;
+  color: #0f172a;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  animation: modalFadeIn 0.4s ease;
+  position: relative;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-15px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 0.65rem 1rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid rgba(148, 163, 184, 0.7);
+  border-radius: 10px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  color: #0f172a;
+  transition: border-color 0.3s ease;
+}
+.modal-content input:focus {
+  border-color: #2563eb;
+  outline: none;
+}
+
+.modal-content button {
+  width: 100%;
+  background: linear-gradient(145deg, #2563eb, #1e40af);
+  color: #fff;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.modal-content button:hover {
+  background: linear-gradient(145deg, #1d4ed8, #1e3a8a);
+  transform: translateY(-2px);
+}
+
+.modal-content button.disabled {
+  background: #9ca3af;
+  color: #f8fafc;
+  box-shadow: none;
+  cursor: default;
+  transform: none;
+}
+
+.access-status {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #16a34a;
+  font-size: 0.95rem;
+}
+
+/* Responsif Mobile */
+@media (max-width: 500px) {
+  .modal-content {
+    padding: 1.5rem 1rem;
+  }
+  .modal-content h3 {
+    font-size: 1.3rem;
+  }
+  .modal-content input,
+  .modal-content button {
+    font-size: 0.95rem;
+  }
+}
+
+/* === Responsif Tambahan === */
+@media (max-width: 480px) {
+  .filter-btn,
+  .access-btn {
+    padding: 0.5rem 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
