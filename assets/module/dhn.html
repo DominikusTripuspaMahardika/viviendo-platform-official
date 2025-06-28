@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="ViVienDo PVZ2 - Unduh gratis Plants vs Zombies™ 2 tanpa pembelian, cepat dan aman." />
+    <title>ViVienDo</title>
+    <link rel="icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../app/css/dhn.css">
+    <link rel="stylesheet" href="../app/css/lrd.css">
+    <link rel="stylesheet" href="../app/css/pwa.css">
+    <link rel="stylesheet" href="../app/css/auth.css">
+    <link rel="stylesheet" href="../app/css/footer.css">
+    <link rel="stylesheet" href="../app/css/login.css">
+    <link rel="stylesheet" href="../app/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="manifest" href="../pwa/manifest.json" />
+    <meta name="theme-color" content="#1e293b" />
+    <link rel="apple-touch-icon" href="../images/icon-pwa/icon-192.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- SECTION: Login/Register Gate -->
+    <section id="authGate" class="auth-section">
+        <div class="auth-container">
+            <h2 id="authTitle"></h2>
+            <form id="authForm">
+                <input type="text" id="username" placeholder="Username" required />
+                <input type="text" id="token" placeholder="Token / Key" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <button type="submit" id="authSubmitBtn"></button>
+                <p id="authSwitchText" class="auth-switch"></p>
+                <!-- Google Sign-In Button -->
+                <div id="g_id_onload"
+                    data-client_id="623471480995-2vbcrrtar8gu6kj366ajiu4nu5n82cmk.apps.googleusercontent.com"
+                    data-callback="handleGoogleLogin" data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left">
+                </div>
+            </form>
+            <div id="authToast" class="auth-toast hidden"></div>
+        </div>
+    </section>
+    <div id="scrollProgressBar" aria-hidden="true"></div>
+    <!-- Loader -->
+    <div id="loader" class="loader-screen" aria-hidden="true" role="status">
+        <div class="loader-box">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Memuat aplikasi...</p>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <header class="navbar" role="banner">
+        <div class="navbar-brand">ViVienDo</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"
+            aria-controls="navbarMenu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="navbar-menu" id="navbarMenu" role="navigation" aria-label="Primary Navigation">
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a href="../../index.html" class="nav-link">Beranda</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/pbn.html" class="nav-link">Pembaruan</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/mdt.html" class="nav-link">Mendatang</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/dhn.html" class="nav-link">Unduhan</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/lrd.html" class="nav-link">Layanan</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#kontak" class="nav-link">Kontak</a>
+                </li>
+                <li class="navbar-item">
+                    <button id="logoutBtn" class="logout-button" title="Keluar dari Akun" aria-label="Logout">
+                        <i class="fas fa-door-open"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <!-- Hero -->
+    <section id="beranda" class="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Selamat Datang di ViVienDo Official</h1>
+            <p class="hero-subtitle">
+                Dapatkan data premium Plants vs Zombies™ 2 sekarang juga!
+            </p>
+        </div>
+    </section>
+    <!-- Section: Unduhan Data Game -->
+    <section id="unduhan-data-section" class="unduhan-data-section">
+        <div class="unduhan-data-container">
+            <!-- Header -->
+            <div class="unduhan-data-header">
+                <h2 class="unduhan-data-title">Plants vs. Zombies 2: Internasional</h2>
+            </div>
+            <!-- Konten Utama -->
+            <div class="unduhan-data-body">
+                <!-- Logo & Deskripsi -->
+                <div class="unduhan-data-intro">
+                    <img src="../images/download/logo/pvz2itr/pvz2.png" alt="Logo Plants vs. Zombies 2"
+                        class="unduhan-data-logo" />
+                    <p class="unduhan-data-deskripsi">
+                        <strong>Plants vs. Zombies 2</strong> adalah game strategi pertahanan menara yang mengajak
+                        pemain melindungi rumah dari serangan zombie dengan tanaman unik. Bertarung di berbagai
+                        era—Mesir Kuno, Bajak Laut, hingga Masa Depan—dengan gameplay adiktif, visual cerah, dan
+                        strategi penuh tantangan.
+                    </p>
+                </div>
+                <!-- Carousel Preview -->
+                <div class="unduhan-data-carousel" id="carouselPreview"></div>
+                <div id="carouselPagination" class="carousel-pagination"></div>
+                <!-- FITUR GRATIS & PREMIUM DALAM GRID -->
+                <div class="unduhan-data-fitur-wrapper">
+                    <!-- GRATIS -->
+                    <div class="unduhan-data-fitur fitur-gratis">
+                        <h3 class="unduhan-data-subjudul">Fitur Unggulan Gratis: <span class="fitur-count"
+                                data-target="gratis">(0 Fitur)</span></h3>
+                        <ul class="unduhan-data-list-fitur fitur-gratis-list">
+                            <li><strong>Pencapaian Terbuka:</strong> Semua achievement tersedia sejak awal.</li>
+                            <li><strong>Tanaman Lengkap:</strong> Gunakan semua tanaman tanpa batasan.</li>
+                            <li><strong>Dunia Terbuka:</strong> Akses semua dunia tanpa perlu progres bertahap.</li>
+                            <li><strong>Semua Level Terbuka:</strong> Nikmati semua level sejak awal permainan.</li>
+                            <li><strong>Level Maksimum:</strong> Semua tanaman berada pada level tertinggi.</li>
+                            <li><strong>Mastery Maksimal:</strong> Setiap tanaman telah mencapai mastery maksimal.</li>
+                            <li><strong>Mata Uang Melimpah:</strong> Tersedia koin, permata, dan mata uang premium dalam
+                                jumlah besar.</li>
+                        </ul>
+                    </div>
+                    <!-- PREMIUM -->
+                    <div class="unduhan-data-fitur fitur-premium">
+                        <h3 class="unduhan-data-subjudul">Fitur Unggulan Premium: <span class="fitur-count"
+                                data-target="premium">(0 Fitur)</span></h3>
+                        <div class="fitur-scrollable">
+                            <ul class="unduhan-data-list-fitur fitur-premium-list">
+                                <li><strong>Membuka Semua Tanaman:</strong> Semua jenis tanaman tersedia tanpa terkunci.
+                                </li>
+                                <li><strong>Membuka Semua Zombie:</strong> Termasuk zombie langka dan event.</li>
+                                <li><strong>Membuka Semua Peta:</strong> Semua dunia tersedia tanpa syarat progres.</li>
+                                <li><strong>Membuka Semua Level:</strong> Dapat diakses tanpa menyelesaikan misi
+                                    sebelumnya.</li>
+                                <li><strong>Membuka Semua Kostum:</strong> Kostum unik semua tanaman terbuka otomatis.
+                                </li>
+                                <li><strong>Membuka Semua Dunia:</strong> Semua dunia dari Ancient Egypt hingga Modern
+                                    Day aktif.</li>
+                                <li><strong>Membuka Semua Pot di Zen Garden:</strong> Semua slot tanaman terbuka dan
+                                    aktif.</li>
+                                <li><strong>Semua Misi atau Level Telah Diselesaikan:</strong> Progres 100% langsung.
+                                </li>
+                                <li><strong>Semua Trofi atau Penghargaan Telah Didapatkan:</strong> Termasuk medali dan
+                                    badge event.</li>
+                                <li><strong>Semua Tanaman Memiliki Level 2047483640:</strong> Tanaman mencapai level
+                                    maksimum modifikasi.</li>
+                                <li><strong>Semua Tanaman Memiliki Mastery 200–99999999:</strong> Skill mastery tanaman
+                                    penuh untuk semua jenis.</li>
+                                <li><strong>Semua Tanaman Memiliki Pertahanan 2047483640:</strong> Daya tahan sangat
+                                    tinggi, tidak terkalahkan.</li>
+                                <li><strong>Semua Tanaman Memiliki Serangan 2047483640:</strong> Damage super tinggi
+                                    pada semua musuh.</li>
+                                <li><strong>Semua Tanaman Memiliki Biaya Matahari -2047483640:</strong> Biaya negatif,
+                                    dapat digunakan tanpa konsumsi sun.</li>
+                                <li><strong>Semua Tanaman Dapat Langsung Digunakan:</strong> Tidak perlu waktu tunggu.
+                                </li>
+                                <li><strong>Bisa Digunakan Tanpa Recharge:</strong> Tidak ada cooldown setelah
+                                    digunakan.</li>
+                                <li><strong>Bisa Digunakan Tanpa Cooldown:</strong> Penggunaan ulang seketika.</li>
+                                <li><strong>Bisa Digunakan Tanpa Reload:</strong> Tidak perlu waktu untuk reset daya
+                                    serang.</li>
+                                <li><strong>Kostum Unik dan Lengkap:</strong> Tersedia semua varian kostum visual dengan
+                                    efek khusus.</li>
+                                <li><strong>Semua Mata Uang 2047483640:</strong> Termasuk semua jenis mata uang game.
+                                </li>
+                                <li><strong>Koin:</strong> 2047483640 tersedia sejak awal.</li>
+                                <li><strong>Permata:</strong> 2047483640 tersedia untuk belanja premium.</li>
+                                <li><strong>Mint:</strong> 2047483640 untuk upgrade tanaman khusus.</li>
+                                <li><strong>Sarung Tangan Arena:</strong> 2047483640 untuk pertempuran PvP.</li>
+                                <li><strong>Bahan Bakar Penny:</strong> 2047483640 untuk mode Petualangan Otomatis.</li>
+                                <li><strong>Poin Perk Penny Chase:</strong> Untuk semua skill tambahan Penny.</li>
+                                <li><strong>PowerUp Jari Sihir:</strong> 2047483640 - serangan gestur ajaib.</li>
+                                <li><strong>PowerUp Cubit Zombie:</strong> 2047483640 - kontrol penuh serangan fisik.
+                                </li>
+                                <li><strong>PowerUp Gesek Zombie:</strong> 2047483640 - serangan gerakan swipe unik.
+                                </li>
+                                <li><strong>PowerUp Bola Salju:</strong> 2047483640 - membekukan musuh.</li>
+                                <li><strong>PowerUp Penyembur Api:</strong> 2047483640 - membakar area secara luas.</li>
+                                <li><strong>PowerUp Vasebreaker Reveal:</strong> 2047483640 - melihat isi vas sebelum
+                                    pecah.</li>
+                                <li><strong>PowerUp Vasebreaker Butter:</strong> 2047483640 - melempar mentega ke zombie
+                                    dari vas.</li>
+                                <li><strong>PowerUp Vasebreaker Move:</strong> 2047483640 - memindahkan posisi vas
+                                    dengan bebas.</li>
+                                <li><strong>PowerUp Beg Houled Shuffle:</strong> 2047483640 - acak isi kotak hadiah.
+                                </li>
+                                <li><strong>PowerUp Beg Houled Shovel:</strong> 2047483640 - gali hadiah rahasia.</li>
+                                <li><strong>PowerUp Beg Houled Wizard:</strong> 2047483640 - sulap isi kotak jadi hadiah
+                                    langka.</li>
+                                <li><strong>Level Zona Endless 2047483640:</strong> Di semua dunia dari Ancient Egypt
+                                    hingga Modern Day.</li>
+                                <li><strong>Sinkronisasi Akun:</strong> Bisa login EA & Google Play tanpa error atau
+                                    reset data.</li>
+                                <li><strong>Mode Online & Offline:</strong> Petualangan, Penny, dan Arena bisa dimainkan
+                                    kapan saja.</li>
+                                <li><strong>Akses Awal Fitur Update Otomatis:</strong> Termasuk tanaman dan dunia
+                                    terbaru.</li>
+                                <li><strong>Sistem Akun Multi-Slot:</strong> Gunakan banyak data dalam satu perangkat.
+                                </li>
+                                <li><strong>PlantFood Tanpa Batas:</strong> Aktifkan efek spesial tanpa habis.</li>
+                                <li><strong>Editor OBB Eksperimental:</strong> Ubah data game sesuai keinginan.</li>
+                                <li><strong>Tanpa Iklan & Tanpa Batasan Akses:</strong> Bermain nyaman tanpa gangguan
+                                    iklan.</li>
+                                <li><strong>Dan Masih Banyak Lagi:</strong> Termasuk fitur modifikasi, tema interaktif,
+                                    dan penyimpanan cloud.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Informasi File GRATIS -->
+                <div class="unduhan-data-informasi-wrapper">
+                    <div class="unduhan-data-info info-gratis">
+                        <h3 class="unduhan-data-subjudul">Detail File (Gratis):</h3>
+                        <ul class="unduhan-data-list-info">
+                            <li><span class="info-label">Nama File</span><span class="info-value">pp.gbl.dat</span></li>
+                            <li><span class="info-label">Versi</span><span class="info-value">12.3.1 (Terbaru)</span>
+                            </li>
+                            <li><span class="info-label">Ukuran</span><span class="info-value">38,1 KB</span></li>
+                            <li><span class="info-label">Jenis</span><span class="info-value">File DAT</span></li>
+                            <li><span class="info-label">Update</span><span class="info-value"
+                                    id="fileUpdateTime">Memuat...</span></li>
+                            <li><span class="info-label">Kompatibilitas</span><span class="info-value">Android 7.0+ |
+                                    CPU ARM64</span></li>
+                            <li><span class="info-label">RAM Minimum (Android)</span><span class="info-value">4 GB</span></li>
+                            <li><span class="info-label">ROM Minimum (Android)</span><span class="info-value">32 GB</span></li>
+                            <li><span class="info-label">RAM Minimum (iOS)</span><span class="info-value">64 GB</span></li>
+                        </ul>
+                    </div>
+                    <!-- Informasi File PREMIUM -->
+                    <div class="unduhan-data-info info-premium">
+                        <h3 class="unduhan-data-subjudul">Detail File (Premium):</h3>
+                        <ul class="unduhan-data-list-info">
+                            <li><span class="info-label">Nama File</span><span
+                                    class="info-value">PvZ2-ViVienDo.zip</span></li>
+                            <li><span class="info-label">Versi</span><span class="info-value">12.3.1 (Terbaru)</span>
+                            </li>
+                            <li><span class="info-label">Ukuran</span><span class="info-value">48,3 MB</span></li>
+                            <li><span class="info-label">Jenis</span><span class="info-value">File ZIP</span></li>
+                            <li><span class="info-label">Update</span><span class="info-value"
+                                    id="fileUpdateTime">Memuat...</span></li>
+                            <li><span class="info-label">Kompatibilitas</span><span class="info-value">Android 7.0+ |
+                                    CPU ARM64</span></li>
+                            <li><span class="info-label">RAM Minimum (Android)</span><span class="info-value">4 GB</span></li>
+                            <li><span class="info-label">ROM Minimum (Android)</span><span class="info-value">32 GB</span></li>
+                            <li><span class="info-label">RAM/ROM Minimum (iOS)</span><span class="info-value">64 GB</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Daftar File Lengkap Premium -->
+                <div class="unduhan-data-filelengkap">
+                    <h3 class="unduhan-data-subjudul">Daftar File Lengkap (Premium):</h3>
+                    <div class="filelengkap-scroll">
+                        <ul class="filelengkap-list">
+                            <li><i class="fas fa-file-alt"></i> local_profiles</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 200 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 300 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 400 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 500 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 600 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 700 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 800 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 900 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 999 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 1000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 2000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 3000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 4000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 5000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 6000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 7000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 8000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 9000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 9999 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 10000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 20000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 30000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 40000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 50000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 60000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 70000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 80000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 90000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 99999 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 100000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 200000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 300000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 400000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 500000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 600000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 700000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 800000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 900000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 999999 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 1000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 2000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 3000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 4000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 5000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 6000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 7000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 8000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 9000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 9999999 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 10000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 20000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 30000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 40000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 50000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 60000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 70000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 80000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 90000000 + LifeTime)</li>
+                            <li><i class="fas fa-file-alt"></i> pp.dat (Mastery 99999999 + LifeTime)</li>
+                            <li><i class="fas fa-file-code"></i> pp.dat (Multiple Profile 119 + LifeTime)</li>
+                            <li><i class="fas fa-plus"></i> dan masih banyak file lainnya</li>
+                            <li><i class="fas fa-gift"></i> bonus lebih dari 50 tambahan</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Tombol Unduh -->
+                <div class="unduhan-data-tombol">
+                    <button id="unduhan-data-btn-gratis" class="unduhan-data-btn unduhan-data-btn-primary">
+                        Mulai Unduh Gratis
+                    </button>
+                    <button id="unduhan-data-btn-premium" class="unduhan-data-btn unduhan-data-btn-secondary">
+                        Mulai Unduh Premium
+                    </button>
+                </div>
+            </div>
+            <!-- Pembatas -->
+            <div class="unduhan-data-pembatas"></div>
+            <!-- Bonus Eksklusif -->
+            <div class="unduhan-data-bonus">
+                <h3 class="unduhan-data-subjudul"><i class="fas fa-gift"></i> Bonus Eksklusif</h3>
+                <p>
+                    Setiap pembelian tidak hanya memberikan akses ke file utama, tetapi juga <strong>lebih dari 50 file
+                        bonus tambahan</strong> yang mencakup berbagai data menarik seperti:
+                </p>
+                <ul class="unduhan-data-list-bonus">
+                    <li><strong>File tanaman spesial</strong> dengan statistik unik.</li>
+                    <li><strong>Data kostum premium</strong> untuk berbagai karakter.</li>
+                    <li><strong>File dunia rahasia</strong> yang tidak tersedia di versi standar.</li>
+                    <li><strong>Level eksklusif</strong> hasil modifikasi komunitas.</li>
+                    <li><strong>Item langka</strong> dalam jumlah besar untuk eksperimen gameplay.</li>
+                    <li><strong>Bonus efek visual & suara</strong> yang dapat diaktifkan di game.</li>
+                    <li><strong>Template save data</strong> dengan pengaturan unik (Mastery ekstrem, dll).</li>
+                </ul>
+                <p>
+                    <i class="fas fa-infinity"></i> <strong>Data bersifat lifetime (seumur hidup)</strong> — Anda tidak
+                    perlu mengunduh ulang meskipun ada pembaruan besar.
+                </p>
+                <p>
+                    <i class="fas fa-sync-alt"></i> Setiap konten bonus akan diperbarui otomatis seiring pembaruan resmi
+                    dari Play Store atau App Store, termasuk <strong>tanaman, zombie, dunia, kostum, level</strong>, dan
+                    <strong>pencapaian baru</strong>.
+                </p>
+            </div>
+            <!-- Peringatan -->
+            <div class="unduhan-data-peringatan">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>PERHATIAN:</strong> Selalu <strong>cadangkan file</strong> Anda sebelum memperbarui aplikasi.
+                <br><br>
+                Setiap pembaruan game <em>Plants vs Zombies™ 2</em> melalui Play Store dapat menimpa file yang telah
+                dimodifikasi, termasuk fitur seperti <em>Mastery 99999999</em>, <em>Level 2047483640</em>, hingga
+                <em>Biaya Matahari -2047483640</em>.
+                <br><br>
+                Untuk mencegah kehilangan data, <strong>simpan salinan file</strong> di tempat aman dan <strong>tempel
+                    ulang file tersebut</strong> setelah pembaruan.
+            </div>
+        </div>
+    </section>
+    <!-- Kontak -->
+    <section id="kontak" class="kontak-section">
+        <h2>Hubungi Kami</h2>
+        <p>
+            Jika Anda memiliki pertanyaan, masukan, atau memerlukan bantuan terkait
+            layanan kami, jangan ragu untuk menghubungi kami melalui saluran resmi
+            di bawah ini. Tim ViVienDo siap membantu Anda dengan cepat dan
+            profesional.
+        </p>
+        <div class="kontak-icons">
+            <a href="https://www.instagram.com/viviendochannel" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i> <span>Instagram</span>
+            </a>
+            <a href="https://t.me/viviendochannel" target="_blank" aria-label="Telegram">
+                <i class="fab fa-telegram"></i> <span>Telegram</span>
+            </a>
+            <a href="mailto:viviendochannel@gmail.com" target="_blank" aria-label="Email">
+                <i class="fas fa-envelope"></i> <span>Email</span>
+            </a>
+            <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i> <span>YouTube</span>
+            </a>
+        </div>
+    </section>
+    <div id="installBanner" class="install-banner">
+        <p>Pasang ViVienDo ke layar utama untuk akses lebih cepat!</p>
+        <div class="install-actions">
+            <button onclick="triggerPWAInstall()">Pasang Sekarang</button>
+            <button onclick="hideInstallBanner()">Nanti Saja</button>
+            <button onclick="dontShowAgain()">Jangan Tampilkan Lagi</button>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer-section">
+        <p class="footer-text">
+            &copy; <span id="footer-year"></span> ViVienDo PVZ2. Unduhan Gratis. Semua Hak Dilindungi.
+        </p>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/viviendochannel" target="_blank" class="footer-social-link"
+                aria-label="Instagram ViVienDo"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/viviendochannel" target="_blank" class="footer-social-link"
+                aria-label="Telegram ViVienDo"><i class="fab fa-telegram"></i></a>
+            <a href="mailto:viviendochannel@gmail.com" target="_blank" class="footer-social-link"
+                aria-label="Email ViVienDo"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" class="footer-social-link"
+                aria-label="YouTube ViVienDo"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    <script src="../app/js/dhn.js" defer></script>
+    <script src="../app/js/loader.js" defer></script>
+    <script src="../app/js/login.js" defer></script>
+    <script src="../app/js/navbar.js" defer></script>
+    <script src="../app/js/parallax.js" defer></script>
+    <script src="../app/js/pwa.js" defer></script>
+    <script src="../app/js/script.js" defer></script>
+    <script src="../app/js/year.js" defer></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("../pwa/service-worker.js")
+                    .then((reg) => console.log("Service Worker registered:", reg.scope))
+                    .catch((err) => console.error("Service Worker failed:", err));
+            });
+        }
+    </script>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Y1ld5flFnrzUY_qWdokoh"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="assets/app/js/auth.js" defer></script>
+</body>
+
+</html>
