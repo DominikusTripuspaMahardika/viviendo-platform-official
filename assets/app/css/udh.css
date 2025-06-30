@@ -1,0 +1,334 @@
+/* Container utama */
+.daftar-produk-premium-container {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Judul bagian */
+.daftar-produk-premium-judul {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+/* Grid produk */
+.daftar-produk-premium-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+/* Kartu produk */
+.daftar-produk-premium-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease;
+}
+
+.daftar-produk-premium-card:hover {
+  transform: translateY(-6px);
+}
+
+/* Thumbnail produk - dengan rasio 3:2 */
+.daftar-produk-premium-thumbnail {
+  position: relative;
+  width: 100%;
+  padding-top: 66.66%; /* 100 / (3/2) = 66.66% */
+  background: #e0e0e0;
+  border-bottom: 1px solid #eee;
+}
+
+.daftar-produk-premium-thumbnail img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Gambar ditampilkan utuh tanpa terpotong */
+  object-position: center;
+  background-color: #fff;
+}
+
+/* Info produk */
+.daftar-produk-premium-info {
+  padding: 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Nama produk */
+.daftar-produk-premium-nama {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Deskripsi */
+.daftar-produk-premium-deskripsi {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+/* Tombol aksi */
+.daftar-produk-premium-aksi {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.daftar-produk-premium-aksi a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 18px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Tombol "Verifikasi Pembelian" */
+.daftar-produk-premium-aksi a.beli {
+  background-color: #007bff;
+}
+
+.daftar-produk-premium-aksi a.beli:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+/* Tombol "Verifikasi Pembayaran" */
+.daftar-produk-premium-aksi a.kirim {
+  background-color: #25d366; /* Hijau WhatsApp */
+}
+
+.daftar-produk-premium-aksi a.kirim:hover {
+  background-color: #1ebe57;
+  transform: scale(1.03);
+}
+
+/* Ikon Font Awesome */
+.daftar-produk-premium-aksi a i {
+  font-size: 1rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background: #eee;
+  border-radius: 6px;
+  transition: 0.2s ease;
+}
+
+.pagination button:hover {
+  background: #ccc;
+}
+
+#pageIndicator {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Peringatan Bonus Pembelian */
+.peringatan-bonus {
+  display: flex;
+  align-items: flex-start;
+  padding: 14px 18px;
+  margin: 0 auto 28px auto;
+  max-width: 100%;
+  width: 100%;
+  background-color: #fff8e1;
+  border-left: 5px solid #f5b041;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  color: #4d3400;
+  font-size: 0.96rem;
+  line-height: 1.6;
+  font-weight: 500;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.peringatan-bonus i {
+  color: #f39c12;
+  font-size: 1.3rem;
+  margin-right: 12px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+@media (max-width: 600px) {
+  .peringatan-bonus {
+    font-size: 0.9rem;
+    padding: 12px 16px;
+  }
+
+  .peringatan-bonus i {
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+}
+
+/* Overlay Gelap Modal */
+.modal-verifikasi {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Isi Modal */
+.modal-verifikasi-content {
+  background: #ffffff;
+  padding: 28px 24px;
+  border-radius: 14px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.15);
+  text-align: left;
+  font-family: "Segoe UI", "Poppins", sans-serif;
+  color: #2c3e50;
+  animation: fadeInModal 0.3s ease-out;
+}
+
+/* Judul Modal */
+.modal-verifikasi-content h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #1a1a1a;
+}
+
+/* Isi Detail */
+.modal-verifikasi-content p {
+  font-size: 0.95rem;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+/* Tombol Container */
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* Style Tombol Umum */
+.lanjutkan-btn,
+.batal-btn {
+  flex: 1 1 auto;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  min-width: 120px;
+}
+
+/* Tombol Lanjutkan */
+.lanjutkan-btn {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.lanjutkan-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Tombol Batal */
+.batal-btn {
+  background-color: #f1f1f1;
+  color: #555;
+}
+
+.batal-btn:hover {
+  background-color: #e0e0e0;
+  color: #222;
+}
+
+/* Sembunyikan Default */
+.hidden {
+  display: none !important;
+}
+
+/* Animasi Muncul */
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Responsif Mobile */
+@media (max-width: 480px) {
+  .modal-verifikasi-content {
+    padding: 22px 18px;
+  }
+
+  .modal-verifikasi-content h3 {
+    font-size: 1.2rem;
+  }
+
+  .modal-verifikasi-content p {
+    font-size: 0.9rem;
+  }
+
+  .modal-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .lanjutkan-btn,
+  .batal-btn {
+    width: 100%;
+  }
+}

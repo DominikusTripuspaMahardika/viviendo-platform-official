@@ -7,18 +7,18 @@
     <meta name="description"
         content="ViVienDo PVZ2 - Unduh gratis Plants vs Zombies™ 2 tanpa pembelian, cepat dan aman." />
     <title>ViVienDo</title>
-    <link rel="icon" href="assets/images/favicon.ico" />
-    <link rel="stylesheet" href="assets/app/css/udh.css">
-    <link rel="stylesheet" href="assets/app/css/lrd.css">
-    <link rel="stylesheet" href="assets/app/css/pwa.css">
-    <link rel="stylesheet" href="assets/app/css/auth.css">
-    <link rel="stylesheet" href="assets/app/css/footer.css">
-    <link rel="stylesheet" href="assets/app/css/login.css">
-    <link rel="stylesheet" href="assets/app/css/style.css">
+    <link rel="icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../app/css/udh.css">
+    <link rel="stylesheet" href="../app/css/lrd.css">
+    <link rel="stylesheet" href="../app/css/pwa.css">
+    <link rel="stylesheet" href="../app/css/auth.css">
+    <link rel="stylesheet" href="../app/css/footer.css">
+    <link rel="stylesheet" href="../app/css/login.css">
+    <link rel="stylesheet" href="../app/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="manifest" href="assets/pwa/manifest.json" />
+    <link rel="manifest" href="../pwa/manifest.json" />
     <meta name="theme-color" content="#1e293b" />
-    <link rel="apple-touch-icon" href="assets/images/icon-pwa/icon-192.png" />
+    <link rel="apple-touch-icon" href="../images/icon-pwa/icon-192.png" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
@@ -62,33 +62,20 @@
         </button>
         <nav class="navbar-menu" id="navbarMenu" role="navigation" aria-label="Primary Navigation">
             <ul class="navbar-list">
-                <!--<li class="navbar-item dropdown">
-                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-awal"
-                        id="btn-awal">
-                        Beranda
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <ul class="dropdown-content" aria-label="submenu Awal" id="submenu-awal" role="menu"
-                        aria-labelledby="btn-awal">
-                        <li role="none"><a href="#tentang" role="menuitem" tabindex="-1">Tentang</a></li>
-                        <li role="none"><a href="assets/module/pbn.html" role="menuitem" tabindex="-1">Pembaruan</a>
-                        </li>
-                    </ul>
-                </li>-->
                 <li class="navbar-item">
-                    <a href="index.html" class="nav-link">Beranda</a>
+                    <a href="../../index.html" class="nav-link">Beranda</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="assets/module/pbn.html" class="nav-link">Pembaruan</a>
+                    <a href="../module/pbn.html" class="nav-link">Pembaruan</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="assets/module/mdt.html" class="nav-link">Mendatang</a>
+                    <a href="../module/mdt.html" class="nav-link">Mendatang</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="assets/module/udh.html" class="nav-link">Unduhan</a>
+                    <a href="../module/udh.html" class="nav-link">Unduhan</a>
                 </li>
                 <li class="navbar-item">
-                    <a href="assets/module/lrd.html" class="nav-link">Layanan</a>
+                    <a href="../module/lrd.html" class="nav-link">Layanan</a>
                 </li>
                 <li class="navbar-item">
                     <a href="#kontak" class="nav-link">Kontak</a>
@@ -112,70 +99,36 @@
             </p>
         </div>
     </section>
-    <!-- MODAL SELAMAT DATANG -->
-    <div id="welcomeModal" class="modal-welcome hidden">
-        <div class="modal-content">
-            <h2>Selamat datang, <span id="welcomeUser"></span>!</h2>
-            <p>Terima kasih, Anda telah berhasil masuk ke Platform ViVienDo.</p>
-            <button id="closeWelcomeModal">Tutup</button>
-        </div>
-    </div>
-    <section id="tentang" class="info-section">
-        <h2>Tentang ViVienDo</h2>
-        <p>
-            <strong>ViVienDo PVZ2</strong> adalah platform digital yang secara eksklusif menyediakan <em>data premium
-                hasil modifikasi</em> serta layanan penyesuaian permainan <em>Plants vs. Zombies™ 2</em>. Seluruh konten
-            yang tersedia dikembangkan secara internal oleh tim profesional kami, melalui proses pengujian berlapis demi
-            memastikan kualitas, stabilitas, dan kompatibilitas dengan berbagai versi game.
+    <!-- Daftar Produk Digital dengan Pagination -->
+    <section id="daftar-produk-premium-section" class="daftar-produk-premium-container">
+        <h2 class="daftar-produk-premium-judul">Koleksi Data Premium</h2>
+        <p class="peringatan-bonus">
+            <i class="fas fa-gift"></i> Setiap anda berhasil melakukan pembelian yang terverifikasi maka akan
+            mendapatkan bonus file tambahan yang akan
+            langsung dirimkan admin secara eksklusif!
         </p>
-        <p>
-            Kami tidak mendistribusikan aplikasi resmi atau versi asli dari game PvZ2. Fokus utama ViVienDo adalah
-            membantu pemain yang ingin mengeksplorasi seluruh potensi permainan dengan cara yang aman, fleksibel, dan
-            sesuai preferensi masing-masing. Semua layanan yang kami berikan ditujukan untuk penggunaan pribadi, edukasi
-            modifikasi game, serta pengarsipan koleksi non-komersial. Kami menjunjung tinggi etika distribusi digital
-            dan senantiasa memastikan bahwa seluruh aktivitas kami tidak melanggar hukum atau hak intelektual pihak
-            lain.
-        </p>
-        <!-- Tentang Developer -->
-        <div class="info-mission">
-            <h3>Tentang Developer Resmi</h3>
-            <p>
-                <strong>Plants vs. Zombies™ 2</strong> adalah game strategi populer berkonsep pertahanan menara,
-                dikembangkan oleh
-                <a href="https://www.ea.com/" target="_blank" rel="noopener noreferrer">PopCap Games</a> — studio game
-                kenamaan yang berada di bawah naungan
-                <a href="https://www.ea.com/" target="_blank" rel="noopener noreferrer">Electronic Arts (EA)</a>. Game
-                ini pertama kali dirilis pada tahun 2013 untuk perangkat iOS dan Android dan telah mengalami berbagai
-                pembaruan signifikan sejak saat itu.
-            </p>
-            <p>
-                ViVienDo tidak memiliki hubungan afiliasi, lisensi resmi, atau kerja sama komersial apa pun dengan
-                PopCap maupun EA. Kami secara eksplisit menyatakan bahwa semua hak cipta, merek dagang, dan aset dalam
-                game PvZ2 sepenuhnya milik PopCap Games dan Electronic Arts. Kami hanya menyediakan <em>file data
-                    tambahan dan layanan modifikasi</em> sebagai bentuk kontribusi komunitas kepada sesama penggemar
-                PvZ2, dalam ruang lingkup yang bertanggung jawab dan terbatas.
-            </p>
-        </div>
-        <!-- Disclaimer -->
-        <div class="info-legal-disclaimer">
-            <h3>Disclaimer Resmi</h3>
-            <p>
-                ViVienDo bukan bagian dari PopCap Games maupun Electronic Arts (EA), dan tidak memiliki afiliasi apa pun
-                dengan entitas resmi pengembang PvZ2. Semua file dan layanan disediakan semata-mata untuk keperluan
-                personal, koleksi, eksperimen, atau edukasi terkait game PvZ2.
-            </p>
-            <p>
-                Setiap tindakan pengguna terhadap file modifikasi adalah tanggung jawab pribadi masing-masing. Kami
-                tidak bertanggung jawab atas kehilangan data, pemblokiran akun, atau kerusakan sistem akibat penggunaan
-                tidak tepat dari pihak ketiga. Pengguna dianjurkan untuk membaca kebijakan penggunaan dan memahami
-                potensi risikonya sebelum melanjutkan.
-            </p>
-            <p>
-                Untuk klarifikasi, laporan pelanggaran, atau permintaan resmi kerja sama, silakan hubungi kami melalui
-                halaman <a href="#kontak">Kontak</a> yang tersedia.
-            </p>
+        <div id="produk-list" class="daftar-produk-premium-grid"></div>
+        <!-- Navigasi Halaman -->
+        <div class="pagination">
+            <button id="prevBtn">&laquo; Prev</button>
+            <span id="pageIndicator">1</span>
+            <button id="nextBtn">Next &raquo;</button>
         </div>
     </section>
+    <!-- Modal Verifikasi Pembelian -->
+    <div id="verifikasiModal" class="modal-verifikasi hidden">
+        <div class="modal-verifikasi-content">
+            <h3>Konfirmasi Pembelian</h3>
+            <p><strong>Produk:</strong> <span id="produkNama"></span></p>
+            <p><strong>Harga:</strong> <span id="produkHarga"></span></p>
+            <p><strong>Diskon:</strong> 30%</p>
+            <p><strong>Total Bayar:</strong> <span id="produkTotal"></span></p>
+            <div class="modal-buttons">
+                <button id="lanjutkanBtn" class="lanjutkan-btn">Lanjutkan Verifikasi</button>
+                <button id="batalBtn" class="batal-btn">Batal</button>
+            </div>
+        </div>
+    </div>
     <!-- Kontak -->
     <section id="kontak" class="kontak-section">
         <h2>Hubungi Kami</h2>
@@ -224,18 +177,18 @@
                 aria-label="YouTube ViVienDo"><i class="fab fa-youtube"></i></a>
         </div>
     </footer>
-    <script src="assets/app/js/udh.js" defer></script>
-    <script src="assets/app/js/loader.js" defer></script>
-    <script src="assets/app/js/login.js" defer></script>
-    <script src="assets/app/js/navbar.js" defer></script>
-    <script src="assets/app/js/parallax.js" defer></script>
-    <script src="assets/app/js/pwa.js" defer></script>
-    <script src="assets/app/js/script.js" defer></script>
-    <script src="assets/app/js/year.js" defer></script>
+    <script src="../app/js/udh.js" defer></script>
+    <script src="../app/js/loader.js" defer></script>
+    <script src="../app/js/login.js" defer></script>
+    <script src="../app/js/navbar.js" defer></script>
+    <script src="../app/js/parallax.js" defer></script>
+    <script src="../app/js/pwa.js" defer></script>
+    <script src="../app/js/script.js" defer></script>
+    <script src="../app/js/year.js" defer></script>
     <script>
         if ("serviceWorker" in navigator) {
             window.addEventListener("load", () => {
-                navigator.serviceWorker.register("/assets/pwa/service-worker.js")
+                navigator.serviceWorker.register("../pwa/service-worker.js")
                     .then((reg) => console.log("Service Worker registered:", reg.scope))
                     .catch((err) => console.error("Service Worker failed:", err));
             });
@@ -245,7 +198,7 @@
         (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Y1ld5flFnrzUY_qWdokoh"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
     </script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="assets/app/js/auth.js" defer></script>
+    <script src="../app/js/auth.js" defer></script>
 </body>
 
 </html>
