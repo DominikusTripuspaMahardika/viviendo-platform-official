@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description"
         content="ViVienDo PVZ2 - Unduh gratis Plants vs Zombies™ 2 tanpa pembelian, cepat dan aman." />
-    <title>ViVienDo</title>
+    <title>ViVienDo PvZ2</title>
     <link rel="icon" href="../images/favicon.ico" />
     <link rel="stylesheet" href="../app/css/wiki.css">
     <link rel="stylesheet" href="../app/css/wtnm.css">
@@ -57,6 +57,7 @@
         </div>
     </div>
     <!-- Navbar -->
+    <!-- Navbar -->
     <header class="navbar" role="banner">
         <div class="navbar-brand">ViVienDo</div>
         <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"
@@ -94,6 +95,7 @@
             </ul>
         </nav>
     </header>
+    <div class="pencapaian-toast-container" id="pencapaianToastContainer"></div>
     <div class="menu-overlay" id="menuOverlay"></div>
     <!-- Hero -->
     <section id="beranda" class="hero">
@@ -105,48 +107,27 @@
             </p>
         </div>
     </section>
-    <!-- Layanan Retas -->
-    <section id="layanan-hack-pvz2" class="layanan-hack-section">
-        <div class="layanan-hack-container">
-            <h2 class="layanan-hack-title">Layanan Retas Profesional Game</h2>
-            <p class="layanan-hack-subtitle">
-                ViVienDo menghadirkan layanan retas data <strong>Plants vs. Zombies™ 2</strong> paling lengkap dan
-                canggih yang pernah ada. Semua fitur premium dalam game dapat diaktifkan langsung di akun Anda, termasuk
-                pembukaan <strong>semua tanaman, zombie, peta, level, dunia, kostum</strong> hingga <strong>Zen Garden
-                    dan sistem Mastery</strong> secara menyeluruh.
-            </p>
-            <p class="layanan-hack-subtitle">
-                Seluruh <strong>mata uang dalam game</strong> seperti Koin, Permata, Mint, PowerUp, dan item spesial
-                lainnya akan diatur ke jumlah maksimum. Setiap tanaman akan memiliki <strong>level, mastery, serangan,
-                    dan pertahanan tertinggi</strong>, dengan biaya matahari negatif dan tanpa delay saat digunakan.
-                Anda juga mendapatkan akses penuh ke semua zona Endless hingga level 2047483640 dan semua mode (Offline,
-                Penny, Arena) tanpa batas.
-            </p>
-            <p class="layanan-hack-subtitle">
-                Dengan layanan ini, akun Anda akan dikonfigurasi secara aman untuk mendukung login via Google Play atau
-                EA, bebas iklan, tanpa batasan akses, dan disertai fitur eksklusif seperti <strong>Editor OBB buatan tim
-                    ViVienDo</strong>, Multi-Slot Akun, dan pembaruan konten otomatis. Semua fitur dikerjakan secara
-                presisi, tanpa root atau jailbreak.
-            </p>
-            <a href="#kontak">
-                <button class="layanan-hack-button"><span>Pesan Sekarang</span></button>
-            </a>
-            <div class="layanan-hack-warning">
-                <h3 class="layanan-hack-warning-title"><i class="fas fa-exclamation-triangle"></i> Peringatan Resmi</h3>
-                <p>
-                    ViVienDo <strong>tidak pernah bekerja sama atau berafiliasi</strong> dengan pihak ketiga manapun
-                    dalam menyediakan layanan ini. Kami <strong>melarang keras</strong> segala bentuk distribusi ulang,
-                    penjualan kembali, atau modifikasi layanan tanpa izin tertulis resmi dari Tim ViVienDo.
-                </p>
+    <audio id="audioPlayer" src=""></audio>
+    <section class="wiki-chooser">
+        <h2>Pilih Ensiklopedia</h2>
+        <p class="wiki-subtext">
+            Jelajahi informasi lengkap seputar karakter <strong>Tanaman</strong> dan <strong>Zombies</strong> dari game
+            <em>Plants vs. Zombies™ 2</em>, mulai dari statistik, kemampuan, hingga asal dunia mereka.
+        </p>
+        <div class="wiki-grid">
+            <!-- Kartu Tanaman -->
+            <div class="wiki-card plant">
+                <div class="icon-circle">🌿</div>
+                <h3>Daftar Tanaman</h3>
+                <p>Berisi semua tanaman lengkap beserta statistik, kemampuan, dan deskripsinya.</p>
+                <a href="wtnm.html" class="wiki-btn plant">Lihat Ensiklopedia Tanaman</a>
             </div>
-            <div class="layanan-hack-disclaimer">
-                <h3 class="layanan-hack-disclaimer-title"><i class="fas fa-shield-alt"></i> Disclaimer</h3>
-                <p>
-                    Semua proses retas dikerjakan secara profesional oleh Tim ViVienDo yang telah berpengalaman di
-                    bidang data modifikasi game. Kami tidak menggunakan alat pihak ketiga atau program ilegal dari
-                    internet — seluruh tools yang digunakan adalah hasil pengembangan internal kami sendiri demi
-                    keamanan dan keandalan maksimal.
-                </p>
+            <!-- Kartu Zombie -->
+            <div class="wiki-card zombie">
+                <div class="icon-circle">🧟‍♂️</div>
+                <h3>Daftar Zombies</h3>
+                <p>Lengkap dengan jenis zombie, kemampuan khusus, dan dunia asal mereka.</p>
+                <a href="wzmb.html" class="wiki-btn zombie">Lihat Ensiklopedia Zombies</a>
             </div>
         </div>
     </section>
@@ -221,7 +202,7 @@
         (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Y1ld5flFnrzUY_qWdokoh"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
     </script>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="../app/js/auth.js" defer></script>
+    <script src="assets/app/js/auth.js" defer></script>
 </body>
 
 </html>

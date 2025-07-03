@@ -1,0 +1,108 @@
+.wiki-chooser {
+  padding: 3rem 1.5rem;
+  max-width: 960px;
+  margin: 4rem auto;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.wiki-chooser::before {
+  content: '';
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  background: #e1bee7;
+  border-radius: 50%;
+  top: -40px;
+  right: -40px;
+  filter: blur(60px);
+  opacity: 0.4;
+}
+
+.wiki-chooser h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: #333;
+}
+
+.wiki-subtext {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2.5rem;
+}
+
+.wiki-grid {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.wiki-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 400px;
+  flex: 1 1 300px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.wiki-card:hover {
+  transform: translateY(-6px);
+}
+
+.icon-circle {
+  width: 64px;
+  height: 64px;
+  background: #e8f5e9;
+  border-radius: 50%;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.wiki-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  color: #222;
+}
+
+.wiki-card p {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 1.2rem;
+}
+
+.wiki-btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  transition: background 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.wiki-btn.plant {
+  background: #66bb6a;
+}
+
+.wiki-btn.plant:hover {
+  background: #388e3c;
+}
+
+.wiki-btn.zombie {
+  background: #ab47bc;
+}
+
+.wiki-btn.zombie:hover {
+  background: #8e24aa;
+}

@@ -1,0 +1,142 @@
+.plant-wiki-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.plant-wiki-card {
+  display: flex;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  min-height: 200px;
+  max-height: 260px;
+}
+
+.plant-wiki-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+.plant-wiki-img {
+  width: 260px;
+  height: 100%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.plant-wiki-body {
+  flex: 1;
+  padding: 1.2rem 1.5rem;
+  font-size: 0.95rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.plant-wiki-body h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.plant-wiki-desc {
+  font-style: italic;
+  color: #666;
+  margin: 0.4rem 0 0.8rem;
+  line-height: 1.3;
+}
+
+.plant-wiki-details {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.3rem 1.2rem;
+  overflow-y: auto;
+  padding-right: 4px;
+  flex: 1;
+}
+
+/* Batasan tingginya agar tidak terlalu panjang */
+.plant-wiki-details p {
+  margin: 0.2rem 0;
+  line-height: 1.35;
+  font-size: 0.88rem;
+}
+
+.plant-wiki-details p strong {
+  color: #1b5e20;
+  font-weight: 600;
+}
+
+/* Scroll bar halus */
+.plant-wiki-details::-webkit-scrollbar {
+  width: 6px;
+}
+.plant-wiki-details::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 3px;
+}
+
+/* Responsif Mobile */
+@media (max-width: 700px) {
+  .plant-wiki-card {
+    flex-direction: column;
+    max-height: none;
+  }
+
+  .plant-wiki-img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .plant-wiki-details {
+    grid-template-columns: 1fr;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+.plant-wiki-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #880e4f; /* Warna ungu gelap khas plant */
+  text-align: center;
+  margin: 3rem auto 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid #d81b60;
+  width: fit-content;
+  letter-spacing: 0.5px;
+  position: relative;
+}
+
+.plant-wiki-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background-color: #d81b60;
+  border-radius: 2px;
+}
+
+.plant-wiki-title {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeSlideIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
