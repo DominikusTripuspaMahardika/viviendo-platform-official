@@ -493,3 +493,181 @@
   background: #eee;
   animation: none;
 }
+
+/* FAQ Interaktif Accordion */
+.faqinteraktifaccordion-container {
+  max-width: 960px;
+  margin: 40px auto;
+  padding: 0 24px;
+  text-align: left;
+  font-family: "Segoe UI", "Poppins", sans-serif;
+  scroll-margin-top: 80px;
+  margin-top: -25px;
+}
+
+.faqinteraktifaccordion-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 36px;
+  color: #0f172a;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.faqinteraktifaccordion-item {
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 0.3s ease;
+  background-color: #f9fafb;
+}
+
+.faqinteraktifaccordion-item:hover {
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+}
+
+.faqinteraktifaccordion-question {
+  background-color: transparent;
+  color: #1e293b;
+  padding: 18px 24px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  position: relative;
+}
+
+.faqinteraktifaccordion-question::after {
+  content: "\25BC";
+  position: absolute;
+  right: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.9rem;
+  color: #64748b;
+  transition: transform 0.3s ease;
+}
+
+.faqinteraktifaccordion-item.active .faqinteraktifaccordion-question::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.faqinteraktifaccordion-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, padding 0.3s ease;
+  padding: 0 24px;
+  background-color: #ffffff;
+  font-size: 0.98rem;
+  color: #334155;
+  line-height: 1.7;
+  border-top: 1px solid #e2e8f0;
+}
+
+.faqinteraktifaccordion-item.active .faqinteraktifaccordion-answer {
+  padding: 18px 24px 20px;
+  max-height: 1000px; /* cukup besar agar semua konten bisa terlihat */
+}
+
+@media (max-width: 768px) {
+  .faqinteraktifaccordion-container {
+    padding: 0 16px;
+  }
+
+  .faqinteraktifaccordion-title {
+    font-size: 1.8rem;
+    margin-bottom: 28px;
+  }
+
+  .faqinteraktifaccordion-question {
+    font-size: 1rem;
+    padding: 16px 20px;
+  }
+
+  .faqinteraktifaccordion-answer {
+    font-size: 0.95rem;
+    padding: 16px 20px;
+  }
+
+  .faqinteraktifaccordion-question::after {
+    right: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faqinteraktifaccordion-question {
+    padding: 14px 18px;
+  }
+
+  .faqinteraktifaccordion-answer {
+    padding: 14px 18px;
+  }
+
+  .faqinteraktifaccordion-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* Panel Statistik Produk */
+.statistikpanelproduk-container {
+  padding: 28px 20px;
+  margin: 40px auto 20px auto;
+  max-width: 100%;
+  font-family: 'Segoe UI', 'Poppins', sans-serif;
+}
+
+.statistikpanelproduk-judul {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #1e3a8a;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.statistikpanelproduk-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 12px;
+  background: #f9fafb;
+  padding: 16px;
+}
+
+.statistikpanelproduk-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.statistikpanelproduk-wrapper::-webkit-scrollbar-thumb {
+  background-color: #60a5fa;
+  border-radius: 8px;
+}
+
+.statistikpanelproduk-scrollarea {
+  overflow-x: auto;
+  width: 100%;
+  padding-bottom: 12px;
+}
+
+.statistikpanelproduk-inner {
+  min-width: 2200px;
+  position: relative;
+}
+
+#statistikpanelproduk-chart {
+  width: 100% !important;
+  height: 500px !important;
+  display: block;
+  cursor: crosshair;
+}
+
+.statistikpanelproduk-keterangan {
+  margin-top: 20px;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #4b5563;
+}
+

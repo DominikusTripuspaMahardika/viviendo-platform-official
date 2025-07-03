@@ -1,5 +1,6 @@
 // Data Produk
 const produkData = [
+    { nama: "Mastery 200 + Regular", deskripsi: "Anda akan menerima data eksklusif yang mencakup tiga file utama, dimulai dengan PP.dat sebuah file konfigurasi penting yang telah dimodifikasi secara optimal untuk meningkatkan pengalaman bermain dalam Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 0.00, sociabuzz: "../data/pp.dat", whatsapp: "https://wa.me/6285706800428" },
     { nama: "Mastery 300 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 2.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
     { nama: "Mastery 400 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 2.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
     { nama: "Mastery 500 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 3.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
@@ -61,7 +62,7 @@ const produkData = [
     { nama: "Mastery 100000000 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 31.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
     { nama: "Mastery 123456789 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 31.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
     { nama: "Mastery 137853785 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 32.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
-    { nama: "Complete Data Premium + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif lengkap yang terdiri dari file PP.dat, PlantLevels.rton, dan PlantMastery.rton mastery 300 hingga 137853785 yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 32.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428", terlaris: true }
+    { nama: "Data Premium Lengkap + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif lengkap yang terdiri dari file PP.dat, PlantLevels.rton, dan PlantMastery.rton mastery 300 hingga 137853785 yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 32.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428", terlaris: true }
 ];
 const perPage = 8;
 let currentPage = 1;
@@ -144,8 +145,160 @@ if (document.getElementById('batalBtn')) {
         document.getElementById('verifikasiModal').classList.add('hidden');
     });
 }
+// FAQ Interaktif Accordion
+document.addEventListener("DOMContentLoaded", function () {
+    const items = document.querySelectorAll(".faqinteraktifaccordion-item");
+    items.forEach((item) => {
+        const question = item.querySelector(".faqinteraktifaccordion-question");
+        question.addEventListener("click", () => {
+            item.classList.toggle("active");
+            items.forEach((el) => {
+                if (el !== item) el.classList.remove("active");
+            });
+        });
+    });
+});
+// Optional: Scroll smooth saat buka accordion
+document.querySelectorAll('.faqinteraktifaccordion-question').forEach(button => {
+    button.addEventListener('click', () => {
+        setTimeout(() => {
+            button.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 200);
+    });
+});
 // Render awal
 renderProduk();
+
+function tampilkanStatistikSemuaProduk() {
+    const canvas = document.getElementById('statistikpanelproduk-chart');
+    if (!canvas) return;
+    const storageKey = 'statistikpanelproduk';
+    const now = Date.now();
+    const threeHours = 3 * 60 * 60 * 1000;
+    const maxJumlah = 999;
+    let savedData = JSON.parse(localStorage.getItem(storageKey));
+    let labels = produkData.map((p, i) => {
+        const match = p.nama.match(/Mastery\s+(\d+)/i);
+        return match ? `Mastery ${match[1]} + LifeTime` : `Data Premium Lengkap + LifeTime`;
+    });
+    if (!savedData || !savedData.jumlah || savedData.jumlah.length !== produkData.length) {
+        // Inisialisasi awal
+        savedData = {
+            jumlah: produkData.map(() => Math.floor(Math.random() * 200) + 1),
+            lastUpdate: now
+        };
+        localStorage.setItem(storageKey, JSON.stringify(savedData));
+    } else if (now - savedData.lastUpdate >= threeHours) {
+        // Tambahkan jumlah secara acak (1-100) setiap 3 jam
+        savedData.jumlah = savedData.jumlah.map(val => Math.min(val + Math.floor(Math.random() * 100) + 1, maxJumlah));
+        savedData.lastUpdate = now;
+        localStorage.setItem(storageKey, JSON.stringify(savedData));
+    }
+    const ctx = canvas.getContext('2d');
+    if (window.statistikChart) {
+        window.statistikChart.destroy();
+    }
+    window.statistikChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Jumlah Dibeli (tersimpan)',
+                data: savedData.jumlah,
+                backgroundColor: 'rgba(59, 130, 246, 0.65)',
+                borderColor: 'rgba(37, 99, 235, 1)',
+                borderWidth: 1,
+                borderRadius: 4,
+                barPercentage: 0.6,
+                categoryPercentage: 0.8
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            animation: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+                axis: 'x'
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false,
+                    backgroundColor: '#111827',
+                    titleColor: '#ffffff',
+                    bodyColor: '#d1d5db',
+                    borderColor: '#60a5fa',
+                    borderWidth: 1,
+                    cornerRadius: 6,
+                    titleFont: {
+                        size: 13,
+                        weight: 'bold',
+                        family: 'Segoe UI'
+                    },
+                    bodyFont: {
+                        size: 12,
+                        family: 'Segoe UI'
+                    },
+                    callbacks: {
+                        title: function (items) {
+                            const label = items[0].label;
+                            return `${label}`;
+                        },
+                        label: function (item) {
+                            return `Telah dibeli sebanyak ${item.raw} kali`;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        font: {
+                            size: 11,
+                            family: 'Segoe UI'
+                        },
+                        color: '#1e293b',
+                        autoSkip: false,
+                        maxRotation: 60,
+                        minRotation: 45
+                    },
+                    grid: {
+                        color: 'rgba(229, 231, 235, 0.3)',
+                        drawOnChartArea: false
+                    }
+                },
+                y: {
+                    beginAtZero: true,
+                    max: 1000,
+                    ticks: {
+                        stepSize: 100,
+                        font: {
+                            size: 11,
+                            family: 'Segoe UI'
+                        },
+                        color: '#1e293b'
+                    },
+                    grid: {
+                        color: 'rgba(229, 231, 235, 0.3)'
+                    }
+                }
+            }
+        }
+    });
+}
+window.addEventListener('DOMContentLoaded', () => {
+    renderProduk();
+    tampilkanStatistikSemuaProduk();
+    // Optional: resize sync
+    window.addEventListener('resize', () => {
+        if (window.statistikChart) {
+            window.statistikChart.resize();
+        }
+    });
+});
 
 // function formatHitunganWaktu(secs) {
 //     const h = String(Math.floor(secs / 3600)).padStart(2, "0");

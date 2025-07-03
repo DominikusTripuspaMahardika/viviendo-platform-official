@@ -111,9 +111,11 @@
         <p class="peringatan-bonus">
             <i class="fas fa-gift"></i> Setiap transaksi pembelian yang berhasil diverifikasi akan langsung disertai
             bonus file tambahan yang dikirim secara eksklusif oleh admin. Sebagai bentuk apresiasi atas dukungan Anda,
-            kami juga menyediakan akses gratis ke paket spesial seperti Shop 1 Coin, Shop Free, Mastery 200, serta
-            berbagai alat bantu (tools) khusus untuk modifikasi data dan file OBB Plants vs Zombies™ 2. Dan itu belum
-            termasuk beragam bonus menarik lainnya yang siap Anda klaim secara otomatis!
+            kami juga menyediakan akses gratis ke berbagai paket spesial seperti Shop 1 Coin, Shop Free, Mastery 200,
+            serta alat bantu khusus untuk modifikasi data dan file OBB Plants vs Zombies™ 2. Tidak hanya itu, Anda juga
+            berkesempatan memperoleh bonus tambahan menarik, termasuk dua paket acak dari Mastery 300 hingga Mastery
+            137853785 yang akan diberikan secara gratis apabila Anda melakukan pembelian minimal tiga produk sekaligus —
+            semua ini dirancang untuk memberikan pengalaman bermain yang lebih lengkap, fleksibel, dan memuaskan.
         </p>
         <!--<div class="hitunganmundur-bonus-container">
             <i class="fas fa-hourglass-half"></i>
@@ -126,12 +128,191 @@
             <u>WAJIB</u> mengirimkan <strong>bukti gambar pembayaran</strong> melalui WhatsApp. Produk akan dikirim
             <u>setelah bukti diverifikasi</u>.
         </div>
+        <!-- Panel Statistik Semua Produk -->
+        <section id="statistikpanelproduk-container" class="statistikpanelproduk-container">
+            <h3 class="statistikpanelproduk-judul">
+                <i class="fas fa-chart-bar"></i> Statistik Semua Produk
+            </h3>
+            <div class="statistikpanelproduk-scrollarea">
+                <div class="statistikpanelproduk-inner">
+                    <canvas id="statistikpanelproduk-chart"></canvas>
+                </div>
+            </div>
+            <p class="statistikpanelproduk-keterangan">
+                * Diagram memperlihatkan jumlah pembelian dari semua produk yang tersedia dan akan di perbarui secara
+                Real-Time.
+            </p>
+        </section>
         <div id="produk-list" class="daftar-produk-premium-grid"></div>
         <!-- Navigasi Halaman -->
         <div class="pagination">
             <button id="prevBtn">&laquo; Prev</button>
             <span id="pageIndicator">1</span>
             <button id="nextBtn">Next &raquo;</button>
+        </div>
+    </section>
+    <section id="faqinteraktifaccordion-section" class="faqinteraktifaccordion-container">
+        <h2 class="faqinteraktifaccordion-title">Pertanyaan Umum (FAQ)</h2>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apa itu data premium ViVienDo?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Data premium ViVienDo adalah file khusus yang telah dimodifikasi secara profesional untuk memberikan
+                    keuntungan lebih dalam permainan Plants vs Zombies™ 2, seperti mastery tinggi, level tanaman
+                    maksimal, dan fitur eksklusif lainnya tanpa perlu pembelian dalam aplikasi.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Bagaimana cara melakukan pembelian?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Anda hanya perlu memilih produk yang diinginkan, lalu klik tombol “Verifikasi Pembelian” untuk
+                    mendapatkan instruksi pembayaran. Setelah itu, kirimkan bukti transaksi ke admin melalui WhatsApp
+                    untuk diproses lebih lanjut dan mendapatkan file Anda.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apa itu Shop 1 Coin dan Shop Free?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Shop 1 Coin dan Shop Free adalah produk spesial yang kami sediakan secara gratis atau dengan biaya
+                    sangat ringan sebagai bonus tambahan bagi pembeli aktif. File ini berisi item premium yang dapat
+                    diakses tanpa harus membayar penuh seperti di versi resmi.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Berapa lama waktu verifikasi pembayaran?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Verifikasi pembayaran biasanya memakan waktu antara 5 hingga 15 menit pada jam operasional. Namun,
+                    pada jam sibuk atau malam hari, waktu verifikasi bisa sedikit lebih lama tergantung antrian yang
+                    sedang berlangsung.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apakah saya bisa meminta produk versi tertentu?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Tentu saja. Anda dapat memberikan permintaan spesifik saat mengirim bukti pembayaran, seperti versi
+                    Mastery tertentu atau file khusus yang Anda butuhkan. Admin akan mengatur dan mengirimkan versi
+                    sesuai permintaan tersebut.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Bagaimana saya tahu file yang saya terima aman?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Semua file telah melalui proses pengujian dan pemeriksaan manual oleh tim kami. Kami memastikan bahwa
+                    file bebas dari virus, malware, dan tidak mengandung elemen yang dapat merusak perangkat Anda.
+                    Keamanan pengguna adalah prioritas kami.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apa itu file .rton dan .dat?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>File .rton dan .dat adalah jenis file data internal pada game PvZ2 yang digunakan untuk menyimpan
+                    informasi penting seperti level tanaman, konfigurasi mastery, status permainan, dan parameter
+                    modifikasi lainnya yang memungkinkan gameplay lebih fleksibel.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apakah tersedia panduan instalasi?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Saat ini panduan instalasi resmi masih dalam proses pengembangan. Namun, Anda tetap bisa
+                    berkonsultasi langsung dengan admin untuk mendapatkan bantuan dan petunjuk manual agar file dapat
+                    digunakan sesuai kebutuhan perangkat Anda.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apa yang harus saya lakukan jika file tidak
+                bekerja?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Jika file yang dikirimkan tidak bekerja sesuai harapan, segera hubungi admin dan lampirkan bukti
+                    seperti tangkapan layar atau deskripsi error. Kami akan membantu Anda sampai file berhasil
+                    digunakan, termasuk memberikan pengganti jika diperlukan.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apakah ada garansi untuk pembelian saya?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Ya, kami memberikan garansi bahwa file yang Anda beli akan diterima dan dapat digunakan. Jika
+                    terdapat masalah teknis yang tidak bisa diselesaikan, Anda dapat memilih antara penggantian file
+                    atau pengembalian dana sesuai ketentuan kami.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apakah saya bisa membeli lebih dari satu produk
+                sekaligus?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Ya, Anda dapat memilih dan memesan beberapa produk sekaligus dalam satu transaksi. Hal ini akan
+                    mempercepat proses pengiriman dan Anda bisa langsung menerima semua file yang dibutuhkan secara
+                    lengkap dari admin.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apakah tersedia fitur unduh otomatis?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Untuk saat ini, semua file masih dikirimkan secara manual oleh admin setelah verifikasi. Namun kami
+                    sedang mengembangkan sistem unduhan otomatis agar pengguna bisa langsung mendapatkan file tanpa
+                    perlu menunggu lama.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apa itu Mastery 137853785?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Mastery 137853785 mengacu pada status di mana setiap tanaman dalam game memiliki level mastery
+                    tertinggi yang saat ini kami miliki, memungkinkan Anda memenangkan hampir semua tantangan dengan
+                    lebih mudah dan cepat tanpa usaha berlebihan.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apa perbedaan antara LifeTime dan Regular?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Paket LifeTime memberikan Anda akses seumur hidup ke file yang Anda beli termasuk pembaruan.
+                    Sementara itu, paket Regular hanya mencakup pengiriman sekali tanpa dukungan jangka panjang atau
+                    update.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apakah saya bisa bayar pakai pulsa?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Ya. Kami menyediakan beberapa metode pembayaran termasuk pulsa, e-wallet, transfer bank, dan QRIS
+                    agar Anda dapat memilih cara yang paling mudah dan nyaman sesuai dengan kondisi Anda.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apakah ini legal dan tidak melanggar aturan PvZ2?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Semua file yang disediakan bersifat lokal dan tidak melibatkan server resmi EA. Kami tidak melakukan
+                    pelanggaran terhadap pengguna lain atau pihak ketiga, dan file hanya dimaksudkan untuk penggunaan
+                    pribadi.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Bolehkah saya membagikan file ini ke orang lain?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Tidak diperbolehkan. File yang Anda terima adalah eksklusif untuk penggunaan pribadi. Membagikannya
+                    kepada pihak lain dapat menyebabkan akses Anda diblokir dan layanan dihentikan tanpa pemberitahuan
+                    lebih lanjut.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Bagaimana jika saya kehilangan file yang dibeli?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Jika Anda kehilangan file, cukup hubungi admin dan berikan bukti pembelian. Selama file Anda masih
+                    dalam masa LifeTime, kami akan mengirim ulang tanpa biaya tambahan sebagai bentuk layanan pelanggan
+                    kami.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apakah saya bisa mengecek ulang file yang pernah
+                dibeli?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Saat ini fitur riwayat pembelian belum tersedia. Kami menyarankan Anda menyimpan file dan informasi
+                    pembelian dengan baik. Jika diperlukan, admin akan membantu mencocokkan data Anda secara manual.</p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">Apakah saya bisa merekomendasikan fitur baru?</button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>Tentu saja. Kami sangat terbuka terhadap masukan dan ide baru. Anda dapat menghubungi kami melalui
+                    Telegram, Email, atau media sosial lainnya untuk menyampaikan fitur yang Anda inginkan agar
+                    dikembangkan ke depannya.</p>
+            </div>
         </div>
     </section>
     <!-- Modal Verifikasi Pembelian -->
