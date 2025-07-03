@@ -65,6 +65,11 @@ const produkData = [
 ];
 const perPage = 8;
 let currentPage = 1;
+// Ambil halaman terakhir dari localStorage jika tersedia
+const halamanSebelumnya = localStorage.getItem('halamanProdukTerakhir');
+if (halamanSebelumnya && !isNaN(halamanSebelumnya)) {
+    currentPage = parseInt(halamanSebelumnya);
+}
 function renderProduk() {
     const list = document.getElementById('produk-list');
     list.innerHTML = "";
@@ -75,30 +80,33 @@ function renderProduk() {
         const card = document.createElement('div');
         card.className = 'daftar-produk-premium-card';
         card.innerHTML = `
-      <div class="daftar-produk-premium-thumbnail">
-        <img src="${item.thumbnail || 'https://via.placeholder.com/300x180?text=No+Image'}" alt="Thumbnail Produk">
-        ${item.terlaris ? '<span class="label-terlaris">Terlaris</span>' : ''}
-      </div>
-      <div class="daftar-produk-premium-info">
-        <h3 class="daftar-produk-premium-nama">${item.nama}</h3>
-        <p class="daftar-produk-premium-deskripsi">${item.deskripsi}</p>
-        <div class="daftar-produk-premium-aksi">
-          <a href="#" class="beli"
-             data-nama="${item.nama}"
-             data-harga="${item.harga}"
-             data-link="${item.sociabuzz}">
-            <i class="fas fa-cart-shopping"></i> Verifikasi Pembelian
-          </a>
-          <a href="${item.whatsapp}" target="_blank" class="kirim">
-            <i class="fab fa-whatsapp"></i> Verifikasi Pembayaran
-          </a>
-        </div>
-      </div>
-    `;
+            <div class="daftar-produk-premium-thumbnail">
+                <img src="${item.thumbnail || 'https://via.placeholder.com/300x180?text=No+Image'}" alt="Thumbnail Produk">
+                ${item.terlaris ? '<span class="label-terlaris">Terlaris</span>' : ''}
+            </div>
+            <div class="daftar-produk-premium-info">
+                <h3 class="daftar-produk-premium-nama">${item.nama}</h3>
+                <p class="daftar-produk-premium-deskripsi">${item.deskripsi}</p>
+                <div class="daftar-produk-premium-aksi">
+                    <a href="#" class="beli"
+                        data-nama="${item.nama}"
+                        data-harga="${item.harga}"
+                        data-link="${item.sociabuzz}">
+                        <i class="fas fa-cart-shopping"></i> Verifikasi Pembelian
+                    </a>
+                    <a href="${item.whatsapp}" target="_blank" class="kirim">
+                        <i class="fab fa-whatsapp"></i> Verifikasi Pembayaran
+                    </a>
+                </div>
+            </div>
+        `;
         list.appendChild(card);
     });
+    // Update indikator halaman
     document.getElementById('pageIndicator').textContent = currentPage;
-    // Re-bind event listeners setelah pagination
+    // Simpan halaman saat ini ke localStorage
+    localStorage.setItem('halamanProdukTerakhir', currentPage);
+    // Re-bind event listener tombol beli
     document.querySelectorAll('.beli').forEach((btn) => {
         btn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -116,25 +124,27 @@ function renderProduk() {
         });
     });
 }
+// Navigasi halaman sebelumnya
 document.getElementById('prevBtn').addEventListener('click', () => {
     if (currentPage > 1) {
         currentPage--;
         renderProduk();
     }
 });
+// Navigasi halaman selanjutnya
 document.getElementById('nextBtn').addEventListener('click', () => {
     if (currentPage * perPage < produkData.length) {
         currentPage++;
         renderProduk();
     }
 });
-// Tombol Batal
+// Tombol batal pada modal verifikasi
 if (document.getElementById('batalBtn')) {
     document.getElementById('batalBtn').addEventListener('click', () => {
         document.getElementById('verifikasiModal').classList.add('hidden');
     });
 }
-// Load awal
+// Render awal
 renderProduk();
 
 // function formatHitunganWaktu(secs) {
