@@ -332,3 +332,149 @@
     width: 100%;
   }
 }
+
+.peringatan-verifikasi {
+  background: #fff3cd;
+  border: 1px solid #ffeeba;
+  padding: 15px;
+  border-radius: 8px;
+  color: #856404;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
+}
+
+.label-terlaris {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 6px 12px 12px 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: fadeInSlide 0.4s ease-out both;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+/* Animasi smooth muncul dari bawah */
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.daftar-produk-premium-card:hover .label-terlaris {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+/* Live Notification Modal */
+.modal-live {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90%;
+  width: 420px;
+  background: rgba(26, 188, 156, 0.95);
+  color: #ffffff;
+  padding: 16px 22px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: slideFadeDown 0.3s ease-out;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Ikon */
+.modal-live i {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* Sembunyi */
+.modal-live.hidden {
+  display: none;
+}
+
+/* Animasi masuk */
+@keyframes slideFadeDown {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Responsif Mobile */
+@media (max-width: 480px) {
+  .modal-live {
+    top: 16px;
+    width: 95%;
+    padding: 14px 18px;
+    font-size: 0.92rem;
+    gap: 10px;
+  }
+
+  .modal-live i {
+    font-size: 1rem;
+  }
+}
+
+.hitunganmundur-bonus-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 20px;
+  background-color: #f0f5ff;
+  border-left: 5px solid #1e88e5;
+  border-radius: 12px;
+  color: #0d47a1;
+  font-size: 1rem;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(30, 136, 229, 0.1);
+  margin-bottom: 24px;
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.hitunganmundur-bonus-display {
+  font-family: 'Courier New', monospace;
+  background-color: #fff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  color: #1565c0;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1);
+  animation: pulseTimer 1s infinite alternate;
+}
+
+@keyframes pulseTimer {
+  from { transform: scale(1); }
+  to { transform: scale(1.05); }
+}
+
+.hitunganmundur-bonus-delay .hitunganmundur-bonus-display {
+  color: #888;
+  background: #eee;
+  animation: none;
+}

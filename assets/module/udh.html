@@ -103,10 +103,23 @@
     <section id="daftar-produk-premium-section" class="daftar-produk-premium-container">
         <h2 class="daftar-produk-premium-judul">Koleksi Data Premium</h2>
         <p class="peringatan-bonus">
-            <i class="fas fa-gift"></i> Setiap anda berhasil melakukan pembelian yang terverifikasi maka akan
-            mendapatkan bonus file tambahan yang akan
-            langsung dirimkan admin secara eksklusif!
+            <i class="fas fa-gift"></i> Setiap transaksi pembelian yang berhasil diverifikasi akan langsung disertai
+            bonus file tambahan yang dikirim secara eksklusif oleh admin. Sebagai bentuk apresiasi atas dukungan Anda,
+            kami juga menyediakan akses gratis ke paket spesial seperti Shop 1 Coin, Shop Free, Mastery 200, serta
+            berbagai alat bantu (tools) khusus untuk modifikasi data dan file OBB Plants vs Zombies™ 2. Dan itu belum
+            termasuk beragam bonus menarik lainnya yang siap Anda klaim secara otomatis!
         </p>
+        <!--<div class="hitunganmundur-bonus-container">
+            <i class="fas fa-hourglass-half"></i>
+            <span id="hitunganmundur-bonus-pesan">Bonus spesial ini akan berakhir dalam:</span>
+            <div id="hitunganmundur-bonus-waktu" class="hitunganmundur-bonus-display">00:00:00</div>
+        </div>-->
+        <!-- Peringatan Verifikasi Gambar -->
+        <div class="peringatan-verifikasi">
+            <i class="fas fa-exclamation-triangle"></i> <strong>Perhatian:</strong> Untuk menerima produk digital, Anda
+            <u>WAJIB</u> mengirimkan <strong>bukti gambar pembayaran</strong> melalui WhatsApp. Produk akan dikirim
+            <u>setelah bukti diverifikasi</u>.
+        </div>
         <div id="produk-list" class="daftar-produk-premium-grid"></div>
         <!-- Navigasi Halaman -->
         <div class="pagination">
@@ -127,6 +140,13 @@
                 <button id="lanjutkanBtn" class="lanjutkan-btn">Lanjutkan Verifikasi</button>
                 <button id="batalBtn" class="batal-btn">Batal</button>
             </div>
+        </div>
+    </div>
+    <!-- Live Notification Modal -->
+    <div id="liveNotifModal" class="modal-live hidden">
+        <div class="modal-live-content">
+            <i class="fas fa-bolt"></i>
+            <span id="liveNotifText">Pengguna baru saja melakukan pembelian!</span>
         </div>
     </div>
     <!-- Kontak -->
