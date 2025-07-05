@@ -1,6 +1,6 @@
 // Data Produk
 const produkData = [
-    { nama: "Mastery 200 + Regular", deskripsi: "Anda akan menerima data eksklusif yang mencakup tiga file utama, dimulai dengan PP.dat sebuah file konfigurasi penting yang telah dimodifikasi secara optimal untuk meningkatkan pengalaman bermain dalam Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 0.00, sociabuzz: "../data/pp.dat", whatsapp: "https://wa.me/6285706800428" },
+    // { nama: "Mastery 200 + Regular", deskripsi: "Anda akan menerima data eksklusif yang mencakup tiga file utama, dimulai dengan PP.dat sebuah file konfigurasi penting yang telah dimodifikasi secara optimal untuk meningkatkan pengalaman bermain dalam Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 0.00, sociabuzz: "../data/pp.dat", whatsapp: "https://wa.me/6285706800428" },
     { nama: "Mastery 300 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 2.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
     { nama: "Mastery 400 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 2.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
     { nama: "Mastery 500 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 3.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
@@ -60,9 +60,14 @@ const produkData = [
     { nama: "Mastery 90000000 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 30.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
     { nama: "Mastery 99999999 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 30.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428", terlaris: true },
     { nama: "Mastery 100000000 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 31.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
-    { nama: "Mastery 123456789 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 31.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
-    { nama: "Mastery 137853785 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 32.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
-    { nama: "Data Premium Lengkap + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif lengkap yang terdiri dari file PP.dat, PlantLevels.rton, dan PlantMastery.rton mastery 300 hingga 137853785 yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 32.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428", terlaris: true }
+    { nama: "Mastery 110000000 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 31.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
+    { nama: "Mastery 120000000 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 32.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
+    { nama: "Mastery 123456789 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 33.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
+    { nama: "Mastery 130000000 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 34.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
+    { nama: "Mastery 137853785 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 34.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
+    { nama: "Mastery 140000000 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 35.49, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
+    { nama: "Mastery 150000000 + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif yang terdiri dari tiga file utama: PP.dat, PlantLevels.rton, dan PlantMastery.rton, yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 35.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428" },
+    { nama: "Data Premium Lengkap + LifeTime", deskripsi: "Anda akan memperoleh paket data eksklusif lengkap yang terdiri dari file PP.dat, PlantLevels.rton, dan PlantMastery.rton mastery 300 hingga 137853785 yang masing-masing berisi konfigurasi premium untuk pengalaman maksimal dalam permainan Plants vs Zombies™ 2.", thumbnail: "../images/produk/produk.jpg", harga: 36.99, sociabuzz: "https://sociabuzz.com/viviendo_channel/tribe", whatsapp: "https://wa.me/6285706800428", terlaris: true }
 ];
 const perPage = 8;
 let currentPage = 1;
@@ -113,6 +118,12 @@ function renderProduk() {
             e.preventDefault();
             const nama = btn.dataset.nama;
             const harga = parseFloat(btn.dataset.harga);
+            // Modal khusus untuk produk gratis Mastery 200
+            if (nama.includes("Mastery 200") && harga === 0) {
+                document.getElementById('gratisModal').classList.remove('hidden');
+                showToastUnduh();
+                return;
+            }
             const diskonPersen = 30;
             const diskon = harga * (diskonPersen / 100);
             const total = harga - diskon;
@@ -179,7 +190,7 @@ function tampilkanStatistikSemuaProduk() {
     let savedData = JSON.parse(localStorage.getItem(storageKey));
     let labels = produkData.map((p, i) => {
         const match = p.nama.match(/Mastery\s+(\d+)/i);
-        return match ? `Mastery ${match[1]} + LifeTime` : `Data Premium Lengkap + LifeTime`;
+        return match ? `Mastery ${match[1]}` : `Data Premium Lengkap`;
     });
     if (!savedData || !savedData.jumlah || savedData.jumlah.length !== produkData.length) {
         // Inisialisasi awal
@@ -296,6 +307,53 @@ window.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         if (window.statistikChart) {
             window.statistikChart.resize();
+        }
+    });
+});
+
+function showToastUnduh() {
+    const toast = document.getElementById('toastUnduh');
+    toast.classList.remove('hidden');
+    setTimeout(() => {
+        toast.classList.add('hidden');
+    }, 4000); // tampil selama 4 detik
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".copy-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const path = button.closest(".daftradatagratis-path").dataset.path;
+            navigator.clipboard.writeText(path).then(() => {
+                // Umpan balik tombol
+                button.innerHTML = '<i class="fas fa-check"></i>';
+                setTimeout(() => {
+                    button.innerHTML = '<i class="fas fa-copy"></i>';
+                }, 1500);
+                // Tampilkan toast
+                showCopyToast();
+            });
+        });
+    });
+});
+
+// Fungsi toast
+function showCopyToast() {
+    const toast = document.getElementById("copyToast");
+    toast.classList.remove("hidden");
+    setTimeout(() => {
+        toast.classList.add("hidden");
+    }, 2500);
+}
+
+// Smooth scroll ke bagian target saat tombol filter/tag ditekan
+document.querySelectorAll('.koleksi-filter-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const target = document.querySelector(button.getAttribute('data-target'));
+        if (target) {
+            window.scrollTo({
+                top: target.offsetTop - 60, // offset untuk header tetap
+                behavior: 'smooth'
+            });
         }
     });
 });
