@@ -222,25 +222,61 @@ img {
   padding: 0.5rem 0;
   border-radius: 4px;
   z-index: 1050;
+  max-height: 300px; /* Batasi tinggi maksimum */
+  overflow-y: auto; /* Aktifkan scroll vertikal */
+  scrollbar-width: thin;
+  scrollbar-color: #60a5fa #334155;
+}
+
+.dropdown-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  background: #334155;
+  border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: #60a5fa;
+  border-radius: 4px;
+}
+
+@media (min-width: 769px) {
+  .dropdown-content {
+    max-height: 300px;
+    overflow-y: auto;
+  }
 }
 
 .dropdown-content li {
   list-style: none;
 }
 
+/* Animated underline effect on dropdown links */
 .dropdown-content li a {
-  color: #fff;
+  position: relative;
   padding: 0.5rem 1rem;
   display: block;
+  color: #fff;
   font-weight: 500;
-  transition: background-color 0.25s ease;
+  transition: color 0.3s ease;
 }
 
-.dropdown-content li a:hover,
-.dropdown-content li a:focus {
-  background-color: transparent;
-  border-bottom: 2px solid #60a5fa; /* garis biru */
-  outline: none;
+.dropdown-content li a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 1rem;
+  width: 0;
+  height: 2px;
+  background-color: #60a5fa;
+  transition: width 0.35s ease;
+}
+
+.dropdown-content li a:hover::after,
+.dropdown-content li a:focus::after {
+  width: calc(100% - 2rem); /* agar pas dengan padding kiri-kanan */
 }
 
 /* Arrow icon */
