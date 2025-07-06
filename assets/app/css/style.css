@@ -222,12 +222,15 @@ img {
   padding: 0.5rem 0;
   border-radius: 4px;
   z-index: 1050;
-  max-height: 300px; /* Batasi tinggi maksimum */
-  overflow-y: auto; /* Aktifkan scroll vertikal */
+  max-height: 300px;
+  overflow-y: auto;
+  overscroll-behavior: contain; /* Mencegah overscroll di mobile */
+  -webkit-overflow-scrolling: touch; /* Smooth scroll di iOS */
   scrollbar-width: thin;
   scrollbar-color: #60a5fa #334155;
 }
 
+/* Scrollbar untuk browser berbasis Webkit (Chrome, Safari) */
 .dropdown-content::-webkit-scrollbar {
   width: 8px;
 }
@@ -242,7 +245,8 @@ img {
   border-radius: 4px;
 }
 
-@media (min-width: 769px) {
+/* Penyesuaian untuk semua layar */
+@media (min-width: 0px) {
   .dropdown-content {
     max-height: 300px;
     overflow-y: auto;
@@ -292,30 +296,32 @@ img {
   transform: rotate(180deg);
 }
 
-/* Responsive & desktop dropdown toggle */
-
-/* Hover desktop tetap background biru */
-@media (min-width: 769px) {
-  .dropdown-content li a:hover,
-  .dropdown-content li a:focus {
-    background-color: #2563eb;
-    border-bottom: none;
-    outline: none;
-  }
-}
-
-/* Hover mobile hanya garis biru bawah */
 @media (max-width: 768px) {
-  .dropdown-content li a:hover,
-  .dropdown-content li a:focus {
-    background-color: transparent;
-    border-bottom: 2px solid #2563eb;
-    outline: none;
-    color: #2563eb !important;
+  .dropdown-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #334155;
+    box-shadow: none;
+    padding-left: 1rem;
+    display: none;
+    width: 100%;
+    border-radius: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .dropdown-content.open {
+    display: flex;
+    max-height: 500px;
+    flex-direction: column;
+    overflow-y: auto; /* penting */
+    -webkit-overflow-scrolling: touch;
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
   /* Remove hover open to allow JS toggle */
   /* Show dropdown if dropdown-open class present */
   .navbar-item.dropdown.dropdown-open > .dropdown-content {
@@ -395,6 +401,8 @@ img {
     display: flex;
     max-height: 500px; /* cukup besar untuk dropdown */
     flex-direction: column;
+    overflow-y: auto; /* <=== INI WAJIB UNTUK SCROLL BERFUNGSI */
+    -webkit-overflow-scrolling: touch;
   }
 
   .dropdown-content li a {
@@ -448,7 +456,8 @@ img {
 .hero-bg {
   position: absolute;
   inset: 0;
-  background: url("../../images/background/background.png") no-repeat center center;
+  background: url("../../images/background/background.png") no-repeat center
+    center;
   background-size: cover;
   z-index: 0;
   will-change: transform, filter;
@@ -511,89 +520,88 @@ img {
 /* Container utama */
 /* === Bagian Umum Section Tentang === */
 #tentang.info-section {
-    background: #ffffff;
-    color: #1f2937;
-    padding: 3rem 1.5rem;
-    font-family: "Segoe UI", "Roboto", sans-serif;
-    line-height: 1.8;
-    max-width: 960px;
-    margin: 0 auto;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 3rem 1.5rem;
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  line-height: 1.8;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 #tentang h2 {
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #0f172a;
-    border-bottom: 2px solid #e2e8f0;
-    padding-bottom: 0.5rem;
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #0f172a;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
 }
 
 #tentang h3 {
-    font-size: 1.3rem;
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: #0ea5e9;
-    position: relative;
-    padding-left: 0.75rem;
-    border-left: 4px solid #0ea5e9;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #0ea5e9;
+  position: relative;
+  padding-left: 0.75rem;
+  border-left: 4px solid #0ea5e9;
 }
 
 /* === Paragraf Umum === */
 #tentang p {
-    font-size: 1rem;
-    color: #334155;
-    margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: #334155;
+  margin-bottom: 1.5rem;
 }
 
 /* === Link === */
 #tentang a {
-    color: #0ea5e9;
-    text-decoration: underline;
-    transition: color 0.2s ease;
+  color: #0ea5e9;
+  text-decoration: underline;
+  transition: color 0.2s ease;
 }
 
 #tentang a:hover {
-    color: #0284c7;
+  color: #0284c7;
 }
 
 /* === Blok Khusus Developer dan Legal === */
 .info-mission,
 .info-legal-disclaimer {
-    background-color: #f9fafb;
-    border: 1px solid #e2e8f0;
-    border-radius: 0.75rem;
-    padding: 1.5rem 1.25rem;
-    margin-top: 2rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  background-color: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .info-mission:hover,
 .info-legal-disclaimer:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
 }
 
 /* === Tampilan Responsif === */
 @media (max-width: 768px) {
-    #tentang {
-        padding: 2rem 1rem;
-    }
+  #tentang {
+    padding: 2rem 1rem;
+  }
 
-    #tentang h2 {
-        font-size: 1.6rem;
-    }
+  #tentang h2 {
+    font-size: 1.6rem;
+  }
 
-    #tentang h3 {
-        font-size: 1.15rem;
-    }
+  #tentang h3 {
+    font-size: 1.15rem;
+  }
 
-    #tentang p {
-        font-size: 0.95rem;
-    }
+  #tentang p {
+    font-size: 0.95rem;
+  }
 }
-
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
