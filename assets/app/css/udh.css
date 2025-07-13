@@ -492,122 +492,131 @@
 } */
 
 /* FAQ Interaktif Accordion */
+/* ===============================
+   FAQ Interaktif Accordion (Final)
+   Modern | Profesional | Responsive
+================================== */
+
 .faqinteraktifaccordion-container {
   max-width: 960px;
-  margin: 40px auto;
-  padding: 0 24px;
-  text-align: left;
-  font-family: "Segoe UI", "Poppins", sans-serif;
-  scroll-margin-top: 80px;
-  margin-top: -25px;
+  margin: 60px auto;
+  padding: 0 32px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  scroll-margin-top: 100px;
+  scroll-behavior: smooth;
 }
 
 .faqinteraktifaccordion-title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 36px;
+  font-size: 2.4rem;
+  font-weight: 800;
   color: #0f172a;
   text-align: center;
+  margin-bottom: 40px;
   line-height: 1.3;
 }
 
 .faqinteraktifaccordion-item {
+  background-color: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 10px;
-  margin-bottom: 16px;
+  border-radius: 12px;
+  margin-bottom: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
-  transition: box-shadow 0.3s ease;
-  background-color: #f9fafb;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 .faqinteraktifaccordion-item:hover {
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  transform: translateY(-2px);
 }
 
 .faqinteraktifaccordion-question {
-  background-color: transparent;
+  background: #ffffff;
   color: #1e293b;
-  padding: 18px 24px;
-  font-size: 1.05rem;
+  padding: 20px 28px;
+  font-size: 1.075rem;
   font-weight: 600;
   width: 100%;
   text-align: left;
   border: none;
-  outline: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.faqinteraktifaccordion-question:hover {
+  background-color: #f1f5f9;
 }
 
 .faqinteraktifaccordion-question::after {
-  content: "\25BC";
-  position: absolute;
-  right: 24px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.9rem;
+  content: "\f107"; /* Font Awesome down arrow */
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 1rem;
   color: #64748b;
   transition: transform 0.3s ease;
 }
 
 .faqinteraktifaccordion-item.active .faqinteraktifaccordion-question::after {
-  transform: translateY(-50%) rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .faqinteraktifaccordion-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.3s ease;
-  padding: 0 24px;
+  padding: 0 28px;
   background-color: #ffffff;
   font-size: 0.98rem;
   color: #334155;
-  line-height: 1.7;
+  line-height: 1.75;
   border-top: 1px solid #e2e8f0;
+  transition: max-height 0.4s ease, padding 0.3s ease;
 }
 
 .faqinteraktifaccordion-item.active .faqinteraktifaccordion-answer {
-  padding: 18px 24px 20px;
-  max-height: 1000px; /* cukup besar agar semua konten bisa terlihat */
+  padding: 18px 28px 24px;
+  max-height: 1000px; /* cukup besar untuk konten panjang */
 }
+
+/* ====================================
+   RESPONSIVE BREAKPOINTS
+==================================== */
 
 @media (max-width: 768px) {
   .faqinteraktifaccordion-container {
-    padding: 0 16px;
+    padding: 0 20px;
   }
 
   .faqinteraktifaccordion-title {
-    font-size: 1.8rem;
-    margin-bottom: 28px;
+    font-size: 2rem;
+    margin-bottom: 32px;
   }
 
   .faqinteraktifaccordion-question {
     font-size: 1rem;
-    padding: 16px 20px;
+    padding: 18px 24px;
   }
 
   .faqinteraktifaccordion-answer {
     font-size: 0.95rem;
-    padding: 16px 20px;
-  }
-
-  .faqinteraktifaccordion-question::after {
-    right: 20px;
+    padding: 16px 24px;
   }
 }
 
 @media (max-width: 480px) {
+  .faqinteraktifaccordion-title {
+    font-size: 1.7rem;
+  }
+
   .faqinteraktifaccordion-question {
-    padding: 14px 18px;
+    padding: 16px 20px;
   }
 
   .faqinteraktifaccordion-answer {
-    padding: 14px 18px;
-  }
-
-  .faqinteraktifaccordion-title {
-    font-size: 1.6rem;
+    padding: 14px 20px;
   }
 }
 
