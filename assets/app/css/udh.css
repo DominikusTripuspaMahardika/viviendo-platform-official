@@ -881,7 +881,17 @@
   align-items: center;
   margin-bottom: 16px;
   padding: 18px;
-  background: linear-gradient(145deg, #1f2937, #111827); /* abu tua ke gelap */
+  margin: 0;
+  height: 100vh;
+  background: repeating-radial-gradient(
+    circle,
+    #6d28d9 0px,
+    #7c3aed 30px,
+    #6d28d9 60px,
+    #7c3aed 90px
+  );
+  background-blend-mode: multiply;
+  background-color: #1f2937; /* abu tua */
   border-radius: 16px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   transition: transform 0.3s ease, background 0.3s ease;
