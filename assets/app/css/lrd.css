@@ -1,0 +1,100 @@
+/* SECTION LAYANAN HACK PVZ 2 - PROFESIONAL */
+.layanan-hack-section {
+  padding: 4rem 2rem;
+  background: #ffffff;
+  color: #222;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.layanan-hack-container {
+  max-width: 960px;
+  margin: auto;
+}
+
+.layanan-hack-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #000000;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.layanan-hack-subtitle {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 1.7rem;
+  text-align: justify;
+}
+
+.layanan-hack-cta {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.layanan-hack-button {
+  background: transparent;
+  color: #2e7d32;
+  border: 2px solid #2e7d32;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.layanan-hack-button::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0%;
+  height: 100%;
+  background: #2e7d32;
+  z-index: 0;
+  transition: width 0.35s ease;
+}
+
+.layanan-hack-button:hover::before {
+  width: 100%;
+}
+
+.layanan-hack-button:hover {
+  color: #fff;
+}
+
+.layanan-hack-button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* WARNING BLOCK */
+.layanan-hack-warning,
+.layanan-hack-disclaimer {
+  background: #fefae0;
+  border-left: 5px solid #f9a825;
+  padding: 1.5rem;
+  margin-top: 2.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.layanan-hack-warning-title,
+.layanan-hack-disclaimer-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #bf360c;
+  margin-bottom: 0.5rem;
+}
+
+.layanan-hack-warning p,
+.layanan-hack-disclaimer p {
+  font-size: 0.98rem;
+  color: #333;
+  line-height: 1.6;
+}
+

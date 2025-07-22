@@ -1,0 +1,38 @@
+/* Styling untuk membungkus tombol Google Sign-In
+.g_id_signin {
+  margin-top: 1rem;
+  display: inline-block;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.g_id_signin:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+} */
+
+/* Styling profesional untuk Google Sign-In Button */
+.g_id_signin {
+  margin-top: 1.5rem;
+  display: inline-block;
+  border-radius: 0.75rem; /* 12px → 0.75rem, lebih konsisten dengan unit modern */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  outline: none;
+}
+
+/* Efek hover & focus untuk aksesibilitas */
+.g_id_signin:hover,
+.g_id_signin:focus-within {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Efek aktif (saat diklik) */
+.g_id_signin:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}

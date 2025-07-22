@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="ViVienDo PVZ2 - Unduh gratis Plants vs Zombies™ 2 tanpa pembelian, cepat dan aman." />
+    <title>ViVienDo</title>
+    <link rel="icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../app/css/gpy.css">
+    <link rel="stylesheet" href="../app/css/translate.css">
+    <link rel="stylesheet" href="../app/css/wiki.css" />
+    <link rel="stylesheet" href="../app/css/wtnm.css" />
+    <link rel="stylesheet" href="../app/css/wzmb.css" />
+    <link rel="stylesheet" href="../app/css/udh.css" />
+    <link rel="stylesheet" href="../app/css/lrd.css" />
+    <link rel="stylesheet" href="../app/css/pwa.css" />
+    <link rel="stylesheet" href="../app/css/auth.css" />
+    <link rel="stylesheet" href="../app/css/footer.css" />
+    <link rel="stylesheet" href="../app/css/login.css" />
+    <link rel="stylesheet" href="../app/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="manifest" href="../pwa/manifest.json" />
+    <meta name="theme-color" content="#1e293b" />
+    <link rel="apple-touch-icon" href="../images/icon-pwa/icon-192.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- SECTION: Login/Register Gate -->
+    <section id="authGate" class="auth-section">
+        <div class="auth-container">
+            <h2 id="authTitle"></h2>
+            <form id="authForm">
+                <input type="text" id="username" placeholder="Username" required />
+                <input type="text" id="token" placeholder="Token / Key" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <button type="submit" id="authSubmitBtn"></button>
+                <p id="authSwitchText" class="auth-switch"></p>
+                <!-- Google Sign-In Button -->
+                <div id="g_id_onload"
+                    data-client_id="623471480995-2vbcrrtar8gu6kj366ajiu4nu5n82cmk.apps.googleusercontent.com"
+                    data-callback="handleGoogleLogin" data-auto_prompt="false"></div>
+                <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left"></div>
+            </form>
+            <div id="authToast" class="auth-toast hidden"></div>
+        </div>
+    </section>
+    <div id="scrollProgressBar" aria-hidden="true"></div>
+    <!-- Loader -->
+    <div id="loader" class="loader-screen" aria-hidden="true" role="status">
+        <div class="loader-box">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Memuat aplikasi...</p>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <header class="navbar" role="banner">
+        <div class="navbar-brand">ViVienDo</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"
+            aria-controls="navbarMenu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="navbar-menu" id="navbarMenu" role="navigation" aria-label="Primary Navigation">
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a href="../../index.html" class="nav-link">Beranda</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/pbn.html" class="nav-link">Pembaruan</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/mdt.html" class="nav-link">Mendatang</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/udh.html" class="nav-link">Unduhan</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/lrd.html" class="nav-link">Layanan</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/wiki.html" class="nav-link">Ensiklopedia</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#kontak" class="nav-link">Kontak</a>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-translate"
+                        id="btn-translate">
+                        <i class="fas fa-language" aria-hidden="true"></i>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Translate" id="submenu-translate" role="menu"
+                        aria-labelledby="btn-translate">
+                        <li><a data-lang="id" href="#">Indonesia</a></li>
+                        <li><a data-lang="en" href="#">English</a></li>
+                        <li><a data-lang="fr" href="#">Français</a></li>
+                        <li><a data-lang="de" href="#">Deutsch</a></li>
+                        <li><a data-lang="es" href="#">Español</a></li>
+                        <li><a data-lang="ja" href="#">日本語</a></li>
+                        <li><a data-lang="zh-CN" href="#">中文 (Simplified)</a></li>
+                        <li><a data-lang="zh-TW" href="#">中文 (Traditional)</a></li>
+                        <li><a data-lang="ko" href="#">한국어</a></li>
+                        <li><a data-lang="th" href="#">ไทย</a></li>
+                        <li><a data-lang="ar" href="#">العربية</a></li>
+                        <li><a data-lang="ru" href="#">Русский</a></li>
+                        <li><a data-lang="pt" href="#">Português</a></li>
+                        <li><a data-lang="pt-BR" href="#">Português (Brasil)</a></li>
+                        <li><a data-lang="it" href="#">Italiano</a></li>
+                        <li><a data-lang="nl" href="#">Nederlands</a></li>
+                        <li><a data-lang="pl" href="#">Polski</a></li>
+                        <li><a data-lang="tr" href="#">Türkçe</a></li>
+                        <li><a data-lang="vi" href="#">Tiếng Việt</a></li>
+                        <li><a data-lang="sv" href="#">Svenska</a></li>
+                        <li><a data-lang="fi" href="#">Suomi</a></li>
+                        <li><a data-lang="da" href="#">Dansk</a></li>
+                        <li><a data-lang="no" href="#">Norsk</a></li>
+                        <li><a data-lang="el" href="#">Ελληνικά</a></li>
+                        <li><a data-lang="cs" href="#">Čeština</a></li>
+                        <li><a data-lang="ro" href="#">Română</a></li>
+                        <li><a data-lang="hu" href="#">Magyar</a></li>
+                        <li><a data-lang="he" href="#">עברית</a></li>
+                        <li><a data-lang="hi" href="#">हिन्दी</a></li>
+                        <li><a data-lang="bn" href="#">বাংলা</a></li>
+                        <li><a data-lang="ur" href="#">اردو</a></li>
+                        <li><a data-lang="fa" href="#">فارسی</a></li>
+                        <li><a data-lang="ms" href="#">Bahasa Melayu</a></li>
+                        <li><a data-lang="uk" href="#">Українська</a></li>
+                        <li><a data-lang="sr" href="#">Српски</a></li>
+                        <li><a data-lang="sk" href="#">Slovenčina</a></li>
+                        <li><a data-lang="hr" href="#">Hrvatski</a></li>
+                        <li><a data-lang="bg" href="#">Български</a></li>
+                        <li><a data-lang="lt" href="#">Lietuvių</a></li>
+                        <li><a data-lang="lv" href="#">Latviešu</a></li>
+                        <li><a data-lang="et" href="#">Eesti</a></li>
+                        <li><a data-lang="sl" href="#">Slovenščina</a></li>
+                        <li><a data-lang="is" href="#">Íslenska</a></li>
+                        <li><a data-lang="fil" href="#">Filipino</a></li>
+                        <li><a data-lang="sw" href="#">Kiswahili</a></li>
+                        <li><a data-lang="af" href="#">Afrikaans</a></li>
+                        <li><a data-lang="am" href="#">አማርኛ</a></li>
+                        <li><a data-lang="zu" href="#">IsiZulu</a></li>
+                        <li><a data-lang="xh" href="#">IsiXhosa</a></li>
+                        <li><a data-lang="km" href="#">ភាសាខ្មែរ</a></li>
+                        <li><a data-lang="lo" href="#">ລາວ</a></li>
+                        <li><a data-lang="az" href="#">Azərbaycan</a></li>
+                        <li><a data-lang="sq" href="#">Shqip</a></li>
+                        <li><a data-lang="ka" href="#">ქართული</a></li>
+                        <li><a data-lang="mn" href="#">Монгол</a></li>
+                        <li><a data-lang="ps" href="#">پښتو</a></li>
+                        <li><a data-lang="kk" href="#">Қазақ тілі</a></li>
+                        <li><a data-lang="uz" href="#">Oʻzbekcha</a></li>
+                        <li><a data-lang="tg" href="#">Тоҷикӣ</a></li>
+                        <li><a data-lang="ne" href="#">नेपाली</a></li>
+                        <li><a data-lang="si" href="#">සිංහල</a></li>
+                        <li><a data-lang="ta" href="#">தமிழ்</a></li>
+                        <li><a data-lang="te" href="#">తెలుగు</a></li>
+                        <li><a data-lang="ml" href="#">മലയാളം</a></li>
+                        <li><a data-lang="mr" href="#">मराठी</a></li>
+                        <li><a data-lang="kn" href="#">ಕನ್ನಡ</a></li>
+                        <li><a data-lang="gu" href="#">ગુજરાતી</a></li>
+                        <li><a data-lang="pa" href="#">ਪੰਜਾਬੀ</a></li>
+                        <li><a data-lang="my" href="#">မြန်မာ</a></li>
+                        <li><a data-lang="su" href="#">Basa Sunda</a></li>
+                        <li><a data-lang="jw" href="#">ꦧꦱꦗꦮ (Basa Jawa)</a></li>
+                        <li><a data-lang="ceb" href="#">Sinugbuanong Binisaya</a></li>
+                        <li><a data-lang="haw" href="#">ʻŌlelo Hawaiʻi</a></li>
+                        <li><a data-lang="sm" href="#">Gagana Samoa</a></li>
+                        <li><a data-lang="gd" href="#">Gàidhlig</a></li>
+                        <li><a data-lang="cy" href="#">Cymraeg</a></li>
+                        <li><a data-lang="ga" href="#">Gaeilge</a></li>
+                        <li><a data-lang="yo" href="#">Yorùbá</a></li>
+                        <li><a data-lang="ig" href="#">Igbo</a></li>
+                        <li><a data-lang="ha" href="#">Hausa</a></li>
+                        <li><a data-lang="rw" href="#">Kinyarwanda</a></li>
+                        <li><a data-lang="so" href="#">Soomaali</a></li>
+                        <li><a data-lang="ny" href="#">Chichewa</a></li>
+                        <li><a data-lang="ht" href="#">Kreyòl Ayisyen</a></li>
+                        <li><a data-lang="la" href="#">Latina</a></li>
+                        <li><a data-lang="lb" href="#">Lëtzebuergesch</a></li>
+                        <li><a data-lang="mk" href="#">Македонски</a></li>
+                        <li><a data-lang="mt" href="#">Malti</a></li>
+                        <li><a data-lang="gl" href="#">Galego</a></li>
+                        <li><a data-lang="bs" href="#">Bosanski</a></li>
+                        <li><a data-lang="ug" href="#">Uyghurche</a></li>
+                        <li><a data-lang="tt" href="#">Tatarça</a></li>
+                        <li><a data-lang="dv" href="#">ދިވެހިބަސް</a></li>
+                        <li><a data-lang="dz" href="#">རྫོང་ཁ</a></li>
+                        <li><a data-lang="fo" href="#">Føroyskt</a></li>
+                        <li><a data-lang="fj" href="#">Na Vosa Vakaviti</a></li>
+                        <li><a data-lang="gn" href="#">Avañe'ẽ</a></li>
+                        <li><a data-lang="ku" href="#">Kurdî</a></li>
+                        <li><a data-lang="mg" href="#">Malagasy</a></li>
+                        <li><a data-lang="tk" href="#">Türkmençe</a></li>
+                        <li><a data-lang="yi" href="#">ייִדיש</a></li>
+                        <li><a data-lang="ti" href="#">ትግርኛ</a></li>
+                        <li><a data-lang="bo" href="#">བོད་ཡིག</a></li>
+                        <li><a data-lang="br" href="#">Brezhoneg</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item">
+                    <button id="logoutBtn" class="logout-button" title="Keluar dari Akun" aria-label="Logout">
+                        <i class="fas fa-door-open"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <!-- Hero -->
+    <section id="beranda" class="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Selamat Datang di ViVienDo Official</h1>
+            <p class="hero-subtitle">
+                Dapatkan data premium Plants vs Zombies™ 2 sekarang juga!
+            </p>
+        </div>
+    </section>
+    <!-- Daftar Produk Digital dengan Pagination -->
+    <div class="koleksi-filter-container">
+        <button class="koleksi-filter-btn" data-target="#daftradatagratis-section">
+            <i class="fas fa-download"></i> Data Gratis
+        </button>
+        <button class="koleksi-filter-btn" data-target="#daftar-produk-premium-section">
+            <i class="fas fa-bag-shopping"></i> Data Premium
+        </button>
+    </div>
+    <section id="perbandingan-data-section" class="perbandingan-data-container">
+        <h2 class="perbandingan-data-title">
+            Perbandingan Data Gratis & Data Premium
+        </h2>
+        <div class="perbandingan-data-subtitle">
+            Bandingkan fitur utama dari <strong>Data Gratis</strong> dan <strong>Data Premium</strong> sebelum Anda
+            menentukan pilihan. Informasi ini disediakan agar Anda dapat mengunduh data yang paling sesuai dengan
+            kebutuhan dan preferensi permainan Anda.
+        </div>
+        <div class="perbandingan-data-scroll-hint">
+            <div class="scroll-icon"><i class="fas fa-arrows-alt-h" aria-hidden="true"></i></div>
+            <div class="scroll-text">Geser ke samping untuk melihat seluruh isi tabel di perangkat Anda.</div>
+        </div>
+        <div class="perbandingan-data-table-wrapper">
+            <table class="perbandingan-data-table">
+                <thead>
+                    <tr>
+                        <th>Fitur Data</th>
+                        <th>Gratis</th>
+                        <th>Premium</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Membuka Semua Tanaman</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Membuka Semua Zombie</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Membuka Semua Peta</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Membuka Semua Kostum</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Membuka Semua Dunia</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Membuka Semua Pot di Zen Garden/Plant Nursery</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Beberapa Tanaman Memiliki PlantFood Tanpa Batas</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Misi/Level Telah Diselesaikan</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Trofi/Penghargaan Telah Didapatkan</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Tanaman Memiliki Level 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Tanaman Memiliki Mastery 200 - 150000000</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Tanaman Memiliki Pertahanan 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Tanaman Memiliki Serangan 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Tanaman Memiliki Biaya Matahari -2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Tanaman Dapat Langsung Digunakan</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Tanaman Bisa Digunakan Langsung Tanpa (Recharge)</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Tanaman Bisa Digunakan Langsung Tanpa (Cooldown)</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Tanaman Bisa Digunakan Langsung Tanpa (Reload)</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Tanaman Memiliki Kostum Unik dan Lengkap</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Semua Mata Uang Berjumlah 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "Koin" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "Permata" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "Mint" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "Sarung Tangan Arena" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "Bahan Bakar Penny" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "Poin Perk Penny Chase" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Jari Sihir" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Cubit Zombie" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Gesek Zombie" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Bola Salju" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Penyembur Api" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Vasebreaker Reveal" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Vasebreaker Butter" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Vasebreaker Move" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Beg Houled Shuffle" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Beg Houled Shovel" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Jumlah Besar "PowerUp Beg Houled Wizard" 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Ancient Egypt" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Pirate Seas" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Wild West" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Frostbite Caves" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Lost City" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Far Future" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Dark Ages" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Neon Mixtape Tour" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Jurassic Marsh" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Big Wave Beach" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Level Zona Endless di Dunia "Modern Day" Mencapai 2047483640</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Masuk dan Simpan Progres ke Akun EA atau Google Play</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Bisa Langsung Main Mode Petualangan "Offline", Penny "Online", dan Arena "Online"</td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Akses awal ke pembaruan terbaru dan semua konten premium eksklusif</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Akses awal ke akun (Multi-Slot) dalam satu file data simpan, masing-masing dengan fitur unik
+                        </td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Akses awal ke Editor OBB untuk mempermudah eksperimen dan modifikasi</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Akses awal ke Penyesuaian nama akun atau profil sesuai permintaan pengguna</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Pengalaman bermain tanpa iklan dan tanpa batasan akses</td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Akses ke grup eksklusif anggota premium untuk diskusi tips & trik</td>
+                        <td><i class="fas fa-times text-danger"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                    <tr>
+                        <td>Dan Masih Banyak Lagi Fitur Menarik Lainnya Yang Bisa Kamu Dapatkan</td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                        <td><i class="fas fa-check text-success"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section id="daftradatagratis-section" class="daftradatagratis-container">
+        <h2 class="daftradatagratis-title">Koleksi Data Gratis</h2>
+        <p class="daftradatagratis-subtitle">
+            Dapatkan akses cepat ke file <strong>Plants vs Zombies™ 2</strong> dan
+            <strong>Plants vs Zombies™ 2: Reflourished</strong> secara gratis. Semua
+            file telah diuji dan siap digunakan langsung tanpa repot konfigurasi.
+        </p>
+        <div class="daftradatagratis-grid">
+            <!-- Kartu Gratis: PvZ2 -->
+            <div class="daftradatagratis-card">
+                <!-- <span class="daftradatagratis-badge final"><i class="fas fa-check-circle"></i> Final</span>
+                <div class="daftradatagratis-icon">
+                    <img src="../images/produk/logo/gbl/pvz2.png" alt="Logo PvZ2" class="daftradatagratis-logo" />
+                </div> -->
+                <div class="daftradatagratis-info">
+                    <h3 class="daftradatagratis-nama">Plants vs Zombies™ 2</h3>
+                    <p class="daftradatagratis-deskripsi">
+                        File <strong>PP.dat</strong> dengan konfigurasi dasar yang telah
+                        disesuaikan agar kompatibel dengan semua versi Plants vs Zombies™
+                        2 tanpa perlu modifikasi tambahan.
+                    </p>
+                    <ul class="daftradatagratis-fitur">
+                        <li><i class="fas fa-file-alt"></i> Nama File: pp.gbl.dat</li>
+                        <li><i class="fas fa-database"></i> Ukuran File: 16,7 KB (17.172 byte)</li>
+                        <li><i class="fas fa-file-signature"></i> Jenis File: DAT</li>
+                        <li><i class="fas fa-code"></i> Format File: <code>.dat</code></li>
+                        <li><i class="fas fa-check-circle"></i> Verifikasi by ViVienDo</li>
+                        <li><i class="fas fa-calendar-alt"></i> Rilis: 5 Juli 2025</li>
+                        <li><i class="fas fa-lightbulb"></i> Tidak perlu root</li>
+                        <li><i class="fas fa-mobile-alt"></i> Kompatibel: Android 6.0+ / iOS 10+</li>
+                    </ul>
+                    <div class="daftradatagratis-preview">
+                        <strong>Konten Utama:</strong>
+                        <ul class="daftradatagratis-preview-list">
+                            <li>
+                                <i class="fas fa-play-circle"></i>
+                                <div>
+                                    <div class="judul-fitur"> Progres Awal Terbuka</div>
+                                    <div class="deskripsi-fitur">Seluruh tanaman telah terbuka dalam kondisi level 1 dan
+                                        siap digunakan untuk bertempur melawan zombie, sementara seluruh level di setiap
+                                        dunia masih belum diselesaikan, memungkinkan Anda untuk menikmati progres
+                                        permainan secara penuh dari awal.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="daftradatagratis-instruksi">
+                        <strong>Petunjuk Instalasi:</strong>
+                        <ol class="daftradatagratis-step">
+                            <li>Unduh file yang tersedia di atas.</li>
+                            <li><strong>Penting:</strong> Hapus terlebih dahulu file <code>PP.dat</code> yang lama.
+                            <li>Salin ke folder berikut:
+                                <div class="daftradatagratis-path-wrapper">
+                                    <div class="daftradatagratis-path"
+                                        data-path="/Android/data/com.ea.game.pvz2_row/files/No_Backup/pp.dat">
+                                        <code>/Android/data/com.ea.game.pvz2_row/files/No_Backup/pp.dat</code>
+                                        <button class="copy-btn" title="Salin direktori">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Pastikan aplikasi game telah ditutup sebelum menyalin file.</li>
+                            <li>Buka kembali Plants vs Zombies™ 2 & nikmati permainan-nya.</li>
+                        </ol>
+                    </div>
+                    <div class="daftradatagratis-warning">
+                        <i class="fas fa-shield-alt"></i> Telah diuji secara menyeluruh pada berbagai versi Plants vs
+                        Zombies™ 2 tanpa menimbulkan konflik, error atau gangguan sistem.
+                    </div>
+                    <div class="daftradatagratis-aksi">
+                        <a href="../data/pp.gbl.dat" class="daftradatagratis-btn" download>
+                            <i class="fas fa-download"></i> Unduh Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Kartu Gratis: Reflourished -->
+            <div class="daftradatagratis-card">
+                <!-- <span class="daftradatagratis-badge beta"><i class="fas fa-flask"></i> Beta</span>
+                <div class="daftradatagratis-icon">
+                    <img src="../images/produk/logo/rfl/pvz2rfl.png" alt="Logo PvZ2" class="daftradatagratis-logo" />
+                </div> -->
+                <div class="daftradatagratis-info">
+                    <h3 class="daftradatagratis-nama">
+                        Plants vs Zombies™ 2: Reflourished
+                    </h3>
+                    <p class="daftradatagratis-deskripsi">
+                        File <strong>PP.dat</strong> dengan konfigurasi dasar yang telah
+                        disesuaikan agar kompatibel dengan semua versi Plants vs Zombies™
+                        2: Reflourished tanpa perlu modifikasi tambahan.
+                    </p>
+                    <ul class="daftradatagratis-fitur">
+                        <li><i class="fas fa-file-alt"></i> Nama File: pp.rfl.dat</li>
+                        <li><i class="fas fa-database"></i> Ukuran File: 5,76 KB (5.902 byte)</li>
+                        <li><i class="fas fa-file-signature"></i> Jenis File: DAT</li>
+                        <li><i class="fas fa-code"></i> Format File: <code>.dat</code></li>
+                        <li><i class="fas fa-check-circle"></i> Verifikasi by ViVienDo</li>
+                        <li><i class="fas fa-calendar-alt"></i> Rilis: 5 Juli 2025</li>
+                        <li><i class="fas fa-lightbulb"></i> Tidak perlu root</li>
+                        <li><i class="fas fa-mobile-alt"></i> Kompatibel: Android 6.0+ / iOS 10+</li>
+                    </ul>
+                    <div class="daftradatagratis-preview">
+                        <strong>Konten Utama:</strong>
+                        <ul class="daftradatagratis-preview-list">
+                            <li>
+                                <i class="fas fa-play-circle"></i>
+                                <div>
+                                    <div class="judul-fitur"> Progres Awal Terbuka</div>
+                                    <div class="deskripsi-fitur">Seluruh tanaman telah terbuka dalam kondisi level 1 dan
+                                        siap digunakan untuk bertempur melawan zombie, sementara seluruh level di setiap
+                                        dunia masih belum diselesaikan, memungkinkan Anda untuk menikmati progres
+                                        permainan secara penuh dari awal.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="daftradatagratis-instruksi">
+                        <strong>Petunjuk Instalasi:</strong>
+                        <ol class="daftradatagratis-step">
+                            <li>Unduh file yang tersedia di atas.</li>
+                            <li><strong>Penting:</strong> Hapus terlebih dahulu file <code>PP.dat</code> yang lama.
+                            <li>Salin ke folder berikut:
+                                <div class="daftradatagratis-path-wrapper">
+                                    <div class="daftradatagratis-path"
+                                        data-path="/Android/data/com.ea.game.pvz2_rfl/files/No_Backup/pp.dat">
+                                        <code>/Android/data/com.ea.game.pvz2_rfl/files/No_Backup/pp.dat</code>
+                                        <button class="copy-btn" title="Salin direktori">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>Pastikan aplikasi game telah ditutup sebelum menyalin file.</li>
+                            <li>Buka kembali Plants vs Zombies™ 2: Reflourished & nikmati permainan-nya.</li>
+                        </ol>
+                    </div>
+                    <div class="daftradatagratis-warning">
+                        <i class="fas fa-shield-alt"></i> Telah diuji secara menyeluruh pada berbagai versi Plants vs
+                        Zombies™ 2: Reflourished tanpa menimbulkan konflik, error atau gangguan sistem.
+                    </div>
+                    <div class="daftradatagratis-aksi">
+                        <a href="../data/pp.rfl.dat" class="daftradatagratis-btn" download>
+                            <i class="fas fa-download"></i> Unduh Sekarang
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Placeholder -->
+            <div class="daftradatagratis-card coming-soon">
+                <!-- <div class="daftradatagratis-icon">
+                    <img src="../images/produk/logo/csn/coomingsoon.png" alt="Logo PvZ2"
+                        class="daftradatagratis-logo" />
+                </div> -->
+                <div class="daftradatagratis-info">
+                    <h3 class="daftradatagratis-nama">Data Gratis Selanjutnya</h3>
+                    <p class="daftradatagratis-deskripsi">
+                        ViVienDo sedang mempersiapkan koleksi data gratis terbaru yang dirancang untuk mendukung
+                        pengalaman
+                        terbaik para pemain Plants vs Zombies™ 2. Setiap file yang akan kami
+                        rilis tidak hanya disusun dengan cermat, tetapi juga melewati proses kurasi ketat yang mencakup
+                        uji kompatibilitas multi-versi, analisis integritas sistem, serta validasi keamanan berlapis.
+                        Kami memastikan bahwa tidak ada konflik dengan sistem penyimpanan asli game, tidak memerlukan
+                        akses root, dan tidak mengandung modifikasi berbahaya yang dapat merusak progres Anda. Setiap
+                        paket data telah dioptimalkan agar dapat langsung digunakan tanpa perlu konfigurasi manual,
+                        menjadikannya ideal baik untuk pemula yang ingin mencoba Plants vs Zombies™ 2 dengan lebih cepat
+                        maupun untuk pemain berpengalaman yang mencari struktur save yang stabil dan efisien. Kami juga
+                        terus
+                        mendengarkan masukan dari komunitas untuk memastikan bahwa setiap rilisan benar-benar relevan,
+                        bebas dari bug, dan siap pakai. Kunjungi halaman ini secara rutin untuk mendapatkan informasi
+                        terbaru, karena rilisan eksklusif akan terus diperbarui dan disempurnakan dari waktu ke waktu.
+                        Ini merupakan bagian dari komitmen jangka panjang ViVienDo dalam menyediakan
+                        akses data yang terpercaya, teruji, dan siap digunakan untuk berbagai kebutuhan — baik untuk
+                        bermain, eksperimen, maupun modifikasi lanjutan. Semua ini kami hadirkan untuk mendukung
+                        komunitas Plants vs Zombies™ 2 global melalui solusi data yang profesional, aman, dan siap
+                        digunakan — tidak hanya untuk pengalaman bermain yang optimal, tetapi juga sebagai fondasi
+                        eksplorasi teknis, eksperimen fitur, dan pengembangan lanjutan yang tetap menjaga stabilitas,
+                        integritas data, dan performa game secara keseluruhan. ViVienDo berkomitmen
+                        menyediakan akses data yang tepercaya dan berstandar tinggi untuk mendukung komunitas Plants vs
+                        Zombies™ 2 yang lebih cerdas dan berkembang.
+                    </p>
+                    <div class="daftradatagratis-progress loading" aria-live="polite">
+                        <div class="spinner"></div>
+                        <div class="progress-text">
+                            Masih dalam tahap pengembangan...
+                        </div>
+                    </div>
+                    <div class="daftradatagratis-aksi">
+                        <a href="#" class="daftradatagratis-btn disabled">
+                            <i class="fas fa-clock"></i> Segera Hadir
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="copyToast" class="copy-toast hidden">
+        <i class="fas fa-check-circle"></i> Berhasil disalin!
+    </div>
+    <section id="daftar-produk-premium-section" class="daftar-produk-premium-container">
+        <h2 class="daftar-produk-premium-judul">Koleksi Data Premium</h2>
+        <p class="peringatan-bonus">
+            <i class="fas fa-gift"></i> Setiap transaksi pembelian yang berhasil
+            diverifikasi akan langsung disertai bonus file tambahan yang dikirim
+            secara eksklusif oleh admin. Sebagai bentuk apresiasi atas dukungan
+            Anda, kami juga menyediakan akses gratis ke berbagai paket spesial
+            seperti Shop 1 Coin, Shop Free, Mastery 200, serta alat bantu khusus
+            untuk modifikasi data dan file OBB Plants vs Zombies™ 2. Tidak hanya
+            itu, Anda juga berkesempatan memperoleh bonus tambahan menarik, termasuk
+            dua paket acak dari Mastery 300 hingga Mastery 150000000 yang akan
+            diberikan secara gratis apabila Anda melakukan pembelian minimal tiga
+            produk sekaligus — semua ini dirancang untuk memberikan pengalaman
+            bermain yang lebih lengkap, fleksibel, dan memuaskan.
+        </p>
+        <!--<div class="hitunganmundur-bonus-container">
+            <i class="fas fa-hourglass-half"></i>
+            <span id="hitunganmundur-bonus-pesan">Bonus spesial ini akan berakhir dalam:</span>
+            <div id="hitunganmundur-bonus-waktu" class="hitunganmundur-bonus-display">00:00:00</div>
+        </div>-->
+        <!-- Peringatan Verifikasi Gambar -->
+        <div class="peringatan-verifikasi">
+            <i class="fas fa-exclamation-triangle"></i>
+            <strong>Perhatian:</strong> Untuk menerima produk digital, Anda
+            <u>WAJIB</u> mengirimkan
+            <strong>bukti gambar pembayaran</strong> melalui WhatsApp. Produk akan
+            dikirim <u>setelah bukti diverifikasi</u>.
+        </div>
+        <!-- Panel Statistik Semua Produk -->
+        <section id="statistikpanelproduk-container" class="statistikpanelproduk-container">
+            <h3 class="statistikpanelproduk-judul">
+                <i class="fas fa-chart-bar"></i> Statistik Semua Produk
+            </h3>
+            <div class="statistikpanelproduk-scrollarea">
+                <div class="statistikpanelproduk-inner">
+                    <canvas id="statistikpanelproduk-chart"></canvas>
+                </div>
+            </div>
+            <p class="statistikpanelproduk-keterangan">
+                * Diagram memperlihatkan jumlah pembelian dari semua produk yang
+                tersedia dan akan di perbarui secara Real-Time.
+            </p>
+        </section>
+        <section class="section-unlimited-plantfood">
+            <div class="upf-wrapper">
+                <h2 class="upf-heading">
+                    <i class="fas fa-seedling"></i> PlantFood Tanpa Batas
+                </h2>
+                <p class="upf-description">
+                    Fitur <strong>PlantFood tanpa batas</strong> hanya tersedia dengan pembelian <strong>Data Mastery ≥
+                        100.000.000</strong>.
+                </p>
+                <div class="upf-benefits">
+                    <div class="upf-card">
+                        <i class="fas fa-exclamation-triangle icon-warning"></i>
+                        <p>Tidak tersedia di paket yang lainnya atau lebih rendah dari <strong>Mastery ≥
+                                100.000.000</strong> </p>
+                    </div>
+                    <div class="upf-card">
+                        <i class="fas fa-star icon-success"></i>
+                        <p>Termasuk ke dalam <strong>Data Premium Mastery</strong> yang lebih tinggi</p>
+                    </div>
+                    <div class="upf-card">
+                        <i class="fas fa-gift icon-info"></i>
+                        <p>PlantFood tanpa batas sepanjang permainan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="produk-list" class="daftar-produk-premium-grid"></div>
+        <!-- Navigasi Halaman -->
+        <div class="pagination">
+            <button id="prevBtn">&laquo; Prev</button>
+            <span id="pageIndicator">1</span>
+            <button id="nextBtn">Next &raquo;</button>
+        </div>
+    </section>
+    <section id="faqinteraktifaccordion-section" class="faqinteraktifaccordion-container">
+        <h2 class="faqinteraktifaccordion-title">Pertanyaan Umum (FAQ)</h2>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apa itu data premium ViVienDo?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Data premium ViVienDo adalah file khusus yang telah dimodifikasi
+                    secara profesional untuk memberikan keuntungan lebih dalam permainan
+                    Plants vs Zombies™ 2, seperti mastery tinggi, level tanaman
+                    maksimal, dan fitur eksklusif lainnya tanpa perlu pembelian dalam
+                    aplikasi.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Bagaimana cara melakukan pembelian?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Anda hanya perlu memilih produk yang diinginkan, lalu klik tombol
+                    “Verifikasi Pembelian” untuk mendapatkan instruksi pembayaran.
+                    Setelah itu, kirimkan bukti transaksi ke admin melalui WhatsApp
+                    untuk diproses lebih lanjut dan mendapatkan file Anda.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apa itu Shop 1 Coin dan Shop Free?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Shop 1 Coin dan Shop Free adalah produk spesial yang kami sediakan
+                    secara gratis atau dengan biaya sangat ringan sebagai bonus tambahan
+                    bagi pembeli aktif. File ini berisi item premium yang dapat diakses
+                    tanpa harus membayar penuh seperti di versi resmi.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Berapa lama waktu verifikasi pembayaran?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Verifikasi pembayaran biasanya memakan waktu antara 5 hingga 15
+                    menit pada jam operasional. Namun, pada jam sibuk atau malam hari,
+                    waktu verifikasi bisa sedikit lebih lama tergantung antrian yang
+                    sedang berlangsung.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apakah saya bisa meminta produk versi tertentu?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Tentu saja. Anda dapat memberikan permintaan spesifik saat mengirim
+                    bukti pembayaran, seperti versi Mastery tertentu atau file khusus
+                    yang Anda butuhkan. Admin akan mengatur dan mengirimkan versi sesuai
+                    permintaan tersebut.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Bagaimana saya tahu file yang saya terima aman?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Semua file telah melalui proses pengujian dan pemeriksaan manual
+                    oleh tim kami. Kami memastikan bahwa file bebas dari virus, malware,
+                    dan tidak mengandung elemen yang dapat merusak perangkat Anda.
+                    Keamanan pengguna adalah prioritas kami.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apa itu file .rton dan .dat?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    File .rton dan .dat adalah jenis file data internal pada game Plants vs Zombies™ 2
+                    yang digunakan untuk menyimpan informasi penting seperti level
+                    tanaman, konfigurasi mastery, status permainan, dan parameter
+                    modifikasi lainnya yang memungkinkan gameplay lebih fleksibel.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apakah tersedia panduan instalasi?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Saat ini panduan instalasi resmi masih dalam proses pengembangan.
+                    Namun, Anda tetap bisa berkonsultasi langsung dengan admin untuk
+                    mendapatkan bantuan dan petunjuk manual agar file dapat digunakan
+                    sesuai kebutuhan perangkat Anda.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apa yang harus saya lakukan jika file tidak bekerja?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Jika file yang dikirimkan tidak bekerja sesuai harapan, segera
+                    hubungi admin dan lampirkan bukti seperti tangkapan layar atau
+                    deskripsi error. Kami akan membantu Anda sampai file berhasil
+                    digunakan, termasuk memberikan pengganti jika diperlukan.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apakah ada garansi untuk pembelian saya?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Ya, kami memberikan garansi bahwa file yang Anda beli akan diterima
+                    dan dapat digunakan. Jika terdapat masalah teknis yang tidak bisa
+                    diselesaikan, Anda dapat memilih antara penggantian file atau
+                    pengembalian dana sesuai ketentuan kami.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apakah saya bisa membeli lebih dari satu produk sekaligus?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Ya, Anda dapat memilih dan memesan beberapa produk sekaligus dalam
+                    satu transaksi. Hal ini akan mempercepat proses pengiriman dan Anda
+                    bisa langsung menerima semua file yang dibutuhkan secara lengkap
+                    dari admin.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apakah tersedia fitur unduh otomatis?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Untuk saat ini, semua file masih dikirimkan secara manual oleh admin
+                    setelah verifikasi. Namun kami sedang mengembangkan sistem unduhan
+                    otomatis agar pengguna bisa langsung mendapatkan file tanpa perlu
+                    menunggu lama.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apa itu Mastery 137853785?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Mastery 137853785 mengacu pada status di mana setiap tanaman dalam
+                    game memiliki level mastery tertinggi yang saat ini kami miliki,
+                    memungkinkan Anda memenangkan hampir semua tantangan dengan lebih
+                    mudah dan cepat tanpa usaha berlebihan.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apa perbedaan antara LifeTime dan Regular?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Paket LifeTime memberikan Anda akses seumur hidup ke file yang Anda
+                    beli termasuk pembaruan. Sementara itu, paket Regular hanya mencakup
+                    pengiriman sekali tanpa dukungan jangka panjang atau update.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apakah saya bisa bayar pakai pulsa?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Ya. Kami menyediakan beberapa metode pembayaran termasuk pulsa,
+                    e-wallet, transfer bank, dan QRIS agar Anda dapat memilih cara yang
+                    paling mudah dan nyaman sesuai dengan kondisi Anda.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apakah ini legal dan tidak melanggar aturan Plants vs Zombies™ 2?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Semua file yang disediakan bersifat lokal dan tidak melibatkan
+                    server resmi EA. Kami tidak melakukan pelanggaran terhadap pengguna
+                    lain atau pihak ketiga, dan file hanya dimaksudkan untuk penggunaan
+                    pribadi.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Bolehkah saya membagikan file ini ke orang lain?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Tidak diperbolehkan. File yang Anda terima adalah eksklusif untuk
+                    penggunaan pribadi. Membagikannya kepada pihak lain dapat
+                    menyebabkan akses Anda diblokir dan layanan dihentikan tanpa
+                    pemberitahuan lebih lanjut.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Bagaimana jika saya kehilangan file yang dibeli?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Jika Anda kehilangan file, cukup hubungi admin dan berikan bukti
+                    pembelian. Selama file Anda masih dalam masa LifeTime, kami akan
+                    mengirim ulang tanpa biaya tambahan sebagai bentuk layanan pelanggan
+                    kami.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apakah saya bisa mengecek ulang file yang pernah dibeli?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Saat ini fitur riwayat pembelian belum tersedia. Kami menyarankan
+                    Anda menyimpan file dan informasi pembelian dengan baik. Jika
+                    diperlukan, admin akan membantu mencocokkan data Anda secara manual.
+                </p>
+            </div>
+        </div>
+        <div class="faqinteraktifaccordion-item">
+            <button class="faqinteraktifaccordion-question">
+                Apakah saya bisa merekomendasikan fitur baru?
+            </button>
+            <div class="faqinteraktifaccordion-answer">
+                <p>
+                    Tentu saja. Kami sangat terbuka terhadap masukan dan ide baru. Anda
+                    dapat menghubungi kami melalui Telegram, Email, atau media sosial
+                    lainnya untuk menyampaikan fitur yang Anda inginkan agar
+                    dikembangkan ke depannya.
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Modal Verifikasi Pembelian -->
+    <div id="verifikasiModal" class="modal-verifikasi hidden">
+        <div class="modal-verifikasi-content">
+            <h3>Konfirmasi Pembelian</h3>
+            <p><strong>Produk:</strong> <span id="produkNama"></span></p>
+            <p><strong>Harga:</strong> <span id="produkHarga"></span></p>
+            <p><strong>Diskon:</strong> 30%</p>
+            <p><strong>Total Bayar:</strong> <span id="produkTotal"></span></p>
+            <div class="modal-buttons">
+                <button id="lanjutkanBtn" class="lanjutkan-btn">
+                    Lanjutkan Verifikasi
+                </button>
+                <button id="batalBtn" class="batal-btn">Batal</button>
+            </div>
+        </div>
+    </div>
+    <!-- Live Notification Modal -->
+    <!-- <div id="liveNotifModal" class="modal-live hidden">
+        <div class="modal-live-content">
+            <i class="fas fa-bolt"></i>
+            <span id="liveNotifText">Pengguna baru saja melakukan pembelian!</span>
+        </div>
+    </div> -->
+    <!-- Modal Produk Gratis -->
+    <!-- <div id="gratisModal" class="modal-verifikasi hidden">
+        <div class="modal-verifikasi-content">
+            <h3>Produk Ini Gratis!</h3>
+            <p>Mastery 200 + LifeTime adalah produk gratis yang bisa Anda unduh kapan saja tanpa biaya. Klik tombol
+                unduh untuk langsung mendapatkan file Anda.</p>
+            <div class="modal-buttons">
+                <button class="lanjutkan-btn" onclick="window.open('../data/pp.dat', '_blank')">Unduh Sekarang</button>
+                <button class="batal-btn"
+                    onclick="document.getElementById('gratisModal').classList.add('hidden')">Tutup</button>
+            </div>
+        </div>
+    </div> -->
+    <!-- Toast Unduh -->
+    <!-- <div id="toastUnduh" class="toast-unduh hidden">
+        <i class="fas fa-check-circle"></i>
+        Produk "Mastery 200 + Regular" adalah gratis dan dapat langsung diunduh!
+    </div> -->
+    <!-- Kontak -->
+    <section id="kontak" class="kontak-section">
+        <h2>Hubungi Kami</h2>
+        <p>
+            Jika Anda memiliki pertanyaan, masukan, atau memerlukan bantuan terkait
+            layanan kami, jangan ragu untuk menghubungi kami melalui saluran resmi
+            di bawah ini. Tim ViVienDo siap membantu Anda dengan cepat dan
+            profesional.
+        </p>
+        <div class="kontak-icons">
+            <a href="https://www.instagram.com/viviendochannel" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i> <span>Instagram</span>
+            </a>
+            <a href="https://t.me/viviendochannel" target="_blank" aria-label="Telegram">
+                <i class="fab fa-telegram"></i> <span>Telegram</span>
+            </a>
+            <a href="mailto:viviendochannel@gmail.com" target="_blank" aria-label="Email">
+                <i class="fas fa-envelope"></i> <span>Email</span>
+            </a>
+            <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i> <span>YouTube</span>
+            </a>
+        </div>
+    </section>
+    <div id="installBanner" class="install-banner">
+        <p>Pasang ViVienDo ke layar utama untuk akses lebih cepat!</p>
+        <div class="install-actions">
+            <button onclick="triggerPWAInstall()">Pasang Sekarang</button>
+            <button onclick="hideInstallBanner()">Nanti Saja</button>
+            <button onclick="dontShowAgain()">Jangan Tampilkan Lagi</button>
+        </div>
+    </div>
+    <!-- === UNDUH APLIKASI === -->
+    <section class="app-download">
+        <div class="app-download-container">
+            <h2 class="app-download-title">Unduh Sekarang</h2>
+            <p class="app-download-subtitle">
+                Rasakan keseruan <strong>Plants vs. Zombies 2</strong> — strategi aksi epik melawan zombie di berbagai
+                era!
+            </p>
+            <div class="app-download-buttons">
+                <div class="app-download-buttons">
+                    <!-- Google Play -->
+                    <a href="https://play.google.com/store/apps/details?id=com.ea.game.pvz2_row"
+                        class="app-download-btn" target="_blank" rel="noopener noreferrer"
+                        aria-label="Unduh dari Google Play">
+                        <div class="store-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                alt="Get it on Google Play">
+                        </div>
+                    </a>
+                    <!-- App Store -->
+                    <a href="https://apps.apple.com/app/plants-vs-zombies-2/id597986893" class="app-download-btn"
+                        target="_blank" rel="noopener noreferrer" aria-label="Unduh dari App Store">
+                        <div class="store-icon">
+                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                alt="Download on the App Store">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer-section">
+        <p class="footer-text">
+            &copy; <span id="footer-year"></span> ViVienDo PVZ2. Unduhan Gratis.
+            Semua Hak Dilindungi.
+        </p>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/viviendochannel" target="_blank" class="footer-social-link"
+                aria-label="Instagram ViVienDo"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/viviendochannel" target="_blank" class="footer-social-link"
+                aria-label="Telegram ViVienDo"><i class="fab fa-telegram"></i></a>
+            <a href="mailto:viviendochannel@gmail.com" target="_blank" class="footer-social-link"
+                aria-label="Email ViVienDo"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" class="footer-social-link"
+                aria-label="YouTube ViVienDo"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    <script src="../app/js/translate.js" defer></script>
+    <script src="../app/js/wtnm.js" defer></script>
+    <script src="../app/js/wzmb.js" defer></script>
+    <script src="../app/js/udh.js" defer></script>
+    <script src="../app/js/loader.js" defer></script>
+    <script src="../app/js/login.js" defer></script>
+    <script src="../app/js/navbar.js" defer></script>
+    <script src="../app/js/parallax.js" defer></script>
+    <script src="../app/js/pwa.js" defer></script>
+    <script src="../app/js/script.js" defer></script>
+    <script src="../app/js/year.js" defer></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker
+                    .register("../pwa/service-worker.js")
+                    .then((reg) => console.log("Service Worker registered:", reg.scope))
+                    .catch((err) => console.error("Service Worker failed:", err));
+            });
+        }
+    </script>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Y1ld5flFnrzUY_qWdokoh"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="../app/js/auth.js" defer></script>
+    <div id="google_translate_element" style="display: none !important;"></div>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

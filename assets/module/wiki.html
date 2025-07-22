@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="ViVienDo PVZ2 - Unduh gratis Plants vs Zombies™ 2 tanpa pembelian, cepat dan aman." />
+    <title>ViVienDo PvZ2</title>
+    <link rel="icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../app/css/gpy.css">
+    <link rel="stylesheet" href="../app/css/translate.css">
+    <link rel="stylesheet" href="../app/css/wiki.css">
+    <link rel="stylesheet" href="../app/css/wtnm.css">
+    <link rel="stylesheet" href="../app/css/wzmb.css">
+    <link rel="stylesheet" href="../app/css/udh.css">
+    <link rel="stylesheet" href="../app/css/lrd.css">
+    <link rel="stylesheet" href="../app/css/pwa.css">
+    <link rel="stylesheet" href="../app/css/auth.css">
+    <link rel="stylesheet" href="../app/css/footer.css">
+    <link rel="stylesheet" href="../app/css/login.css">
+    <link rel="stylesheet" href="../app/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="manifest" href="../pwa/manifest.json" />
+    <meta name="theme-color" content="#1e293b" />
+    <link rel="apple-touch-icon" href="../images/icon-pwa/icon-192.png" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- SECTION: Login/Register Gate -->
+    <section id="authGate" class="auth-section">
+        <div class="auth-container">
+            <h2 id="authTitle"></h2>
+            <form id="authForm">
+                <input type="text" id="username" placeholder="Username" required />
+                <input type="text" id="token" placeholder="Token / Key" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <button type="submit" id="authSubmitBtn"></button>
+                <p id="authSwitchText" class="auth-switch"></p>
+                <!-- Google Sign-In Button -->
+                <div id="g_id_onload"
+                    data-client_id="623471480995-2vbcrrtar8gu6kj366ajiu4nu5n82cmk.apps.googleusercontent.com"
+                    data-callback="handleGoogleLogin" data-auto_prompt="false">
+                </div>
+                <div class="g_id_signin" data-type="standard" data-shape="pill" data-theme="outline"
+                    data-text="signin_with" data-size="large" data-logo_alignment="left">
+                </div>
+            </form>
+            <div id="authToast" class="auth-toast hidden"></div>
+        </div>
+    </section>
+    <div id="scrollProgressBar" aria-hidden="true"></div>
+    <!-- Loader -->
+    <div id="loader" class="loader-screen" aria-hidden="true" role="status">
+        <div class="loader-box">
+            <div class="loader-spinner"></div>
+            <p class="loader-text">Memuat aplikasi...</p>
+        </div>
+    </div>
+    <!-- Navbar -->
+    <!-- Navbar -->
+    <header class="navbar" role="banner">
+        <div class="navbar-brand">ViVienDo</div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"
+            aria-controls="navbarMenu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav class="navbar-menu" id="navbarMenu" role="navigation" aria-label="Primary Navigation">
+            <ul class="navbar-list">
+                <li class="navbar-item">
+                    <a href="../../index.html" class="nav-link">Beranda</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/pbn.html" class="nav-link">Pembaruan</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/mdt.html" class="nav-link">Mendatang</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/udh.html" class="nav-link">Unduhan</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/lrd.html" class="nav-link">Layanan</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="../module/wiki.html" class="nav-link">Ensiklopedia</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="#kontak" class="nav-link">Kontak</a>
+                </li>
+                <li class="navbar-item dropdown">
+                    <button class="dropbtn" aria-haspopup="true" aria-expanded="false" aria-controls="submenu-translate"
+                        id="btn-translate">
+                        <i class="fas fa-language" aria-hidden="true"></i>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <ul class="dropdown-content" aria-label="submenu Translate" id="submenu-translate" role="menu"
+                        aria-labelledby="btn-translate">
+                        <li><a data-lang="id" href="#">Indonesia</a></li>
+                        <li><a data-lang="en" href="#">English</a></li>
+                        <li><a data-lang="fr" href="#">Français</a></li>
+                        <li><a data-lang="de" href="#">Deutsch</a></li>
+                        <li><a data-lang="es" href="#">Español</a></li>
+                        <li><a data-lang="ja" href="#">日本語</a></li>
+                        <li><a data-lang="zh-CN" href="#">中文 (Simplified)</a></li>
+                        <li><a data-lang="zh-TW" href="#">中文 (Traditional)</a></li>
+                        <li><a data-lang="ko" href="#">한국어</a></li>
+                        <li><a data-lang="th" href="#">ไทย</a></li>
+                        <li><a data-lang="ar" href="#">العربية</a></li>
+                        <li><a data-lang="ru" href="#">Русский</a></li>
+                        <li><a data-lang="pt" href="#">Português</a></li>
+                        <li><a data-lang="pt-BR" href="#">Português (Brasil)</a></li>
+                        <li><a data-lang="it" href="#">Italiano</a></li>
+                        <li><a data-lang="nl" href="#">Nederlands</a></li>
+                        <li><a data-lang="pl" href="#">Polski</a></li>
+                        <li><a data-lang="tr" href="#">Türkçe</a></li>
+                        <li><a data-lang="vi" href="#">Tiếng Việt</a></li>
+                        <li><a data-lang="sv" href="#">Svenska</a></li>
+                        <li><a data-lang="fi" href="#">Suomi</a></li>
+                        <li><a data-lang="da" href="#">Dansk</a></li>
+                        <li><a data-lang="no" href="#">Norsk</a></li>
+                        <li><a data-lang="el" href="#">Ελληνικά</a></li>
+                        <li><a data-lang="cs" href="#">Čeština</a></li>
+                        <li><a data-lang="ro" href="#">Română</a></li>
+                        <li><a data-lang="hu" href="#">Magyar</a></li>
+                        <li><a data-lang="he" href="#">עברית</a></li>
+                        <li><a data-lang="hi" href="#">हिन्दी</a></li>
+                        <li><a data-lang="bn" href="#">বাংলা</a></li>
+                        <li><a data-lang="ur" href="#">اردو</a></li>
+                        <li><a data-lang="fa" href="#">فارسی</a></li>
+                        <li><a data-lang="ms" href="#">Bahasa Melayu</a></li>
+                        <li><a data-lang="uk" href="#">Українська</a></li>
+                        <li><a data-lang="sr" href="#">Српски</a></li>
+                        <li><a data-lang="sk" href="#">Slovenčina</a></li>
+                        <li><a data-lang="hr" href="#">Hrvatski</a></li>
+                        <li><a data-lang="bg" href="#">Български</a></li>
+                        <li><a data-lang="lt" href="#">Lietuvių</a></li>
+                        <li><a data-lang="lv" href="#">Latviešu</a></li>
+                        <li><a data-lang="et" href="#">Eesti</a></li>
+                        <li><a data-lang="sl" href="#">Slovenščina</a></li>
+                        <li><a data-lang="is" href="#">Íslenska</a></li>
+                        <li><a data-lang="fil" href="#">Filipino</a></li>
+                        <li><a data-lang="sw" href="#">Kiswahili</a></li>
+                        <li><a data-lang="af" href="#">Afrikaans</a></li>
+                        <li><a data-lang="am" href="#">አማርኛ</a></li>
+                        <li><a data-lang="zu" href="#">IsiZulu</a></li>
+                        <li><a data-lang="xh" href="#">IsiXhosa</a></li>
+                        <li><a data-lang="km" href="#">ភាសាខ្មែរ</a></li>
+                        <li><a data-lang="lo" href="#">ລາວ</a></li>
+                        <li><a data-lang="az" href="#">Azərbaycan</a></li>
+                        <li><a data-lang="sq" href="#">Shqip</a></li>
+                        <li><a data-lang="ka" href="#">ქართული</a></li>
+                        <li><a data-lang="mn" href="#">Монгол</a></li>
+                        <li><a data-lang="ps" href="#">پښتو</a></li>
+                        <li><a data-lang="kk" href="#">Қазақ тілі</a></li>
+                        <li><a data-lang="uz" href="#">Oʻzbekcha</a></li>
+                        <li><a data-lang="tg" href="#">Тоҷикӣ</a></li>
+                        <li><a data-lang="ne" href="#">नेपाली</a></li>
+                        <li><a data-lang="si" href="#">සිංහල</a></li>
+                        <li><a data-lang="ta" href="#">தமிழ்</a></li>
+                        <li><a data-lang="te" href="#">తెలుగు</a></li>
+                        <li><a data-lang="ml" href="#">മലയാളം</a></li>
+                        <li><a data-lang="mr" href="#">मराठी</a></li>
+                        <li><a data-lang="kn" href="#">ಕನ್ನಡ</a></li>
+                        <li><a data-lang="gu" href="#">ગુજરાતી</a></li>
+                        <li><a data-lang="pa" href="#">ਪੰਜਾਬੀ</a></li>
+                        <li><a data-lang="my" href="#">မြန်မာ</a></li>
+                        <li><a data-lang="su" href="#">Basa Sunda</a></li>
+                        <li><a data-lang="jw" href="#">ꦧꦱꦗꦮ (Basa Jawa)</a></li>
+                        <li><a data-lang="ceb" href="#">Sinugbuanong Binisaya</a></li>
+                        <li><a data-lang="haw" href="#">ʻŌlelo Hawaiʻi</a></li>
+                        <li><a data-lang="sm" href="#">Gagana Samoa</a></li>
+                        <li><a data-lang="gd" href="#">Gàidhlig</a></li>
+                        <li><a data-lang="cy" href="#">Cymraeg</a></li>
+                        <li><a data-lang="ga" href="#">Gaeilge</a></li>
+                        <li><a data-lang="yo" href="#">Yorùbá</a></li>
+                        <li><a data-lang="ig" href="#">Igbo</a></li>
+                        <li><a data-lang="ha" href="#">Hausa</a></li>
+                        <li><a data-lang="rw" href="#">Kinyarwanda</a></li>
+                        <li><a data-lang="so" href="#">Soomaali</a></li>
+                        <li><a data-lang="ny" href="#">Chichewa</a></li>
+                        <li><a data-lang="ht" href="#">Kreyòl Ayisyen</a></li>
+                        <li><a data-lang="la" href="#">Latina</a></li>
+                        <li><a data-lang="lb" href="#">Lëtzebuergesch</a></li>
+                        <li><a data-lang="mk" href="#">Македонски</a></li>
+                        <li><a data-lang="mt" href="#">Malti</a></li>
+                        <li><a data-lang="gl" href="#">Galego</a></li>
+                        <li><a data-lang="bs" href="#">Bosanski</a></li>
+                        <li><a data-lang="ug" href="#">Uyghurche</a></li>
+                        <li><a data-lang="tt" href="#">Tatarça</a></li>
+                        <li><a data-lang="dv" href="#">ދިވެހިބަސް</a></li>
+                        <li><a data-lang="dz" href="#">རྫོང་ཁ</a></li>
+                        <li><a data-lang="fo" href="#">Føroyskt</a></li>
+                        <li><a data-lang="fj" href="#">Na Vosa Vakaviti</a></li>
+                        <li><a data-lang="gn" href="#">Avañe'ẽ</a></li>
+                        <li><a data-lang="ku" href="#">Kurdî</a></li>
+                        <li><a data-lang="mg" href="#">Malagasy</a></li>
+                        <li><a data-lang="tk" href="#">Türkmençe</a></li>
+                        <li><a data-lang="yi" href="#">ייִדיש</a></li>
+                        <li><a data-lang="ti" href="#">ትግርኛ</a></li>
+                        <li><a data-lang="bo" href="#">བོད་ཡིག</a></li>
+                        <li><a data-lang="br" href="#">Brezhoneg</a></li>
+                    </ul>
+                </li>
+                <li class="navbar-item">
+                    <button id="logoutBtn" class="logout-button" title="Keluar dari Akun" aria-label="Logout">
+                        <i class="fas fa-door-open"></i>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="pencapaian-toast-container" id="pencapaianToastContainer"></div>
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <!-- Hero -->
+    <section id="beranda" class="hero">
+        <div class="hero-bg" id="heroBg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Selamat Datang di ViVienDo Official</h1>
+            <p class="hero-subtitle">
+                Dapatkan data premium Plants vs Zombies™ 2 sekarang juga!
+            </p>
+        </div>
+    </section>
+    <audio id="audioPlayer" src=""></audio>
+    <section class="wiki-chooser">
+        <h2>Pilih Ensiklopedia</h2>
+        <p class="wiki-subtext">
+            Jelajahi informasi lengkap seputar karakter <strong>Tanaman</strong> dan <strong>Zombies</strong> dari game
+            <em>Plants vs. Zombies™ 2</em>, mulai dari statistik, kemampuan, hingga asal dunia mereka.
+        </p>
+        <div class="wiki-grid">
+            <!-- Kartu Tanaman -->
+            <div class="wiki-card plant">
+                <div class="icon-circle">🌿</div>
+                <h3>Daftar Tanaman</h3>
+                <p>Berisi semua tanaman lengkap beserta statistik, kemampuan, dan deskripsinya.</p>
+                <a href="wtnm.html" class="wiki-btn plant">Lihat Ensiklopedia Tanaman</a>
+            </div>
+            <!-- Kartu Zombie -->
+            <div class="wiki-card zombie">
+                <div class="icon-circle">🧟‍♂️</div>
+                <h3>Daftar Zombies</h3>
+                <p>Lengkap dengan jenis zombie, kemampuan khusus, dan dunia asal mereka.</p>
+                <a href="wzmb.html" class="wiki-btn zombie">Lihat Ensiklopedia Zombies</a>
+            </div>
+        </div>
+    </section>
+    <!-- Kontak -->
+    <section id="kontak" class="kontak-section">
+        <h2>Hubungi Kami</h2>
+        <p>
+            Jika Anda memiliki pertanyaan, masukan, atau memerlukan bantuan terkait
+            layanan kami, jangan ragu untuk menghubungi kami melalui saluran resmi
+            di bawah ini. Tim ViVienDo siap membantu Anda dengan cepat dan
+            profesional.
+        </p>
+        <div class="kontak-icons">
+            <a href="https://www.instagram.com/viviendochannel" target="_blank" aria-label="Instagram">
+                <i class="fab fa-instagram"></i> <span>Instagram</span>
+            </a>
+            <a href="https://t.me/viviendochannel" target="_blank" aria-label="Telegram">
+                <i class="fab fa-telegram"></i> <span>Telegram</span>
+            </a>
+            <a href="mailto:viviendochannel@gmail.com" target="_blank" aria-label="Email">
+                <i class="fas fa-envelope"></i> <span>Email</span>
+            </a>
+            <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" aria-label="YouTube">
+                <i class="fab fa-youtube"></i> <span>YouTube</span>
+            </a>
+        </div>
+    </section>
+    <div id="installBanner" class="install-banner">
+        <p>Pasang ViVienDo ke layar utama untuk akses lebih cepat!</p>
+        <div class="install-actions">
+            <button onclick="triggerPWAInstall()">Pasang Sekarang</button>
+            <button onclick="hideInstallBanner()">Nanti Saja</button>
+            <button onclick="dontShowAgain()">Jangan Tampilkan Lagi</button>
+        </div>
+    </div>
+    <!-- === UNDUH APLIKASI === -->
+    <section class="app-download">
+        <div class="app-download-container">
+            <h2 class="app-download-title">Unduh Sekarang</h2>
+            <p class="app-download-subtitle">
+                Rasakan keseruan <strong>Plants vs. Zombies 2</strong> — strategi aksi epik melawan zombie di berbagai
+                era!
+            </p>
+            <div class="app-download-buttons">
+                <div class="app-download-buttons">
+                    <!-- Google Play -->
+                    <a href="https://play.google.com/store/apps/details?id=com.ea.game.pvz2_row"
+                        class="app-download-btn" target="_blank" rel="noopener noreferrer"
+                        aria-label="Unduh dari Google Play">
+                        <div class="store-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+                                alt="Get it on Google Play">
+                        </div>
+                    </a>
+                    <!-- App Store -->
+                    <a href="https://apps.apple.com/app/plants-vs-zombies-2/id597986893" class="app-download-btn"
+                        target="_blank" rel="noopener noreferrer" aria-label="Unduh dari App Store">
+                        <div class="store-icon">
+                            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+                                alt="Download on the App Store">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="footer-section">
+        <p class="footer-text">
+            &copy; <span id="footer-year"></span> ViVienDo PVZ2. Unduhan Gratis. Semua Hak Dilindungi.
+        </p>
+        <div class="footer-socials">
+            <a href="https://www.instagram.com/viviendochannel" target="_blank" class="footer-social-link"
+                aria-label="Instagram ViVienDo"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/viviendochannel" target="_blank" class="footer-social-link"
+                aria-label="Telegram ViVienDo"><i class="fab fa-telegram"></i></a>
+            <a href="mailto:viviendochannel@gmail.com" target="_blank" class="footer-social-link"
+                aria-label="Email ViVienDo"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.youtube.com/@ViVienDoChannel" target="_blank" class="footer-social-link"
+                aria-label="YouTube ViVienDo"><i class="fab fa-youtube"></i></a>
+        </div>
+    </footer>
+    <script src="../app/js/translate.js" defer></script>
+    <script src="../app/js/wtnm.js" defer></script>
+    <script src="../app/js/wzmb.js" defer></script>
+    <script src="../app/js/udh.js" defer></script>
+    <script src="../app/js/loader.js" defer></script>
+    <script src="../app/js/login.js" defer></script>
+    <script src="../app/js/navbar.js" defer></script>
+    <script src="../app/js/parallax.js" defer></script>
+    <script src="../app/js/pwa.js" defer></script>
+    <script src="../app/js/script.js" defer></script>
+    <script src="../app/js/year.js" defer></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            window.addEventListener("load", () => {
+                navigator.serviceWorker.register("../pwa/service-worker.js")
+                    .then((reg) => console.log("Service Worker registered:", reg.scope))
+                    .catch((err) => console.error("Service Worker failed:", err));
+            });
+        }
+    </script>
+    <script>
+        (function () { if (!window.chatbase || window.chatbase("getState") !== "initialized") { window.chatbase = (...arguments) => { if (!window.chatbase.q) { window.chatbase.q = [] } window.chatbase.q.push(arguments) }; window.chatbase = new Proxy(window.chatbase, { get(target, prop) { if (prop === "q") { return target.q } return (...args) => target(prop, ...args) } }) } const onLoad = function () { const script = document.createElement("script"); script.src = "https://www.chatbase.co/embed.min.js"; script.id = "Y1ld5flFnrzUY_qWdokoh"; script.domain = "www.chatbase.co"; document.body.appendChild(script) }; if (document.readyState === "complete") { onLoad() } else { window.addEventListener("load", onLoad) } })();
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="assets/app/js/auth.js" defer></script>
+    <div id="google_translate_element" style="display: none !important;"></div>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+
+</html>

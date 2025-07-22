@@ -1,0 +1,17 @@
+/* Sembunyikan semua elemen Google Translate */
+#google_translate_element,
+.goog-te-banner-frame,
+.goog-logo-link,
+.goog-te-gadget,
+.goog-te-menu-value,
+.goog-te-combo,
+body > .skiptranslate {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+/* Hapus padding tambahan akibat Google Translate */
+body {
+    top: 0px !important;
+}

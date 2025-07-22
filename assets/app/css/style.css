@@ -1,0 +1,2066 @@
+/* RESET DASAR */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", "Poppins", sans-serif;
+  background-color: #ffffff;
+  color: #1f2937;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  transition: background 0.3s ease;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* LOADER */
+/* === LOADER PROFESSIONAL === */
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+  color: #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInLoader 0.6s ease-in-out;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-box {
+  text-align: center;
+  transform: scale(0.95);
+  animation: popFade 1s ease forwards;
+}
+
+.loader-spinner {
+  width: 72px;
+  height: 72px;
+  border: 6px solid rgba(255, 255, 255, 0.15);
+  border-top: 6px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.1);
+}
+
+.loader-text {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  letter-spacing: 0.5px;
+  animation: pulseText 1.2s ease-in-out infinite alternate;
+}
+
+/* === ANIMATIONS === */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeInLoader {
+  0% {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes popFade {
+  0% {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulseText {
+  0% {
+    opacity: 0.6;
+    letter-spacing: 0.5px;
+    transform: translateY(0px);
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 1px;
+    transform: translateY(-3px);
+  }
+}
+
+/* NAVBAR */
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background-color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+  z-index: 1000;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: bold;
+}
+
+.hamburger {
+  font-size: 1.5rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+/* Menu Desktop */
+.navbar-menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar-list {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.navbar-item {
+  position: relative;
+}
+
+.navbar-item > a,
+.dropbtn {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.25s ease;
+}
+
+.navbar-item > a:hover,
+.dropbtn:hover,
+.navbar-item > a:focus,
+.dropbtn:focus {
+  color: #60a5fa;
+  outline: none;
+}
+
+.navbar-menu a::after,
+.dropbtn::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 100%;
+  height: 2px;
+  background-color: #60a5fa;
+  transition: transform 0.3s ease;
+  transform-origin: center;
+}
+
+.navbar-menu a:hover::after,
+.dropbtn:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
+
+/* Dropdown */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1e293b;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: none;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  border-radius: 4px;
+  z-index: 1050;
+  max-height: 300px;
+  overflow-y: auto;
+  overscroll-behavior: contain; /* Mencegah overscroll di mobile */
+  -webkit-overflow-scrolling: touch; /* Smooth scroll di iOS */
+  scrollbar-width: thin;
+  scrollbar-color: #60a5fa #1e293b;
+}
+
+/* Scrollbar untuk browser berbasis Webkit (Chrome, Safari) */
+.dropdown-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  background: #1e293b;
+  border-radius: 4px;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: #60a5fa;
+  border-radius: 4px;
+}
+
+/* Penyesuaian untuk semua layar */
+@media (min-width: 0px) {
+  .dropdown-content {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+}
+
+.dropdown-content li {
+  list-style: none;
+}
+
+/* Animated underline effect on dropdown links */
+.dropdown-content li a {
+  position: relative;
+  padding: 0.5rem 1rem;
+  display: block;
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.dropdown-content li a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 1rem;
+  width: 0;
+  height: 2px;
+  background-color: #60a5fa;
+  transition: width 0.35s ease;
+}
+
+.dropdown-content li a:hover::after,
+.dropdown-content li a:focus::after {
+  width: calc(100% - 2rem); /* agar pas dengan padding kiri-kanan */
+}
+
+/* Arrow icon */
+.dropbtn i {
+  margin-left: 0.5rem;
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+/* Rotate arrow when open */
+.dropdown-open > .dropbtn i {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #1e293b;
+    box-shadow: none;
+    padding-left: 1rem;
+    display: none;
+    width: 100%;
+    border-radius: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .dropdown-content.open {
+    display: flex;
+    max-height: 500px;
+    flex-direction: column;
+    overflow-y: auto; /* penting */
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Icon di dalam dropbtn */
+.dropbtn .fa-language {
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+}
+
+/* Jangan ikut rotate language */
+.dropbtn .fa-language {
+  transform: none !important;
+}
+
+/* Pastikan hanya chevron yang berputar */
+.dropbtn .fa-chevron-down {
+  transition: transform 0.3s ease;
+}
+
+/* Rotate hanya chevron saat dropdown terbuka */
+.dropdown-open > .dropbtn .fa-chevron-down {
+  transform: rotate(180deg);
+}
+
+@media (min-width: 768px) {
+  /* Remove hover open to allow JS toggle */
+  /* Show dropdown if dropdown-open class present */
+  .navbar-item.dropdown.dropdown-open > .dropdown-content {
+    display: flex;
+  }
+
+  /* Also allow hover to open dropdown - optional, to keep UX */
+  .navbar-item.dropdown:hover:not(.dropdown-open) > .dropdown-content {
+    display: flex;
+  }
+
+  .navbar-item.dropdown:hover:not(.dropdown-open) > .dropbtn i {
+    transform: rotate(180deg);
+  }
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: #1e293b;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.35s ease-in-out;
+    z-index: 1100;
+    overflow-y: auto;
+  }
+
+  .navbar-menu.active {
+    transform: translateX(0);
+  }
+
+  .navbar-list {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+  }
+
+  .navbar-item.dropdown {
+    width: 100%;
+  }
+
+  .dropbtn {
+    width: 100%;
+    justify-content: space-between;
+    font-size: 1.125rem;
+  }
+
+  /* Dropdown mobile */
+  .dropdown-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #1e293b;
+    box-shadow: none;
+    padding-left: 1rem;
+    display: none;
+    width: 100%;
+    border-radius: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .dropdown-content.open {
+    display: flex;
+    max-height: 500px; /* cukup besar untuk dropdown */
+    flex-direction: column;
+    overflow-y: auto; /* <=== INI WAJIB UNTUK SCROLL BERFUNGSI */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dropdown-content li a {
+    padding: 0.5rem 0;
+  }
+
+  /* Rotate arrow on open in mobile */
+  .dropdown-open > .dropbtn i {
+    transform: rotate(180deg);
+  }
+}
+
+/* Overlay */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 900; /* lebih rendah dari navbar (1000) dan menu (1100) */
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Content */
+.section {
+  padding: 100px 20px;
+  margin-top: 64px;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: url("../../images/background/background.png") no-repeat center
+    center;
+  background-size: cover;
+  z-index: 0;
+  will-change: transform, filter;
+  transition: transform 0.2s ease-out, filter 0.2s ease-out;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+.hero-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1.2s ease forwards;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeInUp 1.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* Individual Game Card */
+/* SECTIONS */
+/* Section Tentang */
+/* Container utama */
+/* === Bagian Umum Section Tentang === */
+#tentang.info-section {
+  background: #ffffff;
+  color: #1f2937;
+  padding: 3rem 1.5rem;
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  line-height: 1.8;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+#tentang h2 {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #0f172a;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 0.5rem;
+}
+
+#tentang h3 {
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #0ea5e9;
+  position: relative;
+  padding-left: 0.75rem;
+  border-left: 4px solid #0ea5e9;
+}
+
+/* === Paragraf Umum === */
+#tentang p {
+  font-size: 1rem;
+  color: #334155;
+  margin-bottom: 1.5rem;
+}
+
+/* === Link === */
+#tentang a {
+  color: #0ea5e9;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+#tentang a:hover {
+  color: #0284c7;
+}
+
+/* === Blok Khusus Developer dan Legal === */
+.info-mission,
+.info-legal-disclaimer {
+  background-color: #f9fafb;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  padding: 1.5rem 1.25rem;
+  margin-top: 2rem;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.info-mission:hover,
+.info-legal-disclaimer:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+/* === Tampilan Responsif === */
+@media (max-width: 768px) {
+  #tentang {
+    padding: 2rem 1rem;
+  }
+
+  #tentang h2 {
+    font-size: 1.6rem;
+  }
+
+  #tentang h3 {
+    font-size: 1.15rem;
+  }
+
+  #tentang p {
+    font-size: 0.95rem;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: #1e293b;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+    transform: translateX(100%);
+    transition: transform 0.35s ease-in-out;
+    z-index: 1100;
+    display: flex; /* PENTING: jangan pernah pakai display:none */
+  }
+
+  .navbar-menu.active {
+    transform: translateX(0);
+  }
+}
+
+.container-download {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.button-download {
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  border-radius: 6px;
+  background-color: #2563eb;
+  color: #ffffff;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  max-width: 320px;
+  width: 90vw;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+}
+
+.button-download:hover:not(:disabled) {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.button-download:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+#beranda {
+  scroll-margin-top: 70px;
+}
+
+#tentang {
+  scroll-margin-top: 70px;
+}
+
+#statistik {
+  scroll-margin-top: 70px;
+}
+
+#video {
+  scroll-margin-top: 70px;
+}
+
+#level {
+  scroll-margin-top: 70px;
+}
+
+#dunia {
+  scroll-margin-top: 70px;
+}
+
+#instalasi {
+  scroll-margin-top: 70px;
+}
+
+#pembaruan {
+  scroll-margin-top: 70px;
+}
+
+#mendatang {
+  scroll-margin-top: 70px;
+}
+
+#jurnal {
+  scroll-margin-top: 70px;
+}
+
+#donasi {
+  scroll-margin-top: 70px;
+}
+
+#vitim {
+  scroll-margin-top: 70px;
+}
+
+#gallery {
+  scroll-margin-top: 70px;
+}
+
+#kontak {
+  scroll-margin-top: 70px;
+}
+
+#pencapaian {
+  scroll-margin-top: 70px;
+}
+
+#riwayatUnduhan {
+  scroll-margin-top: 70px;
+}
+
+#tuliscatatan {
+  scroll-margin-top: 70px;
+}
+
+#daftarcatatan {
+  scroll-margin-top: 70px;
+}
+
+#premium {
+  scroll-margin-top: 70px;
+}
+
+#mod {
+  scroll-margin-top: 70px;
+}
+
+.kontak-section {
+  max-width: 900px;
+  margin: 4rem auto 5rem;
+  padding: 0 1.5rem;
+  text-align: center;
+  color: #1f2937;
+  animation: fadeInUp 0.9s ease forwards;
+  opacity: 0;
+}
+
+.kontak-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.kontak-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #475569;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.kontak-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.kontak-icons a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 1.1rem;
+  padding: 0.7rem 1.2rem;
+  background-color: #f1f5f9;
+  color: #1e293b;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.kontak-icons a i {
+  font-size: 1.5rem;
+  color: #2563eb;
+}
+
+.kontak-icons a:hover {
+  background-color: #e0f2fe;
+  color: #1d4ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.kontak-icons a:hover i {
+  color: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .kontak-section h2 {
+    font-size: 2rem;
+  }
+  .kontak-section p {
+    font-size: 1rem;
+  }
+  .kontak-icons a {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+}
+
+/* === Scroll Progress Bar === */
+#scrollProgressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  z-index: 9999;
+  background: linear-gradient(to right, #2563eb, #3b82f6);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: width 0.2s ease-out;
+  pointer-events: none;
+}
+
+.features-section {
+  padding: 2rem;
+  max-width: 960px;
+  margin: auto;
+}
+
+.features-section h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.features-list p {
+  font-size: 1rem;
+  margin: 0.75rem 0;
+  line-height: 1.6;
+  color: #333;
+}
+
+.features-list i {
+  color: #28a745;
+  margin-right: 0.6rem;
+}
+
+/* ===== Usage Guide Section ===== */
+.usage-guide {
+  max-width: 900px;
+  margin: 3rem auto 4rem;
+  padding: 0 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  line-height: 1.55;
+  background-color: #fff; /* background putih bersih */
+}
+
+/* Judul utama */
+.usage-guide h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+.usage-guide h2 i {
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+  color: #2a9d8f; /* aksen hijau kebiruan */
+}
+
+/* Intro paragraph */
+.guide-intro {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #3a3a3a;
+  display: flex;
+  align-items: center;
+}
+
+.guide-intro i {
+  color: #e76f51; /* oranye lembut */
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Setiap langkah */
+.guide-steps h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+  color: #264653;
+  display: flex;
+  align-items: center;
+}
+
+.guide-steps h3 i {
+  margin-right: 0.5rem;
+  color: #2a9d8f;
+}
+
+/* Paragraf langkah */
+.guide-steps p {
+  margin-left: 1.5rem;
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.4;
+}
+
+.guide-steps p i {
+  margin-right: 0.6rem;
+  color: #264653;
+  min-width: 1.2em;
+  text-align: center;
+}
+
+/* Kode direktori/file */
+.guide-steps code {
+  display: block;
+  margin-top: 0.3em;
+  background-color: #f3f4f6;
+  padding: 0.3em 0.7em;
+  border-radius: 6px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.95rem;
+  color: #1a202c;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-width: 100%;
+}
+
+/* Responsive untuk layar kecil */
+@media (max-width: 480px) {
+  .guide-steps code {
+    font-size: 0.9rem;
+  }
+}
+
+/* Reminder akhir */
+.final-reminder {
+  margin-top: 2.5rem;
+  padding: 1rem 1.5rem;
+  background-color: #e0f7f5; /* hijau sangat lembut */
+  border-radius: 5px;
+  font-weight: 600;
+  color: #2a9d8f;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.final-reminder p {
+  display: flex;
+  align-items: center;
+  font-size: 1.05rem;
+}
+
+.final-reminder p i {
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+  .usage-guide {
+    padding: 0 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .guide-steps p {
+    font-size: 0.9rem;
+  }
+
+  .final-reminder p {
+    font-size: 1rem;
+  }
+}
+
+.update-section {
+  max-width: 900px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.update-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+.update-section .update-intro {
+  font-size: 1.05rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #334155;
+}
+
+.update-list h3 {
+  font-size: 1.35rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #2563eb;
+  border-bottom: 2px solid #60a5fa;
+  padding-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.update-version {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #334155;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #10b981; /* hijau sebagai highlight */
+  padding-left: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.update-version time {
+  font-weight: 400;
+  color: #64748b;
+  font-style: normal;
+  margin-left: 0.25rem;
+}
+
+.update-warning {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #fef9c3;
+  border: 1px solid #facc15;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+.update-warning h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  color: #b45309;
+}
+
+.update-warning a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.update-list ul {
+  list-style: none;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.update-list li {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.update-list li i {
+  color: #38bdf8;
+  min-width: 1.2em;
+}
+
+/* === Konten Akan Datang === */
+.coming-soon-section {
+  max-width: 1000px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  font-family: "Segoe UI", sans-serif;
+  color: #1f2937;
+  animation: fadeInUp 1s ease forwards;
+}
+
+.coming-soon-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.coming-soon-intro {
+  text-align: center;
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+  color: #475569;
+}
+
+.coming-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.plant-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.plant-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Kartu gambar tanaman */
+.plant-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* Cocok untuk gambar landscape */
+  object-fit: cover; /* Potong proporsional, tetap penuh */
+  object-position: center;
+  background-color: #f1f5f9;
+  display: block;
+  border-bottom: 1px solid #e5e7eb;
+  transition: transform 0.3s ease;
+  border-radius: 6px 6px 0 0; /* opsional */
+}
+
+/* Efek zoom saat hover */
+.plant-card:hover img {
+  transform: scale(1.02);
+}
+
+.plant-info {
+  padding: 1rem;
+}
+
+.plant-info h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #2563eb;
+}
+
+.plant-info p {
+  font-size: 1rem;
+  color: #374151;
+  line-height: 1.5;
+}
+
+/* Bungkus agar tombol berada di tengah */
+.download-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem; /* Spasi vertikal atas-bawah */
+}
+
+/* Tombol scroll */
+.scroll-to-download {
+  padding: 0.75em 1.8em;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.scroll-to-download:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-2px);
+}
+
+.scroll-to-download:active {
+  transform: scale(0.97);
+}
+
+.scroll-to-download:disabled {
+  background-color: #94a3b8; /* abu-abu */
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.7;
+}
+
+.video-block {
+  padding: 4rem 1rem;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.video-content {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.video-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #1f2937;
+}
+
+.youtube-frame {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* Rasio 16:9 */
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  background-color: #000;
+  overflow: hidden;
+}
+
+.youtube-frame iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 16px;
+}
+
+.video-description {
+  font-size: 1rem;
+  color: #475569;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.timeline-section {
+  background-color: #ffffff;
+  padding: 60px 20px;
+}
+
+.timeline-section h2 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.timeline-intro {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #555;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-left: 20px;
+  border-left: 3px solid #3498db;
+}
+
+.timeline-item {
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background-color: #3498db;
+  border-radius: 50%;
+  position: absolute;
+  left: -11px;
+  top: 8px;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 2px #3498db;
+}
+
+.timeline-content {
+  background: #fff;
+  padding: 15px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-content h3 {
+  margin: 0 0 10px;
+  color: #2c3e50;
+  font-size: 1.2em;
+}
+
+.timeline-content ul {
+  padding-left: 20px;
+  margin: 0;
+  list-style-type: disc;
+  color: #555;
+}
+
+.tech-warning {
+  margin-top: 30px;
+  background: #fff3cd;
+  color: #856404;
+  border-left: 6px solid #ffeeba;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 0.95em;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.tech-warning i {
+  margin-right: 8px;
+}
+
+.donasi-section {
+  padding: 60px 30px;
+  text-align: center;
+}
+
+.donasi-section h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+.donasi-section h2 i {
+  color: #e63946;
+  margin-right: 8px;
+}
+
+.donasi-section p {
+  font-size: 1.1rem;
+  color: #444;
+  max-width: 720px;
+  margin: 0 auto 24px;
+  line-height: 1.6;
+}
+
+.donasi-button {
+  background-color: #e63946;
+  color: #fff;
+  padding: 12px 28px;
+  font-size: 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.donasi-button:hover {
+  background-color: #d62839;
+  transform: translateY(-2px);
+}
+
+.donasi-note {
+  font-size: 0.95rem;
+  color: #6c757d; /* Abu lembut, tetap terbaca di light mode */
+  margin-top: 16px;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Section Tim ViVienDo */
+.tim-section {
+  padding: 3rem 1.5rem;
+  background-color: #ffffff;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto 4rem auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tim-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.tim-section p {
+  font-size: 1.125rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 2.5rem auto;
+  line-height: 1.6;
+}
+
+.tim-cards {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tim-member {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 1.75rem 1.5rem 2rem 1.5rem;
+  width: 280px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tim-address,
+.tim-country {
+  font-size: 0.95rem;
+  color: #475569;
+  margin-top: 0.25rem;
+}
+
+/* Pembungkus foto */
+.tim-photo-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Status Dot */
+.status-dot {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background-color: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* ONLINE — Hijau + Animasi Pulse */
+.status-dot[data-status="online"] {
+  background-color: #22c55e;
+  animation: pulse-online 1.8s infinite;
+}
+
+@keyframes pulse-online {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+/* OFFLINE — Abu-abu + Flicker Lembut */
+.status-dot[data-status="offline"] {
+  background-color: #94a3b8;
+  animation: flicker-offline 3s infinite;
+}
+
+@keyframes flicker-offline {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+.tim-member:hover,
+.tim-member:focus-within {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  outline: none;
+}
+
+.tim-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #007bff;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+}
+
+.tim-member h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 0.25rem;
+}
+
+.tim-role {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #007bff;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.tim-bio {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .tim-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tim-member {
+    width: 90%;
+    max-width: 400px;
+  }
+}
+
+.update-collaboration {
+  margin-top: 3.5rem;
+  padding: 2.5rem 2rem;
+  background: linear-gradient(135deg, #f5f8ff 0%, #e6f0ff 100%);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.12);
+  color: #1a1a1a;
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.72;
+  transition: background-color 0.3s ease;
+  border: 1px solid #d0defe;
+}
+
+.update-collaboration:hover {
+  background: linear-gradient(135deg, #e0ebff 0%, #c6dbff 100%);
+  box-shadow: 0 10px 30px rgba(0, 123, 255, 0.2);
+  border-color: #a0c1ff;
+}
+
+.update-collaboration h3 {
+  display: flex;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #0056b3;
+  margin-bottom: 1.25rem;
+  gap: 0.75rem;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.update-collaboration h3 i {
+  font-size: 2.2rem;
+  color: #004a99;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.update-collaboration:hover h3 i {
+  transform: rotate(15deg);
+}
+
+.update-collaboration p {
+  font-size: 1.15rem;
+  margin-bottom: 1.4rem;
+  color: #2c2c2c;
+  text-align: justify;
+  text-justify: inter-word;
+  letter-spacing: 0.01em;
+}
+
+.update-collaboration strong {
+  color: #003366;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Link styling if any links added */
+.update-collaboration a {
+  color: #0056b3;
+  text-decoration: underline;
+  transition: color 0.25s ease;
+}
+
+.update-collaboration a:hover,
+.update-collaboration a:focus {
+  color: #003366;
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 700px) {
+  .update-collaboration {
+    padding: 2rem 1.25rem;
+    max-width: 100%;
+  }
+
+  .update-collaboration h3 {
+    font-size: 1.65rem;
+    gap: 0.5rem;
+  }
+
+  .update-collaboration h3 i {
+    font-size: 1.9rem;
+  }
+
+  .update-collaboration p {
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+}
+
+.scroll-toggle {
+  position: fixed;
+  right: 1.5rem;
+  top: calc(100% - 8rem);
+  width: 48px;
+  height: 48px;
+  background: #111;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  z-index: 1000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.scroll-toggle:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+}
+
+.scroll-toggle .arrow-icon {
+  transition: transform 0.4s ease;
+}
+
+.scroll-toggle.rotate-down .arrow-icon {
+  transform: rotate(0deg);
+}
+
+.scroll-toggle.rotate-up .arrow-icon {
+  transform: rotate(180deg);
+}
+
+.scroll-toggle.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.statistik-pengguna {
+  padding: 3rem 1.5rem;
+  background: #ffffff;
+  text-align: center;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.statistik-pengguna h2 {
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 2rem;
+}
+
+.statistik-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.statistik-item {
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  padding: 1.2rem 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.statistik-item:hover {
+  transform: translateY(-4px);
+}
+
+.statistik-item i {
+  font-size: 2rem;
+  color: #2563eb;
+  margin-bottom: 0.5rem;
+}
+
+.statistik-item span {
+  font-size: 1rem;
+  color: #4b5563;
+}
+
+.statistik-item strong {
+  font-size: 1.5rem;
+  color: #111827;
+  margin-top: 0.3rem;
+}
+
+/* Container utama */
+.custom-levels-section {
+  padding: 3rem 1rem;
+  background: #ffffff;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.custom-levels-section h2 {
+  font-size: 2rem;
+  text-align: center;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+.custom-levels-section .intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.levels-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.level-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+}
+
+.level-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+.level-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.level-header h3 {
+  font-size: 1.3rem;
+  margin: 0;
+}
+
+.level-image-container {
+  margin: 1rem 0;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.level-image-container:hover {
+  transform: scale(1.02);
+}
+
+.level-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  object-fit: contain;
+  cursor: zoom-in; /* indikasi bisa di-klik untuk zoom */
+}
+
+.level-icon {
+  font-size: 1.6rem;
+  transition: all 0.3s ease;
+}
+
+.level-info {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.level-info li {
+  margin-bottom: 0.4rem;
+}
+
+.btn-download {
+  display: inline-block;
+  background: #0077b6;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  width: 100%;
+  text-align: center;
+}
+
+.btn-download:active {
+  transform: scale(0.96);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-download:hover {
+  background: #005f94;
+}
+
+/* Panduan */
+.custom-guide {
+  margin-top: 3rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-left: 5px solid #3a86ff;
+  border-radius: 10px;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.custom-guide h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.custom-guide ol {
+  padding-left: 1.2rem;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* Difficulty Bar */
+.difficulty-bar {
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+/* Warna untuk difficulty bar */
+.easy-fill {
+  background: #7ed957;
+}
+.normal-fill {
+  background: #4cc9f0;
+}
+.hard-fill {
+  background: #f77f00;
+}
+.very-hard-fill {
+  background: #ef233c;
+}
+.nightmare-fill {
+  background: #6a0572;
+}
+.insane-fill {
+  background: #000;
+  animation: pulseBar 2s infinite;
+}
+.ultimate-fill {
+  background: #d800ff;
+}
+.hell-fill {
+  background: #d90000;
+}
+.omnipotent-fill {
+  background: #000000;
+}
+.supreme-fill {
+  background: #ffaa00;
+}
+.apocalypse-fill {
+  background: #8b0000;
+}
+.eternal-fill {
+  background: #000080;
+}
+
+@keyframes pulseBar {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Icon Colors */
+.level-icon.easy {
+  color: #7ed957;
+}
+.level-icon.normal {
+  color: #4cc9f0;
+}
+.level-icon.hard {
+  color: #f77f00;
+}
+.level-icon.very-hard {
+  color: #ef233c;
+}
+.level-icon.nightmare {
+  color: #6a0572;
+}
+.level-icon.insane {
+  color: #000;
+  animation: pulseIcon 2s infinite;
+}
+.level-icon.ultimate {
+  color: #d800ff;
+}
+.level-icon.hell {
+  color: #d90000;
+}
+.level-icon.omnipotent {
+  color: #000000;
+}
+.level-icon.supreme {
+  color: #ffaa00;
+}
+.level-icon.apocalypse {
+  color: #8b0000;
+}
+.level-icon.eternal {
+  color: #000080;
+}
+
+@keyframes pulseIcon {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+}
+
+/* Responsif di layar kecil */
+@media (max-width: 600px) {
+  .custom-levels-section h2 {
+    font-size: 1.5rem;
+  }
+  .level-card {
+    padding: 1rem;
+  }
+  .btn-download {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+.directory-path {
+  background: #f1f3f5;
+  color: #1a1a1a;
+  padding: 0.5rem;
+  border-radius: 5px;
+  display: inline-block;
+  overflow-wrap: break-word;
+  font-family: "Courier New", monospace;
+  font-size: 0.9rem;
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+.directory-container {
+  max-width: 100%;
+  overflow-x: auto;
+  background: #f5f5f5;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  margin: 0.5rem 0;
+  font-family: monospace;
+  white-space: nowrap;
+  box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
+}

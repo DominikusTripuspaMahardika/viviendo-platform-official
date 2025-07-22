@@ -1,0 +1,108 @@
+/* === SECTION: APP DOWNLOAD === */
+.app-download {
+  background-color: #1f1f2e;
+  color: #f9fafb;
+  padding: 80px 24px;
+  font-family: "Poppins", "Segoe UI", sans-serif;
+  text-align: center;
+}
+
+.app-download-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.app-download-title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.app-download-subtitle {
+  font-size: 1.125rem;
+  color: #d1d5db;
+  margin-bottom: 40px;
+  line-height: 1.75;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+.app-download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.app-download-btn {
+  display: inline-block;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.app-download-btn img {
+  height: auto;
+  width: 180px;
+  max-width: 100%;
+  display: block;
+}
+
+/* .app-download-btn:hover {
+  transform: translateY(-5px) scale(1.04);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+} */
+
+.store-icon {
+  background-color: #1f1f2e;
+  padding: 8px 12px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 190px;
+}
+
+.store-icon img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .app-download-title {
+    font-size: 2.1rem;
+  }
+
+  .app-download-subtitle {
+    font-size: 1rem;
+  }
+
+  .store-icon {
+    width: 160px;
+    height: 52px;
+  }
+}
+
+@media (max-width: 480px) {
+  .app-download {
+    padding: 60px 12px;
+  }
+
+  .app-download-title {
+    font-size: 1.75rem;
+  }
+
+  .app-download-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .store-icon {
+    width: 140px;
+    height: 46px;
+  }
+}

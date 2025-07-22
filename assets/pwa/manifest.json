@@ -1,0 +1,24 @@
+{
+  "name": "Viviendo PvZ 2",
+  "short_name": "Viviendo PvZ 2",
+  "start_url": "../../index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e293b",
+  "description": "Unduh data gratis Plants vs Zombies 2 tanpa pembelian, cepat dan aman.",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "../images/icon-pwa/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "../images/icon-pwa/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
