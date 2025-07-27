@@ -126,7 +126,7 @@ img {
   left: 0;
   right: 0;
   height: 64px;
-  background-color: #1e293b;
+  background-color: #111827;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2064,3 +2064,17 @@ img {
   white-space: nowrap;
   box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.1);
 }
+
+.anti-clone-banner {
+  background-color: #ffe4e6;
+  color: #991b1b;
+  border-left: 4px solid #dc2626;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin: 1.5rem auto;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1);
+}
+

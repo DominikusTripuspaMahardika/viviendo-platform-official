@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anda Sedang Offline</title>
+
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-yHmh04pO8h65EyXmjIbEybxemr9RHLiX7by9f4LjGgEWeYwYp+aPZkT9oZ3v8bBDQTV8QAzZVMPTrbj1u9QO0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --primary: #3498db;
+            --primary-dark: #2980b9;
+            --bg-light: #f4f6f8;
+            --text: #2c3e50;
+            --muted: #7f8c8d;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121212;
+                color: #ffffff;
+            }
+
+            .offline-container p {
+                color: #aaaaaa;
+            }
+        }
+
+        .offline-container {
+            max-width: 480px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        svg {
+            width: 200px;
+            margin-bottom: 1.5rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--muted);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .btn-reload {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--primary);
+            color: #fff;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .btn-reload:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            svg {
+                width: 150px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .btn-reload {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="offline-container">
+        <!-- SVG ilustrasi wajah sedih -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+            <circle cx="32" cy="32" r="30" stroke="#3498db" stroke-width="3" fill="#ecf0f1" />
+            <path d="M16 28a24 24 0 0 1 32 0" stroke="#2c3e50" stroke-width="2.5" fill="none" />
+            <path d="M22 34a16 16 0 0 1 20 0" stroke="#2c3e50" stroke-width="2.5" fill="none" />
+            <path d="M28 40a8 8 0 0 1 8 0" stroke="#2c3e50" stroke-width="2.5" fill="none" />
+            <circle cx="32" cy="48" r="2.5" fill="#2c3e50" />
+            <line x1="16" y1="16" x2="48" y2="48" stroke="#e74c3c" stroke-width="2" stroke-linecap="round"
+                stroke-dasharray="4 3" />
+        </svg>
+        <!-- Judul dan teks -->
+        <h1><i class="fas fa-wifi-slash"></i> Anda Sedang Offline</h1>
+        <p>Koneksi internet tidak terdeteksi. Pastikan Anda terhubung ke jaringan dan coba lagi.</p>
+        <!-- Tombol -->
+        <button class="btn-reload" onclick="location.reload()">
+            <i class="fas fa-rotate-right"></i> Coba Lagi
+        </button>
+    </div>
+    <script>
+        // Cek secara berkala apakah koneksi sudah kembali
+        const checkOnline = setInterval(() => {
+            if (navigator.onLine) {
+                const lastPage = localStorage.getItem("lastOnlinePage") || "../../index.html";
+                window.location.href = lastPage;
+                clearInterval(checkOnline);
+            }
+        }, 2000);
+    </script>
+</body>
+
+</html>

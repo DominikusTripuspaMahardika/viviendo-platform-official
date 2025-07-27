@@ -331,6 +331,7 @@
     <p class="footer-text">
       &copy; <span id="footer-year"></span> ViVienDo PVZ2. Unduhan Gratis. Semua Hak Dilindungi.
     </p>
+    <p class="footer-version">ViVienDo v1.0.0 - Build 785 • Framework: Vanilla JS + CSS Modular</p>
     <div class="footer-socials">
       <a href="https://www.instagram.com/viviendochannel" target="_blank" class="footer-social-link"
         aria-label="Instagram ViVienDo"><i class="fab fa-instagram"></i></a>
@@ -369,6 +370,20 @@
   <script src="../app/js/auth.js" defer></script>
   <div id="google_translate_element" style="display: none !important;"></div>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script>
+    // Simpan lokasi terakhir jika masih online
+    if (navigator.onLine) {
+      localStorage.setItem("lastOnlinePage", location.href);
+    }
+
+    // Deteksi jika offline
+    window.addEventListener("offline", () => {
+      // Hanya arahkan jika belum di off.html
+      if (!location.href.includes("../module/off.html")) {
+        window.location.href = "../module/off.html";
+      }
+    });
+  </script>
 </body>
 
 </html>

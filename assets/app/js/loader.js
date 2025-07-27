@@ -4,3 +4,4 @@ window.addEventListener("load", () => {
   loader.classList.add("fade-out");
   setTimeout(() => loader.remove(), 800);
 });
+

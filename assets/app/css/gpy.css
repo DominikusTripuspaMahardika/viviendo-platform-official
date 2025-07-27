@@ -1,6 +1,6 @@
 /* === SECTION: APP DOWNLOAD === */
 .app-download {
-  background-color: #1f1f2e;
+  background-color: #111827;
   color: #f9fafb;
   padding: 80px 24px;
   font-family: "Poppins", "Segoe UI", sans-serif;
@@ -54,7 +54,7 @@
 } */
 
 .store-icon {
-  background-color: #1f1f2e;
+  background-color: #111827;
   padding: 8px 12px;
   border-radius: 12px;
   display: flex;
