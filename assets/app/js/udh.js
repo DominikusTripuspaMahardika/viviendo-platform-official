@@ -579,3 +579,96 @@ document.querySelectorAll('.koleksi-filter-btn').forEach(button => {
 //     }, Math.floor(Math.random() * 20000) + 20000); // antara 20s - 40s
 // }
 // mulaiNotifikasiLiveOtomatis();
+
+let currentIndex = 0;
+const slides = document.querySelectorAll('.evowarsio-slide');
+const totalSlides = slides.length;
+
+// Fungsi untuk memindahkan ke slide berikutnya
+function moveToNextSlide() {
+    currentIndex++;
+    if (currentIndex >= totalSlides) {
+        // Menyambung langsung ke gambar pertama tanpa geser
+        currentIndex = 0;
+        updateCarouselPosition(); // Memperbarui posisi
+        setTimeout(() => {
+            // Memulai transisi secara halus setelah update posisi
+            carouselInner.style.transition = "none";
+            updateCarouselPosition();
+            setTimeout(() => {
+                // Kembali ke transisi normal
+                carouselInner.style.transition = "transform 0.5s ease-in-out";
+            }, 100); // Delay kecil untuk efek transisi mulus
+        }, 100);
+    } else {
+        updateCarouselPosition();
+    }
+}
+
+// Fungsi untuk memindahkan ke slide sebelumnya
+function moveToPrevSlide() {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = totalSlides - 1; // Kembali ke gambar terakhir
+    }
+    updateCarouselPosition();
+}
+
+// Fungsi untuk memperbarui posisi carousel berdasarkan index gambar
+function updateCarouselPosition() {
+    const carouselInner = document.querySelector('.evowarsio-carousel-inner');
+    carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+// Event listener untuk tombol next dan prev
+document.querySelector('.evowarsio-next').addEventListener('click', moveToNextSlide);
+document.querySelector('.evowarsio-prev').addEventListener('click', moveToPrevSlide);
+
+// Auto-slide setiap 3 detik
+setInterval(moveToNextSlide, 5000);
+
+document.addEventListener('DOMContentLoaded', function () {
+    const verifyPurchaseBtn = document.querySelector('.evowarsio-verify-purchase');
+    const verifyPaymentBtn = document.querySelector('.evowarsio-verify-payment');
+    const modal = document.getElementById('evowarsio-modal');
+    const closeModalBtn = document.querySelector('.evowarsio-close');
+    const continueVerificationBtn = document.querySelector('.evowarsio-continue-verification');
+    const originalPriceElement = document.getElementById('evowarsio-original-price');
+    const discountPriceElement = document.getElementById('evowarsio-discount-price');
+
+    // Harga asli dalam dolar
+    const originalPrice = 25;
+    const discount = 0.35;
+    const discountedPrice = originalPrice - (originalPrice * discount);
+
+    // Update harga
+    originalPriceElement.textContent = `$${originalPrice}`;
+    discountPriceElement.textContent = `$${discountedPrice.toFixed(2)}`;
+
+    // Menampilkan modal saat tombol Verifikasi Pembelian ditekan
+    verifyPurchaseBtn.addEventListener('click', function () {
+        modal.style.display = 'block';
+    });
+
+    // Menutup modal
+    closeModalBtn.addEventListener('click', function () {
+        modal.style.display = 'none';
+    });
+
+    // Lanjutkan verifikasi (arahkan ke Sociabuzz)
+    continueVerificationBtn.addEventListener('click', function () {
+        window.location.href = "https://sociabuzz.com/viviendo_channel/tribe";
+    });
+
+    // Verifikasi Pembayaran (arahkan ke WhatsApp)
+    verifyPaymentBtn.addEventListener('click', function () {
+        window.open("https://wa.me/6285706800428", "_blank");
+    });
+
+    // Menutup modal saat klik di luar modal
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
