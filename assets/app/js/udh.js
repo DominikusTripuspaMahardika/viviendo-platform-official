@@ -628,47 +628,47 @@ document.querySelector('.evowarsio-prev').addEventListener('click', moveToPrevSl
 setInterval(moveToNextSlide, 5000);
 
 document.addEventListener('DOMContentLoaded', function () {
-    const verifyPurchaseBtn = document.querySelector('.evowarsio-verify-purchase');
-    const verifyPaymentBtn = document.querySelector('.evowarsio-verify-payment');
-    const modal = document.getElementById('evowarsio-modal');
-    const closeModalBtn = document.querySelector('.evowarsio-close');
-    const continueVerificationBtn = document.querySelector('.evowarsio-continue-verification');
-    const originalPriceElement = document.getElementById('evowarsio-original-price');
-    const discountPriceElement = document.getElementById('evowarsio-discount-price');
+        const verifyPurchaseBtn = document.querySelector('.evowarsio-verify-purchase');
+        const verifyPaymentBtn = document.querySelector('.evowarsio-verify-payment');
+        const modal = document.getElementById('evowarsio-modal');
+        const closeModalBtn = document.querySelector('.evowarsio-close');
+        const continueVerificationBtn = document.querySelector('.evowarsio-continue-verification');
+        const originalPriceElement = document.getElementById('evowarsio-original-price');
+        const discountPriceElement = document.getElementById('evowarsio-discount-price');
 
-    // Harga asli dalam dolar
-    const originalPrice = 25;
-    const discount = 0.35;
-    const discountedPrice = originalPrice - (originalPrice * discount);
+        // Harga asli dalam dolar
+        const originalPrice = 25;
+        const discount = 0.35;
+        const discountedPrice = originalPrice - (originalPrice * discount);
 
-    // Update harga
-    originalPriceElement.textContent = `$${originalPrice}`;
-    discountPriceElement.textContent = `$${discountedPrice.toFixed(2)}`;
+        // Update harga
+        originalPriceElement.textContent = `$${originalPrice}`;
+        discountPriceElement.textContent = `$${discountedPrice.toFixed(2)}`;
 
-    // Menampilkan modal saat tombol Verifikasi Pembelian ditekan
-    verifyPurchaseBtn.addEventListener('click', function () {
-        modal.style.display = 'block';
-    });
+        // Menampilkan modal saat tombol Verifikasi Pembelian ditekan
+        verifyPurchaseBtn.addEventListener('click', function () {
+            modal.style.display = 'block';
+        });
 
-    // Menutup modal
-    closeModalBtn.addEventListener('click', function () {
-        modal.style.display = 'none';
-    });
-
-    // Lanjutkan verifikasi (arahkan ke Sociabuzz)
-    continueVerificationBtn.addEventListener('click', function () {
-        window.location.href = "https://sociabuzz.com/viviendo_channel/tribe";
-    });
-
-    // Verifikasi Pembayaran (arahkan ke WhatsApp)
-    verifyPaymentBtn.addEventListener('click', function () {
-        window.open("https://wa.me/6285706800428", "_blank");
-    });
-
-    // Menutup modal saat klik di luar modal
-    window.addEventListener('click', function (event) {
-        if (event.target === modal) {
+        // Menutup modal
+        closeModalBtn.addEventListener('click', function () {
             modal.style.display = 'none';
-        }
+        });
+
+        // Lanjutkan verifikasi (arahkan ke Sociabuzz)
+        continueVerificationBtn.addEventListener('click', function () {
+            window.location.href = "https://sociabuzz.com/viviendo_channel/tribe";
+        });
+
+        // Verifikasi Pembayaran (arahkan ke WhatsApp)
+        verifyPaymentBtn.addEventListener('click', function () {
+            window.open("https://wa.me/6285706800428", "_blank");
+        });
+
+        // Menutup modal saat klik di luar modal
+        window.addEventListener('click', function (event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
     });
-});

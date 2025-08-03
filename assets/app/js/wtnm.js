@@ -8854,6 +8854,46 @@ const plantWikiData = [
       "power_strings": []
     },
     "description": "Devourbloom adalah salah satu tanaman dari dunia *unknown* yang memiliki kemampuan unik seperti trap, aoe. Tanaman ini biasanya digunakan dalam berbagai situasi pertempuran untuk mendukung strategi pemain. Dengan kemampuannya, Devourbloom menjadi pilihan penting dalam menghadapi serangan zombie yang semakin sulit."
+  },
+  {
+    "name": "Sourshot",
+    "type_name": "sourshot",
+    "rarity": "rare",
+    "premium": true,
+    "tier_max": 3,
+    "family": [
+      "Enforcemint"
+    ],
+    "archetypes": [
+      "trap",
+      "aoe"
+    ],
+    "home_world": "unknown",
+    "mastery_type": null,
+    "seed_packet_cost": 250,
+    "level_cap": 10,
+    "stats": {
+      "cost": {
+        "min": 25,
+        "max": 50
+      },
+      "hp": {
+        "min": 300,
+        "max": 900
+      },
+      "damage": {
+        "min": null,
+        "max": null
+      },
+      "cooldown": {
+        "min": 2.5,
+        "max": 5
+      }
+    },
+    "special_strings": {
+      "power_strings": []
+    },
+    "description": "Sourshot adalah tanaman yang memiliki kemampuan unik seperti trap dan area of effect (aoe). Tanaman ini memiliki potensi besar dalam melawan gelombang zombie yang kuat. Dikenal dengan kemampuannya untuk menyebarkan serangan area, Sourshot menjadi pilihan penting dalam strategi bertahan hidup, memanfaatkan kekuatan trap dan serangan berkelanjutan."
   }
 ];
 

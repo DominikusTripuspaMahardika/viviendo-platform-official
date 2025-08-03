@@ -126,7 +126,7 @@ img {
   left: 0;
   right: 0;
   height: 64px;
-  background-color: #111827;
+  background-color: #1e293b;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -2077,4 +2077,3 @@ img {
   border-radius: 6px;
   box-shadow: 0 2px 4px rgba(255, 0, 0, 0.1);
 }
-

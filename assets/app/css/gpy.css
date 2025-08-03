@@ -1,6 +1,6 @@
 /* === SECTION: APP DOWNLOAD === */
 .app-download {
-  background-color: #111827;
+  background-color: #1e293b;
   color: #f9fafb;
   padding: 80px 24px;
   font-family: "Poppins", "Segoe UI", sans-serif;
@@ -54,7 +54,7 @@
 } */
 
 .store-icon {
-  background-color: #111827;
+  background-color: #1e293b;
   padding: 8px 12px;
   border-radius: 12px;
   display: flex;
@@ -105,4 +105,23 @@
     width: 140px;
     height: 46px;
   }
+}
+
+/* Video YouTube */
+.app-video-container {
+  margin-bottom: 30px;
+  max-width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  position: relative;
+}
+
+.app-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
