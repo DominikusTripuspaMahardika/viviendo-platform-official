@@ -2113,11 +2113,6 @@
     text-align: center;
 }
 
-.buktipembeliandata-testimoni-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
 /* Gambar Testimoni */
 .buktipembeliandata-testimoni-image {
     width: 100%;
@@ -2162,4 +2157,15 @@
     .buktipembeliandata-testimoni-phone {
         font-size: 1rem;
     }
+}
+
+.buktipembeliandata-warning {
+    font-size: 14px;
+    color: #d9534f; /* Warna merah untuk peringatan */
+    background-color: #f8d7da; /* Latar belakang merah muda */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
 }
